@@ -1,5 +1,9 @@
 package com.edson.tag;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -24,17 +28,22 @@ public class CommunicationTag implements BaseTag{
     private int address;
 
     @Override
-    public String command() {
-        executeCommand();
-        updateList();
+    public HashMap<String, List<BaseTag>> command(List<BaseTag> tagList) {
+        List<BaseTag> updatedList = new ArrayList<>();
+        HashMap<String, List<BaseTag>> resultMap = new HashMap<String, List<BaseTag>>();
         
-        return testResult;
+        testResult = executeCommand();
+        updatedList = updateList(tagList);
+        
+        resultMap.put(testResult, updatedList);
+        
+        return resultMap;
     }
 
     @Override
-    public void updateList() {
-        // TODO Auto-generated method stub
-        
+    public List<BaseTag> updateList(List<BaseTag> tagList) {
+        tagList.set(id, this);
+        return tagList;
     }
 
     @Override

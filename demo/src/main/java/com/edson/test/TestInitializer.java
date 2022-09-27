@@ -34,23 +34,6 @@ public class TestInitializer extends Thread {
         return result;
     }
 
-
-
-    /* 
-    public void marshalingToXML() {
-        JAXBContext jaxbContext = JAXBContext.newInstance(TestTag.class);
-        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-        
-        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        
-        //Marshal the employees list in console
-        jaxbMarshaller.marshal(test, System.out);
-        
-        //Marshal the employees list in file
-        jaxbMarshaller.marshal(test, new File("C:/Git/TesteXStream/demo/src/main/resources/com/edson/testRoutine/test2.xml"));
-    }
-    */
-
     public TagList unmarshalingFromXML() throws TestUnmarshalingException {
         JAXBContext jaxbContext;
         try {
@@ -64,3 +47,46 @@ public class TestInitializer extends Thread {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+    public void marshalingToXML() {
+        JAXBContext jaxbContext = JAXBContext.newInstance(TestTag.class);
+        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+        
+        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        
+        //Marshal the employees list in console
+        jaxbMarshaller.marshal(test, System.out);
+        
+        //Marshal the employees list in file
+        jaxbMarshaller.marshal(test, new File("C:/Git/TesteXStream/demo/src/main/resources/com/edson/testRoutine/test2.xml"));
+    }
+    */

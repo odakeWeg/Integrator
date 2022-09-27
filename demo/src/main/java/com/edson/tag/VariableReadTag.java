@@ -1,5 +1,7 @@
 package com.edson.tag;
 
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -13,7 +15,7 @@ public class VariableReadTag implements BaseTag {
     String variableRead;
 
     @Override
-    public String command() {
+    public String command(List<BaseTag> tagList) {
         return "OK";
     }
 

@@ -1,11 +1,12 @@
 package com.edson.tag;
 
-import javax.xml.bind.annotation.XmlRootElement;
+import java.util.HashMap;
+import java.util.List;
 
 //@XmlRootElement(name = "baseTag")
 public interface BaseTag {
-    public String command();
-    public void updateList();
+    public HashMap<String, List<BaseTag>> command(List<BaseTag> tagList);
+    public List<BaseTag> updateList(List<BaseTag> tagList);
     public String executeCommand();
     public int getId(); 
 }

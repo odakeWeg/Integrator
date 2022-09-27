@@ -1,5 +1,8 @@
 package com.edson.tag;
 
+import java.util.HashMap;
+import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -18,16 +21,16 @@ public class CompareTag implements BaseTag {
     int[] tolerancyPercentage;
 
     @Override
-    public String command() {
+    public HashMap<String, List<BaseTag>> command(List<BaseTag> tagList) {
         testResult = executeCommand();
         updateList();
         return testResult;
     }
 
     @Override
-    public void updateList() {
-        // TODO Auto-generated method stub
-        
+    public List<BaseTag> updateList(List<BaseTag> tagList) {
+        tagList.set(id, this);
+        return tagList;
     }
 
     @Override
