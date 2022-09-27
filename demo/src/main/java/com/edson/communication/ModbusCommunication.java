@@ -1,0 +1,84 @@
+package com.edson.communication;
+
+import java.io.IOException;
+
+import com.edson.exception.CommunicationException;
+import com.edson.util.ViewConfigurationPathUtil;
+
+import net.weg.wcomm.modbus.NegativeConfirmationException;
+import net.weg.wcomm.modbus.Register;
+import net.weg.wcomm.modbus.exception.ModbusExceptionResponseException;
+import net.weg.wcomm.modbus.exception.ModbusUnexpectedResponseException;
+import net.weg.wcomm.modbus.tcp.client.ModbusTCPHelper;
+import net.weg.wcomm.modbus.tcp.client.ModbusTCPMaster;
+import net.weg.wcomm.serial.SComm;
+
+public class ModbusCommunication implements BaseCommunication{
+    private SComm serialSettings;
+	private ModbusTCPHelper serialModbusCommunication;
+
+	private String portName;
+    private int baudRate;
+    private int dataBits;
+    private int stopBits;
+    private String parity;
+    private int timeout;
+    private  int address;
+
+	public ModbusCommunication(String portName, int baudRate, int dataBits, int stopBits, String parity, int timeout, int address) {
+		this.portName = portName;
+        this.baudRate = baudRate;
+        this.dataBits = dataBits;
+        this.stopBits = stopBits;
+        this.parity = parity;
+        this.timeout = timeout;
+        this.address = address;
+	}
+
+    @Override
+    public void startConnection() throws CommunicationException {
+        ModbusTCPMaster master = new ModbusTCPMaster.Builder().hostAddress(ViewConfigurationPathUtil.HOST_ADDRESS).port(ViewConfigurationPathUtil.PORT).build();
+		if (this.serialSettings != null) {
+			serialSettings.closePort();
+		}
+		
+		serialModbusCommunication = new ModbusTCPHelper(master);
+		try {
+			serialModbusCommunication.connect();
+			serialModbusCommunication.subscribeClient("Serial/"+ portName + "/Modbus-RTU/@" + address+ "#" + baudRate + "#" + dataBits + "#" + stopBits + "#" + parity + "#0#50#" + timeout + "#40");
+		} catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException | IOException e) {
+			throw new CommunicationException("Falha na conexão serial!");
+		}
+    }
+
+    @Override
+	public int readHoldingRegister(int register) throws CommunicationException {
+		Register[] registers;
+		int read;
+		try {
+			registers = serialModbusCommunication.readHoldingRegisters((short) register, (short) 1);
+			read = registers[0].intValue();
+			
+		} catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException e) {
+			throw new CommunicationException("Falha na leitura dos registradores");
+		}
+
+		return read;
+	}
+
+    @Override
+	public int[] readHoldingRegisters(int startingAddress, int quantityOfRegisters) throws CommunicationException {
+		Register[] registers;
+		int[] reads = new int[quantityOfRegisters];
+		try {
+			registers = serialModbusCommunication.readHoldingRegisters((short) startingAddress, (short) quantityOfRegisters);
+			for (int i = 0; i < registers.length; i++) {
+				reads[i] = registers[i].intValue();
+			}
+		} catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException e) {
+			throw new CommunicationException("Falha na leitura dos registradores");
+		}
+
+		return reads;
+	}
+}

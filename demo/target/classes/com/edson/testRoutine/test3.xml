@@ -1,0 +1,31 @@
+<root>
+	<test>
+		<ae>asd</ae>
+		<firstName>firstName</firstName>
+		<id>6</id>
+		<income>0.0</income>
+		<lastName>asd</lastName>
+		<lista>
+			<a>5</a>
+			<c>3</c>
+			<i>5</i>
+		</lista>
+	</test>
+	<communication>
+		<testResult>asdresult</testResult>
+		<name>nameeee</name>
+		<portName>port</portName>
+	</communication>
+	<test>
+		<ae>asd</ae>
+		<firstName>firstName</firstName>
+		<id>6</id>
+		<income>0.0</income>
+		<lastName>asd</lastName>
+		<lista>
+			<a>5</a>
+			<c>3</c>
+			<i>5</i>
+		</lista>
+	</test>
+</root>
