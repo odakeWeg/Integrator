@@ -46,4 +46,9 @@ public class VerifyTag extends BaseTag{
         return null;
     }
 
+    @Override
+    public void setTagName() {
+        this.tagName = "verify";
+    }
+
 }

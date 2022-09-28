@@ -1,5 +1,6 @@
 <root>
 	<communication>
+		<id>1</id>
 		<communicationName>produto1</communicationName>
 		<portName>COM4</portName>
 		<baudRate>57600</baudRate>
@@ -10,24 +11,28 @@
 		<address>1</address>
 	</communication>
 	<read>
+		<id>2</id>
 		<communicationName>produto1</communicationName>
 		<register>0</register>
 		<waitBefore>0</waitBefore>
 		<waitAfter>1000</waitAfter>
 	</read>
 	<read>
+		<id>3</id>
 		<communicationName>produto1</communicationName>
 		<register>1</register>
 		<waitBefore>0</waitBefore>
 		<waitAfter>1000</waitAfter>
 	</read>
 	<read>
+		<id>4</id>
 		<communicationName>produto1</communicationName>
 		<register>2</register>
 		<waitBefore>0</waitBefore>
 		<waitAfter>1000</waitAfter>
 	</read>
 	<write>
+		<id>5</id>
 		<communicationName>produto1</communicationName>
 		<register>23</register>
 		<value>0</value>

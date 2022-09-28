@@ -18,5 +18,10 @@ public class VariableReadTag extends BaseTag {
         read = dataCenter.getSapDataMap().getDataMap().get(variableRead);
         return "OK";
     }
+
+    @Override
+    public void setTagName() {
+        this.tagName = "variableRead";
+    }
     
 }

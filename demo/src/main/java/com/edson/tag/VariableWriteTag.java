@@ -62,4 +62,9 @@ public class VariableWriteTag extends BaseTag {
         return null;
     }
 
+    @Override
+    public void setTagName() {
+        this.tagName = "variableWrite";
+    }
+
 }

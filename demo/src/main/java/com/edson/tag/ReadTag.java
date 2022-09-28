@@ -62,4 +62,9 @@ public class ReadTag extends BaseTag{
         return this.valueRead;
     }
 
+    @Override
+    public void setTagName() {
+        this.tagName = "read";
+    }
+
 }

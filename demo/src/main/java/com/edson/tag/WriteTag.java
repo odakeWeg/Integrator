@@ -57,4 +57,9 @@ public class WriteTag extends BaseTag {
         }
         return null;
     }
+
+    @Override
+    public void setTagName() {
+        this.tagName = "write";
+    }
 }

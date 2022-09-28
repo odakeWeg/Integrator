@@ -19,4 +19,9 @@ public class TestTag extends BaseTag{
         return this.name;
     }
 
+    @Override
+    public void setTagName() {
+        this.tagName = "test";
+    }
+
 }

@@ -36,13 +36,17 @@ public class CommunicationTag extends BaseTag{
         }
     }
 
-
     public String getCommunicationName() {
         return this.communicationName;
     }
 
     public BaseCommunication getConnection() {
         return this.connection;
+    }
+
+    @Override
+    public void setTagName() {
+        this.tagName = "communication";
     }
 
 }

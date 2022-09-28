@@ -48,4 +48,9 @@ public class CompareTag extends BaseTag {
         return null;
     }
 
+    @Override
+    public void setTagName() {
+        this.tagName = "compare";
+    }
+
 }
