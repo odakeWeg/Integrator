@@ -80,6 +80,22 @@
 			<artifactId>SapService</artifactId>
 			<version>1.1.8</version>
 		</dependency>
+        <dependency>
+			<groupId>net.weg.soa</groupId>
+			<artifactId>serviceclient</artifactId>
+			<version>4.27</version>
+		</dependency>
+		<dependency>
+			<groupId>net.weg.wdc.sic</groupId>
+			<artifactId>sic-library-service</artifactId>
+			<version>0.1.4</version>
+			<exclusions>
+				<exclusion>
+					<groupId>net.weg.soa</groupId>
+					<artifactId>serviceclient</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
     </dependencies>
     <build>

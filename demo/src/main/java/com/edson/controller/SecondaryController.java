@@ -13,15 +13,6 @@ public class SecondaryController {
 
     @FXML
     private void switchToPrimary() throws IOException {
-        TestInitializer teste = new TestInitializer();
-        
-        try {
-            teste.unmarshalingFromXML();
-            //teste.marshalingExample();
-        } catch (JAXBException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
         
         //App.setRoot("primary");
     }

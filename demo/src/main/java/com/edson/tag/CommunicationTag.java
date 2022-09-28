@@ -1,10 +1,9 @@
 package com.edson.tag;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 import com.edson.communication.BaseCommunication;
 import com.edson.communication.ModbusCommunication;
@@ -22,6 +21,8 @@ public class CommunicationTag extends BaseTag{
     private String parity;
     private int timeout;
     private int address;
+
+    @XmlTransient
     BaseCommunication connection;
 
     @Override

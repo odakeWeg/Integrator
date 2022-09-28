@@ -1,0 +1,13 @@
+<root>
+	<communication>
+		<communicationName>asdresult</communicationName>
+		<portName>nameeee</portName>
+		<baudRate>port</baudRate>
+		<dataBits>port</dataBits>
+		<stopBits>port</stopBits>
+		<parity>port</parity>
+		<timeout>port</timeout>
+		<address>port</address>
+		<timeout>port</timeout>
+	</communication>
+</root>

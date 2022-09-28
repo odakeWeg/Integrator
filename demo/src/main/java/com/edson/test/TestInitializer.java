@@ -11,9 +11,13 @@ import com.edson.exception.TestUnmarshalingException;
 import com.edson.tag.BaseTag;
 import com.edson.tag.TagList;
 import com.edson.test.data.DataCenter;
+import com.edson.util.ViewConfigurationPathUtil;
 
 public class TestInitializer extends Thread {
+    DataCenter dataCenter;
     private String barCode;
+    private String result;
+
     public TestInitializer(String barCode) {
         this.barCode = barCode;
     }
@@ -21,18 +25,17 @@ public class TestInitializer extends Thread {
     @Override
     public void run() {
         TagList tagList;
-        String result;
-        DataCenter dataCenter = new DataCenter(barCode);
+        dataCenter = new DataCenter(barCode);
         try {
             tagList = unmarshalingFromXML();
-            result = startTestingRoutine(tagList.getBaseTagManager(), dataCenter);
+            result = startTestingRoutine(tagList.getBaseTagManager());
         } catch (TestUnmarshalingException e) {
             result = "Erro ao puxar rotina de teste";
         }
         //@TODO: Mostrar ao operador se falhou ou não dependendo do resultado
     }
 
-    private String startTestingRoutine(List<BaseTag> tagList, DataCenter dataCenter) {
+    private String startTestingRoutine(List<BaseTag> tagList) {
         TestExecutor testExecutor;
         String result;
         testExecutor = new TestExecutor(tagList, dataCenter);
@@ -46,8 +49,8 @@ public class TestInitializer extends Thread {
         try {
             jaxbContext = JAXBContext.newInstance(TagList.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            TagList tagList = (TagList) jaxbUnmarshaller.unmarshal(new File("C:/Git/TesteXStream/demo/src/main/resources/com/edson/testRoutine/test3.xml"));
-            return tagList;
+            File testFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + dataCenter.getSapDataMap().getDataMap().get(ViewConfigurationPathUtil.TEST_ROUTINE_NAME) + ".xml");
+            return (TagList) jaxbUnmarshaller.unmarshal(testFile);
         } catch (JAXBException e) {
             throw new TestUnmarshalingException("Falha na aquisição da rotina de teste!");
         }
