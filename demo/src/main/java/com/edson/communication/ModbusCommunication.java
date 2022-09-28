@@ -52,7 +52,7 @@ public class ModbusCommunication implements BaseCommunication{
     }
 
     @Override
-	public int readHoldingRegister(int register) throws CommunicationException {
+	public int readSingleRegister(int register) throws CommunicationException {
 		Register[] registers;
 		int read;
 		try {
@@ -67,7 +67,7 @@ public class ModbusCommunication implements BaseCommunication{
 	}
 
     @Override
-	public int[] readHoldingRegisters(int startingAddress, int quantityOfRegisters) throws CommunicationException {
+	public int[] readMultipleRegisters(int startingAddress, int quantityOfRegisters) throws CommunicationException {
 		Register[] registers;
 		int[] reads = new int[quantityOfRegisters];
 		try {
@@ -80,5 +80,27 @@ public class ModbusCommunication implements BaseCommunication{
 		}
 
 		return reads;
+	}
+
+	@Override
+	public void writeSingleRegister(int registerAddress, int registerValue) throws CommunicationException {
+		try {
+			serialModbusCommunication.writeSingleRegister((short) registerAddress, (short) registerValue);
+		} catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException e) {
+			throw new CommunicationException("Falha na escrita dos registradores");
+		}
+	}
+
+	@Override
+	public void writeMultipleRegister(int initialRegister, int[] registersValue) throws CommunicationException {
+		short[] shortRegisterValues = new short[registersValue.length];
+		for (int i = 0; i < registersValue.length; i++) {
+			shortRegisterValues[i] = (short) registersValue[i];
+		}
+		try {
+			serialModbusCommunication.writeMultipleRegisters((short) initialRegister,  shortRegisterValues);
+		} catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException e) {
+			throw new CommunicationException("Falha na escrita dos registradores");
+		}
 	}
 }

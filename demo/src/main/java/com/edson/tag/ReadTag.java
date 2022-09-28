@@ -1,41 +1,54 @@
 package com.edson.tag;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.edson.communication.BaseCommunication;
+import com.edson.exception.CommunicationException;
+
 @XmlRootElement(name = "read")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class ReadTag implements BaseTag{
+public class ReadTag extends BaseTag{
 
-    int id;
-    String testResult;
-
-    String communicationName;
-    int[] registers;
-    int timeOut;
-    int waitBefore;
-    int waitAfter;
+    private String communicationName;
+    private int register;
+    private int timeOut;
+    private int waitBefore;
+    private int waitAfter;
+    private int valueRead;
 
     @Override
-    public String command(List<BaseTag> tagList) {
-        return "OK";
+    public String executeCommand() {
+        BaseCommunication communication = getCommunicationByName(communicationName);
+        if(communication == null) {
+            testResult = "Objeto não encontrado";
+        } else {
+            try {
+                valueRead = communication.readSingleRegister(register);
+                testResult = "OK";
+            } catch (CommunicationException e) {
+                testResult = "Falha na comunicação";
+            }
+        }
+        return testResult;
     }
 
-    //@TODO: Method to save useful data
-
-    public String getTestResult() {
-        return this.testResult;
+    private BaseCommunication getCommunicationByName(String name) {
+        CommunicationTag communicationTag;
+        for (int i = 0; i < tagList.size(); i++) {
+            if (tagList.get(i).tagName.equals("communication")) {
+                communicationTag = (CommunicationTag) tagList.get(i);
+                if(communicationTag.getCommunicationName().equals(name)) {
+                    return communicationTag.getConnection();
+                }
+            }
+        }
+        return null;
     }
 
-    public void setTestResult(String testResult) {
-        this.testResult = testResult;
+    public int getValueRead() {
+        return this.valueRead;
     }
 
-    @Override
-    public int getId() {
-        return id;
-    } 
 }

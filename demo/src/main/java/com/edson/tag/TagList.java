@@ -74,16 +74,4 @@ public class TagList{
         }
         return listSorted;
     }
-
-    @Override
-    public String toString() {
-        tagManager.add(testTagList.get(0));
-        tagManager.add(communicationTagList.get(0));
-        TestTag test = (TestTag) tagManager.get(0);
-        CommunicationTag test2 = (CommunicationTag) tagManager.get(1);
-        return "{" +
-            " tagList='" + test.getLista().getA() + " and " + test2 + "'" +
-            "}";
-    }
-
 }
