@@ -23,7 +23,7 @@ public class TestExecutor {
         String result = "Erro não esperado";
         for (int i = 0; i < tagList.size(); i++) {
             tag = tagList.get(i);
-            updateMap = tag.command(tagList);
+            updateMap = tag.command(tagList, dataCenter);
             
             result = updateMap.entrySet().iterator().next().getKey();
             tagList = updateMap.entrySet().iterator().next().getValue();
