@@ -1,5 +1,7 @@
 package com.edson.tag;
 
+import java.util.concurrent.TimeUnit;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -21,6 +23,7 @@ public class ReadTag extends BaseTag{
     @Override
     public String executeCommand() {
         BaseCommunication communication = getCommunicationByName(communicationName);
+        delayMilliseconds(waitBefore);
         if(communication == null) {
             testResult = "Objeto não encontrado";
         } else {
@@ -31,7 +34,15 @@ public class ReadTag extends BaseTag{
                 testResult = "Falha na comunicação";
             }
         }
+        delayMilliseconds(waitAfter);
         return testResult;
+    }
+
+    private void delayMilliseconds(int wait) {
+        try {
+            TimeUnit.MILLISECONDS.sleep(wait);
+        } catch (InterruptedException e) {
+        }
     }
 
     private BaseCommunication getCommunicationByName(String name) {

@@ -1,13 +1,37 @@
 <root>
 	<communication>
-		<communicationName>asdresult</communicationName>
-		<portName>nameeee</portName>
-		<baudRate>port</baudRate>
-		<dataBits>port</dataBits>
-		<stopBits>port</stopBits>
-		<parity>port</parity>
-		<timeout>port</timeout>
-		<address>port</address>
-		<timeout>port</timeout>
+		<communicationName>produto1</communicationName>
+		<portName>COM4</portName>
+		<baudRate>57600</baudRate>
+		<dataBits>8</dataBits>
+		<stopBits>1</stopBits>
+		<parity>EVEN</parity>
+		<timeout>1000</timeout>
+		<address>1</address>
 	</communication>
+	<read>
+		<communicationName>produto1</communicationName>
+		<register>0</register>
+		<waitBefore>0</waitBefore>
+		<waitAfter>1000</waitAfter>
+	</read>
+	<read>
+		<communicationName>produto1</communicationName>
+		<register>1</register>
+		<waitBefore>0</waitBefore>
+		<waitAfter>1000</waitAfter>
+	</read>
+	<read>
+		<communicationName>produto1</communicationName>
+		<register>2</register>
+		<waitBefore>0</waitBefore>
+		<waitAfter>1000</waitAfter>
+	</read>
+	<write>
+		<communicationName>produto1</communicationName>
+		<register>23</register>
+		<value>0</value>
+		<waitBefore>0</waitBefore>
+		<waitAfter>1000</waitAfter>
+	</write>
 </root>

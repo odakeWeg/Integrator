@@ -1,6 +1,7 @@
 package com.edson.tag;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -24,7 +25,8 @@ public class VariableWriteTag extends BaseTag {
 
     @Override
     String executeCommand() {
-        BaseCommunication communication = getCommunicationByName(communicationName);                                    
+        BaseCommunication communication = getCommunicationByName(communicationName);
+        delayMilliseconds(waitBefore);                               
         if(communication == null) {
             testResult = "Objeto não encontrado";
         } else {
@@ -36,7 +38,15 @@ public class VariableWriteTag extends BaseTag {
                 testResult = "Falha na comunicação";
             }
         }
+        delayMilliseconds(waitAfter);
         return testResult;
+    }
+
+    private void delayMilliseconds(int wait) {
+        try {
+            TimeUnit.MILLISECONDS.sleep(wait);
+        } catch (InterruptedException e) {
+        }
     }
 
     private BaseCommunication getCommunicationByName(String name) {
