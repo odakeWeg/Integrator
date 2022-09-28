@@ -10,8 +10,8 @@ public class CompareTag extends BaseTag {
 
     int referenceStep;
     int targetStep;
-    int referenceScale;
-    int targetScale;
+    //int referenceScale;
+    //int targetScale;
     int tolerancyPercentage;
     int referenceValue;
     int targetValue;

@@ -5,14 +5,16 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.edson.tag.BaseTag;
+import com.edson.test.data.DataCenter;
 
 public class TestExecutor {
     
     private List<BaseTag> tagList = new ArrayList<>();
+    private DataCenter dataCenter;
 
-    public TestExecutor(List<BaseTag> tagList) {
+    public TestExecutor(List<BaseTag> tagList, DataCenter dataCenter) {
         this.tagList = tagList;
-
+        this.dataCenter = dataCenter;
     }
 
     public String executeTest() {

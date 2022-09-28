@@ -10,25 +10,32 @@ import javax.xml.bind.Unmarshaller;
 import com.edson.exception.TestUnmarshalingException;
 import com.edson.tag.BaseTag;
 import com.edson.tag.TagList;
+import com.edson.test.data.DataCenter;
 
 public class TestInitializer extends Thread {
+    private String barCode;
+    public TestInitializer(String barCode) {
+        this.barCode = barCode;
+    }
+
     @Override
     public void run() {
         TagList tagList;
         String result;
-        //@TODO: SAP, INLINE AND DEFINITION OF TEST ROUTINE
+        DataCenter dataCenter = new DataCenter(barCode);
         try {
             tagList = unmarshalingFromXML();
-            result = startTestingRoutine(tagList.getBaseTagManager());
+            result = startTestingRoutine(tagList.getBaseTagManager(), dataCenter);
         } catch (TestUnmarshalingException e) {
-            return;
+            result = "Erro ao puxar rotina de teste";
         }
+        //@TODO: Mostrar ao operador se falhou ou não dependendo do resultado
     }
 
-    private String startTestingRoutine(List<BaseTag> tagList) {
+    private String startTestingRoutine(List<BaseTag> tagList, DataCenter dataCenter) {
         TestExecutor testExecutor;
         String result;
-        testExecutor = new TestExecutor(tagList);
+        testExecutor = new TestExecutor(tagList, dataCenter);
         result = testExecutor.executeTest();
 
         return result;

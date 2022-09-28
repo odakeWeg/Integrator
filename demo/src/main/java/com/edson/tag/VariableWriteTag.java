@@ -6,38 +6,50 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import com.edson.communication.BaseCommunication;
+import com.edson.exception.CommunicationException;
+import com.edson.test.data.DataCenter;
+
 @XmlRootElement(name = "variableWrite")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class VariableWriteTag implements BaseTag {
-
-    int id;
-    String testResult;
+public class VariableWriteTag extends BaseTag {
 
     String communicationName;
-    int address;
-    int[] registers;
-    String variableWrite;
+    int register;
+    String variableWriteName;
     int timeOut;
     int waitBefore;
     int waitAfter;
+    int value;
 
     @Override
-    public String command(List<BaseTag> tagList) {
-        return "OK";
+    String executeCommand() {
+        BaseCommunication communication = getCommunicationByName(communicationName);                                    
+        if(communication == null) {
+            testResult = "Objeto não encontrado";
+        } else {
+            try {
+                value = Integer.parseInt(dataCenter.getSapDataMap().getDataMap().get(variableWriteName));
+                communication.writeSingleRegister(register, value);
+                testResult = "OK";
+            } catch (CommunicationException e) {
+                testResult = "Falha na comunicação";
+            }
+        }
+        return testResult;
     }
 
-    //@TODO: Method to save useful data
-
-    public String getTestResult() {
-        return this.testResult;
+    private BaseCommunication getCommunicationByName(String name) {
+        CommunicationTag communicationTag;
+        for (int i = 0; i < tagList.size(); i++) {
+            if (tagList.get(i).tagName.equals("communication")) {
+                communicationTag = (CommunicationTag) tagList.get(i);
+                if(communicationTag.getCommunicationName().equals(name)) {
+                    return communicationTag.getConnection();
+                }
+            }
+        }
+        return null;
     }
 
-    public void setTestResult(String testResult) {
-        this.testResult = testResult;
-    }
-
-    @Override
-    public int getId() {
-        return id;
-    } 
 }

@@ -74,7 +74,12 @@
             <version>1.18.20.0</version>
             <scope>provided</scope>
         </dependency>
-          
+        <!-- SAP -->
+        <dependency>
+			<groupId>net.weg.wdc.service</groupId>
+			<artifactId>SapService</artifactId>
+			<version>1.1.8</version>
+		</dependency>
 
     </dependencies>
     <build>
