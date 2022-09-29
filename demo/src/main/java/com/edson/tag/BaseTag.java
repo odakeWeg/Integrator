@@ -3,12 +3,14 @@ package com.edson.tag;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlTransient;
 
 import com.edson.test.data.DataCenter;
 
 //@XmlRootElement(name = "baseTag")
+@XmlAccessorType (XmlAccessType.FIELD)
 public abstract class BaseTag {
     protected int id;
     protected String testResult;

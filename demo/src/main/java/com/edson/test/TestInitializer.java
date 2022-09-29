@@ -24,15 +24,21 @@ public class TestInitializer extends Thread {
 
     @Override
     public void run() {
-        TagList tagList;
+        
         dataCenter = new DataCenter(barCode);
         try {
-            tagList = unmarshalingFromXML();
-            result = startTestingRoutine(tagList.getBaseTagManager());
+            result = startTestingRoutine(getList());
         } catch (TestUnmarshalingException e) {
             result = "Erro ao puxar rotina de teste";
         }
         //@TODO: Mostrar ao operador se falhou ou não dependendo do resultado
+    }
+
+    private List<BaseTag> getList() throws TestUnmarshalingException {
+        TagList tagList;
+        tagList = unmarshalingFromXML();
+        tagList.setBaseTagManager();
+        return tagList.getBaseTagManager();
     }
 
     private String startTestingRoutine(List<BaseTag> tagList) {

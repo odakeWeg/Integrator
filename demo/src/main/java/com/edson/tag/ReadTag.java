@@ -35,6 +35,7 @@ public class ReadTag extends BaseTag{
             }
         }
         delayMilliseconds(waitAfter);
+        System.out.println(valueRead);
         return testResult;
     }
 

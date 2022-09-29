@@ -1,8 +1,6 @@
 package com.edson.tag;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -50,6 +48,7 @@ public class TagList{
     }
 
     public void setBaseTagManager() {
+        concatenateTagList();
         baseTagManager = createBaseTagFromObject(baseTagManager);
         baseTagManager = sortById(baseTagManager);
     }
