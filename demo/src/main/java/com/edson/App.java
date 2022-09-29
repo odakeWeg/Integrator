@@ -22,8 +22,9 @@ public class App extends Application {
 
     private static Scene scene;
 
-    //@TODO: inject spring
+    //@TODO: Uncomment code below
     
+    /* 
     @Override
     public void init() {
         String[] args = getParameters().getRaw().toArray(new String[0]);
@@ -32,7 +33,7 @@ public class App extends Application {
                 .sources(SpringInjector.class)
                 .run(args);
     }
-    
+    */
 
     @Override
     public void start(Stage stage) throws IOException {

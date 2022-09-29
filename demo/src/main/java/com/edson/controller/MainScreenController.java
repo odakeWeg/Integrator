@@ -13,4 +13,14 @@ public class MainScreenController {
     private void switchToSecondary() throws IOException {
         App.setRoot(ViewConfigurationPathUtil.VIEW_PATH + "secondary");
     }
+
+    @FXML
+    private void switchToSettings() throws IOException {
+        App.setRoot(ViewConfigurationPathUtil.VIEW_PATH + "settings");
+    }
+
+    @FXML
+    private void switchToTesting() throws IOException {
+        App.setRoot(ViewConfigurationPathUtil.VIEW_PATH + "secondary");
+    }
 }

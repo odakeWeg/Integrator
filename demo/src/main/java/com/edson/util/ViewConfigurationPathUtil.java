@@ -8,6 +8,7 @@ public class ViewConfigurationPathUtil {
     //PATHs
     public static final String TEST_ROUTINE_PATH = "demo/src/main/resources/com/edson/TestRoutine/";
     public static final String VIEW_PATH = "view/";
+    public static final String FULL_VIEW_PATH = "/com/edson/view/";
     public static final String TAG_CLASS_PATH = "src/main/java/com/edson/tags/";
     public static final String TEST_ROUTINE_NAME = "REF_PRODUTO_AUTOMACAO";
 

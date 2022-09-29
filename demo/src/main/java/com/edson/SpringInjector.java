@@ -8,7 +8,6 @@ import gateway.DesktopApplicationGateway;
 
 @SpringBootApplication
 public class SpringInjector {
-    //@TODO: inject spring and check if can be unified with App.java
     
     public static void main(String[] args) {
 		//SingleFrameApplication.launch(DesktopApplicationGateway.class, args);
