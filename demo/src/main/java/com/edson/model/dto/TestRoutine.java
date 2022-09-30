@@ -9,14 +9,13 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-public class TestRoutine {
+public class TestRoutine{
     private final SimpleIntegerProperty id;
     private final SimpleIntegerProperty criador;
     private final SimpleStringProperty produto;
     private final SimpleIntegerProperty etapas;
     private final SimpleStringProperty data;
     public List<BaseTag> tagList;
-
 
     public TestRoutine(Integer id, Integer criador, String produto, Integer etapas, String data, List<BaseTag> tagList) {
         this.id = new SimpleIntegerProperty(id);
@@ -25,6 +24,16 @@ public class TestRoutine {
         this.etapas = new SimpleIntegerProperty(etapas);
         this.data = new SimpleStringProperty(data);
         this.tagList = tagList;
+    }
+
+    //@TODO: Clone properties
+    public TestRoutine(TestRoutine testRoutine) {
+        this.id = testRoutine.idProperty();
+        this.criador = testRoutine.criadorProperty();
+        this.produto = testRoutine.produtoProperty();
+        this.etapas = testRoutine.etapasProperty();
+        this.data = testRoutine.dataProperty();
+        this.tagList = testRoutine.tagList;
     }
 
     public Integer getId() {

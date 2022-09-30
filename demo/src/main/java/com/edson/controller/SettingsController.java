@@ -5,6 +5,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -12,13 +13,14 @@ import java.util.ResourceBundle;
 import com.edson.App;
 import com.edson.model.dto.TestRoutine;
 import com.edson.tag.BaseTag;
-import com.edson.tag.TestTag;
 import com.edson.util.ViewConfigurationPathUtil;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -52,11 +54,6 @@ public class SettingsController implements Initializable {
         dataCol.setCellValueFactory(new PropertyValueFactory<>("data"));
 
         testTable.setItems(nameList());
-
-        for (int i = 0; i < testTable.getItems().size(); i++ ) {
-            //testTable.getItems().get(i).tagList;
-        }
-        
     }
 
     //@TestingCode
@@ -126,6 +123,47 @@ public class SettingsController implements Initializable {
     @FXML
     private void switchToPreviousPage() throws IOException {
         App.setRoot(ViewConfigurationPathUtil.VIEW_PATH + "mainScreen");
+    }
+
+    @FXML
+    private void moveDown() {
+        ObservableList<TestRoutine> testRoutineList =  testTable.getItems();
+        int id = testTable.getSelectionModel().getSelectedItem().getId();
+        int idSwap = id+1;
+        if(testTable.getItems().size()-1 > id) {
+            testRoutineList.get(id).setId(idSwap);
+            testRoutineList.get(idSwap).setId(id);
+            Collections.swap(testRoutineList, id, idSwap);
+        }
+    }
+
+    @FXML
+    private void moveUp() {
+        ObservableList<TestRoutine> testRoutineList =  testTable.getItems();
+        int id = testTable.getSelectionModel().getSelectedItem().getId();
+        int idSwap = id-1;
+        if(id > 0) {
+            testRoutineList.get(id).setId(idSwap);
+            testRoutineList.get(idSwap).setId(id);
+            Collections.swap(testRoutineList, id, idSwap);
+        }
+    }
+
+    @FXML
+    private void duplicateTest() throws CloneNotSupportedException {
+        //@TODO: Deep clone no testRoutine, na Lista e em, todas as Tags
+        //TestRoutine testDuplicate = new TestRoutine(testTable.getSelectionModel().getSelectedItem());
+        //testDuplicate.setId(testTable.getItems().size());
+        //testTable.getItems().add(testDuplicate);      
+    }
+
+    @FXML
+    private void enterTest() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ViewConfigurationPathUtil.FULL_VIEW_PATH + "testSettings.fxml"));
+        Parent part = (Parent) loader.load();
+        TestSettingsController testSettingsController = (TestSettingsController) loader.getController();
+        testSettingsController.setStage(part);
+        
     }
 
 }
