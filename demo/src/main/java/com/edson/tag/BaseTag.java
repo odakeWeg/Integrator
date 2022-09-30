@@ -47,5 +47,9 @@ public abstract class BaseTag {
     public int getId() {
         return id;
     }
+
+    public String getTagName() {
+        return tagName;
+    }
     
 }

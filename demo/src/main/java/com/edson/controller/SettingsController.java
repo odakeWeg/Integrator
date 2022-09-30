@@ -43,8 +43,6 @@ public class SettingsController implements Initializable {
     @FXML
     private TableColumn<TestRoutine, String> dataCol;
 
-    private TableColumn<TestRoutine, List<BaseTag>> tagList;
-
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -56,7 +54,7 @@ public class SettingsController implements Initializable {
         testTable.setItems(nameList());
     }
 
-    //@TestingCode
+    //@TestingCode - Will be changed for a persistence or load files from computer
     private ObservableList<TestRoutine> nameList() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
         LocalDate localDate = LocalDate.now();
@@ -88,6 +86,23 @@ public class SettingsController implements Initializable {
         }
     }
 
+    @FXML
+    private void editForm() throws IOException {
+        
+        if(!testTable.getSelectionModel().getSelectedItems().isEmpty()) {
+            String name = requestName();
+            if(name.equals("")) {
+                Alert userAlert = new Alert(AlertType.ERROR);
+                userAlert.setTitle("Validação de entrada");
+                userAlert.setHeaderText("Nenhum nome inserido");
+                userAlert.setContentText("Favor inserir valor para adição de teste novo");
+                userAlert.showAndWait();
+            } else {
+                testTable.getSelectionModel().getSelectedItems().get(0).setProduto(name);
+            }
+        }
+    }
+
     private String requestName() {
         TextInputDialog nameRequest = new TextInputDialog();
 		nameRequest.setTitle("Test Name");
@@ -100,11 +115,6 @@ public class SettingsController implements Initializable {
             return "";
         }
         
-    }
-
-    @FXML
-    private void switchToEditForm() throws IOException {
-        App.setRoot(ViewConfigurationPathUtil.VIEW_PATH + "mainScreen");
     }
 
     @FXML
@@ -162,8 +172,8 @@ public class SettingsController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(ViewConfigurationPathUtil.FULL_VIEW_PATH + "testSettings.fxml"));
         Parent part = (Parent) loader.load();
         TestSettingsController testSettingsController = (TestSettingsController) loader.getController();
-        testSettingsController.setStage(part);
-        
+        testSettingsController.setStage(part, testTable.getSelectionModel().getSelectedItem().getTagList());
+
     }
 
 }

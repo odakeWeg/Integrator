@@ -1,12 +1,10 @@
 package com.edson.model.dto;
 
-import java.sql.Date;
 import java.util.List;
 
 import com.edson.tag.BaseTag;
 
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class TestRoutine{
@@ -15,7 +13,7 @@ public class TestRoutine{
     private final SimpleStringProperty produto;
     private final SimpleIntegerProperty etapas;
     private final SimpleStringProperty data;
-    public List<BaseTag> tagList;
+    private List<BaseTag> tagList;
 
     public TestRoutine(Integer id, Integer criador, String produto, Integer etapas, String data, List<BaseTag> tagList) {
         this.id = new SimpleIntegerProperty(id);
@@ -105,5 +103,13 @@ public class TestRoutine{
     }
 
     /* ---------------------------------------------------- */
+
+    public List<BaseTag> getTagList() {
+        return this.tagList;
+    }
+
+    public void setTagList(List<BaseTag> tagList) {
+        this.tagList = tagList;
+    }
 
 }

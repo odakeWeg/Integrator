@@ -52,7 +52,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <Button layoutX="77.0" layoutY="23.0" mnemonicParsing="false" onAction="#switchToEditForm" prefHeight="70.0" prefWidth="206.0" text="Editar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button layoutX="77.0" layoutY="23.0" mnemonicParsing="false" onAction="#editForm" prefHeight="70.0" prefWidth="206.0" text="Editar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font size="16.0" />
                                  </font></Button>
