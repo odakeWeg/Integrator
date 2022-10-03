@@ -13,12 +13,12 @@ import com.edson.exception.CommunicationException;
 @XmlAccessorType (XmlAccessType.FIELD)
 public class WriteTag extends BaseTag {
 
-    String communicationName;
-    int register;
-    int value;
-    int timeOut;
-    int waitBefore;
-    int waitAfter;
+    private String communicationName;
+    private int register;
+    private int value;
+    private int timeOut;
+    private int waitBefore;
+    private int waitAfter;
 
     @Override
     String executeCommand() {

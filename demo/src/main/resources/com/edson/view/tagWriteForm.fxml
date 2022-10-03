@@ -39,7 +39,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="coomunicationName" layoutX="254.0" layoutY="154.0" prefWidth="222.0" />
+      <TextField fx:id="communicationName" layoutX="254.0" layoutY="154.0" prefWidth="222.0" />
       <Label layoutX="254.0" layoutY="184.0" text="Value:">
          <font>
             <Font size="18.0" />
