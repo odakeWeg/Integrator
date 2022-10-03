@@ -35,6 +35,7 @@ public class TagCompareFormController extends BaseTagForm {
         try{
             setTagName(name);
             compareTag = new CompareTag();
+            compareTag.setId(getId());
             compareTag.setTagName();
             compareTag.setReferenceStep(Integer.parseInt(referenceStep.getText()));
             compareTag.setTargetStep(Integer.parseInt(targetStep.getText()));

@@ -35,6 +35,7 @@ public class TagVerifyFormController extends BaseTagForm {
         try{
             setTagName(name);
             verifyTag = new VerifyTag();
+            verifyTag.setId(getId());
             verifyTag.setTagName();
             verifyTag.setTargetStep(Integer.parseInt(targetStep.getText()));
             verifyTag.setReferenceValue(Integer.parseInt(referenceValue.getText()));

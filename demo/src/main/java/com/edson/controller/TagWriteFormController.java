@@ -39,6 +39,7 @@ public class TagWriteFormController extends BaseTagForm {
         try{
             setTagName(name);
             writeTag = new WriteTag();
+            writeTag.setId(getId());
             writeTag.setTagName();
             writeTag.setCommunicationName(communicationName.getText());
             writeTag.setRegister(Integer.parseInt(register.getText()));

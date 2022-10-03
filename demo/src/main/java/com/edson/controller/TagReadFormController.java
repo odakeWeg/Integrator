@@ -37,6 +37,7 @@ public class TagReadFormController extends BaseTagForm {
         try{
             setTagName(name);
             readTag = new ReadTag();
+            readTag.setId(getId());
             readTag.setTagName();
             readTag.setCommunicationName(communicationName.getText());
             readTag.setRegister(Integer.parseInt(register.getText()));

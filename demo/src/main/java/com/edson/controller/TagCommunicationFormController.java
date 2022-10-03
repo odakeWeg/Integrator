@@ -46,6 +46,7 @@ public class TagCommunicationFormController extends BaseTagForm {
         try{
             setTagName(name);
             communicationTag = new CommunicationTag();
+            communicationTag.setId(getId());
             communicationTag.setTagName();
             communicationTag.setCommunicationName(nameCommunication.getText());
             communicationTag.setStopBits(Integer.parseInt(stopBits.getText()));

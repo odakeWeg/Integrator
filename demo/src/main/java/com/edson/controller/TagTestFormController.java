@@ -31,6 +31,7 @@ public class TagTestFormController extends BaseTagForm {
         try{
             setTagName(name);
             testTag = new TestTag();
+            testTag.setId(getId());
             testTag.setTagName();
             testTag.setName(testName.getText());
             setFieldValidation(true);

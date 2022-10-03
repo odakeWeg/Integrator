@@ -31,6 +31,7 @@ public class TestInitializer extends Thread {
         } catch (TestUnmarshalingException e) {
             result = "Erro ao puxar rotina de teste";
         }
+        System.out.println(result);
         //@TODO: Mostrar ao operador se falhou ou não dependendo do resultado
     }
 

@@ -70,9 +70,10 @@ public class TestSettingsController implements Initializable {
     private void addStep() throws IOException {
         String formFileName = "tag" + tagMenu.getText() + "Form";
         FXMLLoader loader = new FXMLLoader(getClass().getResource(ViewConfigurationPathUtil.FULL_VIEW_PATH + formFileName + ".fxml"));
-        Parent part = (Parent) loader.load();
+        Parent parent = (Parent) loader.load();
         BaseTagForm addFormController = (BaseTagForm) loader.getController();
-        addFormController.setStage(part);
+        addFormController.setId(testStepTable.getItems().size());
+        addFormController.setStage(parent);
         if(addFormController.isFieldValidation()) {
             TestStep testStep = new TestStep(testStepTable.getItems().size(), addFormController.getTagName(), addFormController.getTag());
             testStepTable.getItems().add(testStep);

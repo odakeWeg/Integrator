@@ -1,5 +1,6 @@
 package com.edson.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
@@ -10,22 +11,27 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.PropertyException;
+
 import com.edson.App;
 import com.edson.model.dto.TestRoutine;
 import com.edson.tag.BaseTag;
+import com.edson.tag.TagList;
 import com.edson.util.ViewConfigurationPathUtil;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextInputDialog;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class SettingsController implements Initializable {
@@ -173,8 +179,42 @@ public class SettingsController implements Initializable {
 
     @FXML
     private void downloadSelectedTest() {
-        
+        TagList list;
+        try {
+            list = new TagList(testTable.getSelectionModel().getSelectedItem().getTagList());
+            marshalingToXML(list);
+        } catch (ClassNotFoundException | JAXBException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
     }
+    
+    public void marshalingToXML(TagList listToMarshall) throws JAXBException {
+        JAXBContext jaxbContext = JAXBContext.newInstance(TagList.class);
+        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        //jaxbMarshaller.marshal(listToMarshall, System.out);
+        jaxbMarshaller.marshal(listToMarshall, new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + testTable.getSelectionModel().getSelectedItem().getProduto() + ".xml"));
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //@TODO
@@ -187,4 +227,4 @@ public class SettingsController implements Initializable {
         //testTable.getItems().add(testDuplicate);      
     }
     */
-}
+

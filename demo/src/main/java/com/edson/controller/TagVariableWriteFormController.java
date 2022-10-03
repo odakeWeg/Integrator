@@ -39,6 +39,7 @@ public class TagVariableWriteFormController extends BaseTagForm {
         try{
             setTagName(name);
             variableWriteTag = new VariableWriteTag();
+            variableWriteTag.setId(getId());
             variableWriteTag.setTagName();
             variableWriteTag.setCommunicationName(communicationName.getText());
             variableWriteTag.setVariableWriteName(variableName.getText());

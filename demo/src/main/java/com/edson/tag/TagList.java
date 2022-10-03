@@ -1,12 +1,15 @@
 package com.edson.tag;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import com.edson.util.ViewConfigurationPathUtil;
 
 @XmlRootElement(name = "root")
 @XmlAccessorType (XmlAccessType.FIELD)
@@ -31,6 +34,32 @@ public class TagList{
 
     private List<Object> tagManager = new ArrayList<>();
     private List<BaseTag> baseTagManager = new ArrayList<>();
+
+    public TagList() {
+    }
+
+    public TagList(List<BaseTag> tags) throws ClassNotFoundException {
+        HashMap<String, List> hm = createHashMapFromLists();
+        for (int i = 0; i < tags.size(); i++) {
+            String className = tags.get(i).getTagName().substring(0, 1).toUpperCase() + tags.get(i).getTagName().substring(1) + "Tag";
+            Class<?> tag = Class.forName(ViewConfigurationPathUtil.TAG_PROJECT_PATH + className);
+            hm.get(className).add(tag.cast(tags.get(i)));
+        }
+    }
+
+    private HashMap<String, List> createHashMapFromLists() {
+        HashMap<String, List> hm = new HashMap<>();
+        hm.put("TestTag", testTagList);
+        hm.put("CommunicationTag", communicationTagList);
+        hm.put("CompareTag", compareTagList);
+        hm.put("ReadTag", readTagList);
+        hm.put("WriteTag", writeTagList);
+        hm.put("VerifyTag", verifyTagList);
+        hm.put("VariableReadTag", variableReadTagList);
+        hm.put("VariableWriteTag", variableWriteTagList);
+
+        return hm;
+    }
 
     public void concatenateTagList() {
         tagManager.addAll(testTagList);

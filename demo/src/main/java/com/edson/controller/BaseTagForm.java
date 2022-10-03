@@ -15,6 +15,7 @@ public abstract class BaseTagForm {
     protected String tagName;
     protected BaseTag tag;
     protected boolean fieldValidation = false;
+    protected int id;
 
     public void setStage(Parent parent) {
         stage = new Stage();
@@ -58,7 +59,14 @@ public abstract class BaseTagForm {
     public void setFieldValidation(boolean fieldValidation) {
         this.fieldValidation = fieldValidation;
     }
-    
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
 }
 

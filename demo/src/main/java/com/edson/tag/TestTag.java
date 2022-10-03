@@ -4,6 +4,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import lombok.NoArgsConstructor;
+
 @XmlRootElement(name = "test")
 @XmlAccessorType (XmlAccessType.FIELD)
 public class TestTag extends BaseTag{

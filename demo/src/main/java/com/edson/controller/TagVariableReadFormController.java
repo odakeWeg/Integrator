@@ -31,6 +31,7 @@ public class TagVariableReadFormController extends BaseTagForm {
         try{
             setTagName(name);
             variableReadTag = new VariableReadTag();
+            variableReadTag.setId(getId());
             variableReadTag.setTagName();
             variableReadTag.setVariableRead(variableName.getText());
             setFieldValidation(true);

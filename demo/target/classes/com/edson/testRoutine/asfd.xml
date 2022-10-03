@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+    <test>
+        <id>0</id>
+        <tagName>test</tagName>
+        <name>afec</name>
+    </test>
+    <compare>
+        <id>1</id>
+        <tagName>compare</tagName>
+        <referenceStep>23</referenceStep>
+        <targetStep>2</targetStep>
+        <tolerancyPercentage>2</tolerancyPercentage>
+        <referenceValue>0</referenceValue>
+        <targetValue>0</targetValue>
+    </compare>
+</root>
