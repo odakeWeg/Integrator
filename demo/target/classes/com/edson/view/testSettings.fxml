@@ -134,14 +134,14 @@
          <children>
             <MenuButton fx:id="tagMenu" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="1.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="199.0" text="Tag" textAlignment="CENTER">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#selectCommunication" text="communication" />
-                  <MenuItem mnemonicParsing="false" onAction="#selectRead" text="read" />
-                  <MenuItem mnemonicParsing="false" onAction="#selectWrite" text="write" />
-                  <MenuItem mnemonicParsing="false" onAction="#selectCompare" text="compare" />
-                  <MenuItem mnemonicParsing="false" onAction="#selectVerify" text="verify" />
-                  <MenuItem mnemonicParsing="false" onAction="#selectTest" text="test" />
-                  <MenuItem mnemonicParsing="false" onAction="#selectVariableRead" text="variableRead" />
-                  <MenuItem mnemonicParsing="false" onAction="#selectVariableWrite" text="variableWrite" />
+                <MenuItem mnemonicParsing="false" onAction="#selectCommunication" text="Communication" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectRead" text="Read" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectWrite" text="Write" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectCompare" text="Compare" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectVerify" text="Verify" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectTest" text="Test" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectVariableRead" text="VariableRead" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectVariableWrite" text="VariableWrite" />
               </items>
                <font>
                   <Font size="18.0" />

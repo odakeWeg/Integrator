@@ -62,4 +62,45 @@ public class WriteTag extends BaseTag {
     public void setTagName() {
         this.tagName = "write";
     }
+
+    public String getCommunicationName() {
+        return this.communicationName;
+    }
+
+    public void setCommunicationName(String communicationName) {
+        this.communicationName = communicationName;
+    }
+
+    public int getRegister() {
+        return this.register;
+    }
+
+    public void setRegister(int register) {
+        this.register = register;
+    }
+
+    public int getValue() {
+        return this.value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    public int getWaitBefore() {
+        return this.waitBefore;
+    }
+
+    public void setWaitBefore(int waitBefore) {
+        this.waitBefore = waitBefore;
+    }
+
+    public int getWaitAfter() {
+        return this.waitAfter;
+    }
+
+    public void setWaitAfter(int waitAfter) {
+        this.waitAfter = waitAfter;
+    }
+
 }

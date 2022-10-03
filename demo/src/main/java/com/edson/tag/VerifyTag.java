@@ -1,7 +1,5 @@
 package com.edson.tag;
 
-import java.util.List;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -50,5 +48,31 @@ public class VerifyTag extends BaseTag{
     public void setTagName() {
         this.tagName = "verify";
     }
+
+
+    public int getTargetStep() {
+        return this.targetStep;
+    }
+
+    public void setTargetStep(int targetStep) {
+        this.targetStep = targetStep;
+    }
+
+    public int getReferenceValue() {
+        return this.referenceValue;
+    }
+
+    public void setReferenceValue(int referenceValue) {
+        this.referenceValue = referenceValue;
+    }
+
+    public int getTolerancyPercentage() {
+        return this.tolerancyPercentage;
+    }
+
+    public void setTolerancyPercentage(int tolerancyPercentage) {
+        this.tolerancyPercentage = tolerancyPercentage;
+    }
+
 
 }

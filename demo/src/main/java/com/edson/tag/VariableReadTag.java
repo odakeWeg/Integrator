@@ -23,5 +23,13 @@ public class VariableReadTag extends BaseTag {
     public void setTagName() {
         this.tagName = "variableRead";
     }
+
+    public String getVariableRead() {
+        return this.variableRead;
+    }
+
+    public void setVariableRead(String variableRead) {
+        this.variableRead = variableRead;
+    }
     
 }

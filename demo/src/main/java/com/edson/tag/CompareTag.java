@@ -53,4 +53,30 @@ public class CompareTag extends BaseTag {
         this.tagName = "compare";
     }
 
+
+    public int getReferenceStep() {
+        return this.referenceStep;
+    }
+
+    public void setReferenceStep(int referenceStep) {
+        this.referenceStep = referenceStep;
+    }
+
+    public int getTargetStep() {
+        return this.targetStep;
+    }
+
+    public void setTargetStep(int targetStep) {
+        this.targetStep = targetStep;
+    }
+
+    public int getTolerancyPercentage() {
+        return this.tolerancyPercentage;
+    }
+
+    public void setTolerancyPercentage(int tolerancyPercentage) {
+        this.tolerancyPercentage = tolerancyPercentage;
+    }
+
+
 }

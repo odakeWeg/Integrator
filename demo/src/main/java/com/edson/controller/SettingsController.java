@@ -59,11 +59,12 @@ public class SettingsController implements Initializable {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
         LocalDate localDate = LocalDate.now();
         String dataNow  = dtf.format(localDate);
+        List<BaseTag> tagList = new ArrayList<>();
         return FXCollections.observableArrayList(
-            new TestRoutine(0, 7881, "SSW900", 8, dataNow, null),
-            new TestRoutine(1, 7881, "SSW07", 6, dataNow, null),
-            new TestRoutine(2, 7881, "SSW08", 6, dataNow, null),
-            new TestRoutine(3, 7881, "SSW900", 5, dataNow, null)
+            new TestRoutine(0, 7881, "SSW900", 8, dataNow, tagList),
+            new TestRoutine(1, 7881, "SSW07", 6, dataNow, tagList),
+            new TestRoutine(2, 7881, "SSW08", 6, dataNow, tagList),
+            new TestRoutine(3, 7881, "SSW900", 5, dataNow, tagList)
         );
     }
     
@@ -81,7 +82,7 @@ public class SettingsController implements Initializable {
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
             LocalDate localDate = LocalDate.now();
             String dataNow  = dtf.format(localDate);
-            TestRoutine testRoutine = new TestRoutine(testTable.getItems().size(), 22, name, 22, dataNow, tagList);
+            TestRoutine testRoutine = new TestRoutine(testTable.getItems().size(), 22, name, tagList.size(), dataNow, tagList);
             testTable.getItems().add(testRoutine);
         }
     }
@@ -173,7 +174,7 @@ public class SettingsController implements Initializable {
         Parent part = (Parent) loader.load();
         TestSettingsController testSettingsController = (TestSettingsController) loader.getController();
         testSettingsController.setStage(part, testTable.getSelectionModel().getSelectedItem().getTagList());
-
+        testTable.getSelectionModel().getSelectedItem().setTagList(testSettingsController.getTagList());
     }
 
 }

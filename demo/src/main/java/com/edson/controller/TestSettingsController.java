@@ -2,18 +2,20 @@ package com.edson.controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
 import com.edson.model.dto.TestStep;
 import com.edson.tag.BaseTag;
+import com.edson.tag.CommunicationTag;
+import com.edson.util.ViewConfigurationPathUtil;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -39,8 +41,8 @@ public class TestSettingsController implements Initializable {
     @FXML 
     private Button adicionarButton;
     
-    Stage stage;
-    List<BaseTag> tagList;
+    private Stage stage;
+    private List<BaseTag> tagList;
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
@@ -52,18 +54,27 @@ public class TestSettingsController implements Initializable {
 
     //@TestingCode - Will be changed for a persistence or load files from computer
     private ObservableList<TestStep> nameList() {
+        BaseTag tag = new CommunicationTag();
         return FXCollections.observableArrayList(
-            new TestStep(0, "read", null),
-            new TestStep(1, "write", null),
-            new TestStep(2, "read", null),
-            new TestStep(3, "compare", null),
-            new TestStep(4, "read", null)
+            new TestStep(0, "read", tag),
+            new TestStep(1, "write", tag),
+            new TestStep(2, "read", tag),
+            new TestStep(3, "compare", tag),
+            new TestStep(4, "read", tag)
         );
     }
 
     @FXML
-    private void addStep() {
-        
+    private void addStep() throws IOException {
+        String formFileName = "tag" + tagMenu.getText() + "Form";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ViewConfigurationPathUtil.FULL_VIEW_PATH + formFileName + ".fxml"));
+        Parent part = (Parent) loader.load();
+        BaseTagForm addFormController = (BaseTagForm) loader.getController();
+        addFormController.setStage(part);
+        if(addFormController.isFieldValidation()) {
+            TestStep testStep = new TestStep(testStepTable.getItems().size(), addFormController.getTagName(), addFormController.getTag());
+            testStepTable.getItems().add(testStep);
+        }
     }
 
     @FXML
@@ -105,7 +116,16 @@ public class TestSettingsController implements Initializable {
 
     @FXML
     private void switchToPreviousPage() throws IOException {
+        tagList = getListFromTable(testStepTable);
         stage.close();
+    }
+
+    private List<BaseTag> getListFromTable(TableView<TestStep> testStepTable) {
+        List<BaseTag> list = new ArrayList<>();
+        for (int i = 0; i < testStepTable.getItems().size(); i++) {
+            list.add(testStepTable.getItems().get(i).getTag());
+        }
+        return list;
     }
 
     @FXML
@@ -118,62 +138,67 @@ public class TestSettingsController implements Initializable {
         Scene scene = new Scene(part);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
+        setTableContent(tagList);
         stage.showAndWait();
     }
 
     private void setTableContent(List<BaseTag> tagList) {
         this.tagList = tagList;
         for (int i = 0; i < tagList.size(); i++) {
-            new TestStep(tagList.get(0).getId(), tagList.get(0).getTagName(), tagList.get(0));
+            //@TODO: Tem que fazer a adição
+            //testStepTable.getItems().add(new TestStep(algo.id, text.name, tagList.get(i)));
         }
-        testStepTable.getItems().add(tagList);
+    }
+
+    public List<BaseTag> getTagList() {
+        return this.tagList;
     }
 
     @FXML
     private void selectCommunication() {
         adicionarButton.setDisable(false);
-        tagMenu.setText("communication");
+        tagMenu.setText("Communication");
     }
 
     @FXML
     private void selectRead() {
         adicionarButton.setDisable(false);
-        tagMenu.setText("read");
+        tagMenu.setText("Read");
     }
 
     @FXML
     private void selectWrite() {
         adicionarButton.setDisable(false);
-        tagMenu.setText("write");
+        tagMenu.setText("Write");
     }
 
     @FXML
     private void selectCompare() {
         adicionarButton.setDisable(false);
-        tagMenu.setText("compare");
+        tagMenu.setText("Compare");
     }
 
     @FXML
     private void selectVerify() {
         adicionarButton.setDisable(false);
-        tagMenu.setText("verify");
+        tagMenu.setText("Verify");
     }
 
     @FXML
     private void selectVariableRead() {
         adicionarButton.setDisable(false);
-        tagMenu.setText("variableRead");
+        tagMenu.setText("VariableRead");
     }
 
     @FXML
     private void selectVariableWrite() {
         adicionarButton.setDisable(false);
-        tagMenu.setText("variableWrite");
+        tagMenu.setText("VariableWrite");
     }
 
     @FXML
     private void selectTest() {
         adicionarButton.setDisable(false);
-        tagMenu.setText("test");
+        tagMenu.setText("Test");
     }
 }

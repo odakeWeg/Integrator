@@ -68,4 +68,38 @@ public class ReadTag extends BaseTag{
         this.tagName = "read";
     }
 
+
+    public String getCommunicationName() {
+        return this.communicationName;
+    }
+
+    public void setCommunicationName(String communicationName) {
+        this.communicationName = communicationName;
+    }
+
+    public int getRegister() {
+        return this.register;
+    }
+
+    public void setRegister(int register) {
+        this.register = register;
+    }
+
+    public int getWaitBefore() {
+        return this.waitBefore;
+    }
+
+    public void setWaitBefore(int waitBefore) {
+        this.waitBefore = waitBefore;
+    }
+
+    public int getWaitAfter() {
+        return this.waitAfter;
+    }
+
+    public void setWaitAfter(int waitAfter) {
+        this.waitAfter = waitAfter;
+    }
+
+
 }

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edson.controller.TagCommunicationFormController">
    <children>
       <ImageView fitHeight="180.0" fitWidth="180.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
       <Label layoutX="40.0" layoutY="209.0" text="Cadastro:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0">
@@ -26,8 +26,8 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Button layoutX="79.0" layoutY="496.0" mnemonicParsing="false" prefWidth="67.0" text="Adicionar" AnchorPane.leftAnchor="75.0" />
-      <Button layoutX="79.0" layoutY="530.0" mnemonicParsing="false" prefWidth="67.0" text="Voltar" AnchorPane.leftAnchor="75.0" />
+      <Button layoutX="79.0" layoutY="496.0" mnemonicParsing="false" onAction="#addTagStep" prefWidth="67.0" text="Adicionar" AnchorPane.leftAnchor="75.0" />
+      <Button layoutX="79.0" layoutY="530.0" mnemonicParsing="false" onAction="#switchToPreviousPage" prefWidth="67.0" text="Voltar" AnchorPane.leftAnchor="75.0" />
       <Separator layoutX="277.0" layoutY="145.0" orientation="VERTICAL" prefHeight="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="210.0" AnchorPane.rightAnchor="684.0" AnchorPane.topAnchor="0.0" />
       <Label layoutX="247.0" layoutY="74.0" text="Comando de Comunicação:" AnchorPane.leftAnchor="254.0" AnchorPane.topAnchor="75.0">
          <font>
@@ -39,48 +39,50 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="254.0" layoutY="154.0" prefWidth="222.0" />
+      <TextField fx:id="nameCommunication" layoutX="254.0" layoutY="154.0" prefWidth="222.0" />
       <Label layoutX="254.0" layoutY="184.0" text="Porta:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="254.0" layoutY="211.0" prefWidth="222.0" />
+      <TextField fx:id="portName" layoutX="254.0" layoutY="211.0" prefWidth="222.0" />
       <Label layoutX="254.0" layoutY="237.0" text="BaudRate:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="254.0" layoutY="264.0" prefWidth="222.0" />
+      <TextField fx:id="baudRate" layoutX="254.0" layoutY="264.0" prefWidth="222.0" />
       <Label layoutX="254.0" layoutY="289.0" text="DataBits:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="254.0" layoutY="316.0" prefWidth="222.0" />
+      <TextField fx:id="dataBits" layoutX="254.0" layoutY="316.0" prefWidth="222.0" />
       <Label layoutX="402.0" layoutY="127.0" text="StopBits:" AnchorPane.leftAnchor="600.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="402.0" layoutY="154.0" prefWidth="222.0" AnchorPane.leftAnchor="600.0" />
+      <TextField fx:id="stopBits" layoutX="402.0" layoutY="154.0" prefWidth="222.0" AnchorPane.leftAnchor="600.0" />
       <Label layoutX="402.0" layoutY="180.0" text="Parity:" AnchorPane.leftAnchor="600.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="402.0" layoutY="207.0" prefWidth="222.0" AnchorPane.leftAnchor="600.0" />
+      <TextField fx:id="parity" layoutX="402.0" layoutY="207.0" prefWidth="222.0" AnchorPane.leftAnchor="600.0" />
       <Label layoutX="402.0" layoutY="232.0" text="Timeout:" AnchorPane.leftAnchor="600.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="402.0" layoutY="259.0" prefWidth="222.0" AnchorPane.leftAnchor="600.0" />
+      <TextField fx:id="timeOut" layoutX="402.0" layoutY="259.0" prefWidth="222.0" AnchorPane.leftAnchor="600.0" />
       <Label layoutX="402.0" layoutY="285.0" text="Address" AnchorPane.leftAnchor="600.0">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="402.0" layoutY="312.0" prefWidth="222.0" AnchorPane.leftAnchor="600.0" />
+      <TextField fx:id="address" layoutX="402.0" layoutY="312.0" prefWidth="222.0" AnchorPane.leftAnchor="600.0" />
+      <Label fx:id="warningLabel1" layoutX="264.0" layoutY="373.0" text="*Falha ao Adicionar novo step" textFill="#f20000" visible="false" />
+      <Label fx:id="warningLabel2" layoutX="264.0" layoutY="390.0" text="    1. Verifique se todos os campos estão preenchidos corretamente" textFill="#f20000" visible="false" />
    </children>
 </AnchorPane>

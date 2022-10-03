@@ -15,13 +15,17 @@ public class TestTag extends BaseTag{
         return "OK";
     }
 
+    @Override
+    public void setTagName() {
+        this.tagName = "test";
+    }
+
     public String getName() {
         return this.name;
     }
 
-    @Override
-    public void setTagName() {
-        this.tagName = "test";
+    public void setName(String name) {
+        this.name = name;
     }
 
 }

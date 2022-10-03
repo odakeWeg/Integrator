@@ -1,6 +1,5 @@
 package com.edson.tag;
 
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -9,7 +8,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import com.edson.communication.BaseCommunication;
 import com.edson.exception.CommunicationException;
-import com.edson.test.data.DataCenter;
 
 @XmlRootElement(name = "variableWrite")
 @XmlAccessorType (XmlAccessType.FIELD)
@@ -65,6 +63,46 @@ public class VariableWriteTag extends BaseTag {
     @Override
     public void setTagName() {
         this.tagName = "variableWrite";
+    }
+
+    public String getCommunicationName() {
+        return this.communicationName;
+    }
+
+    public void setCommunicationName(String communicationName) {
+        this.communicationName = communicationName;
+    }
+
+    public int getRegister() {
+        return this.register;
+    }
+
+    public void setRegister(int register) {
+        this.register = register;
+    }
+
+    public String getVariableWriteName() {
+        return this.variableWriteName;
+    }
+
+    public void setVariableWriteName(String variableWriteName) {
+        this.variableWriteName = variableWriteName;
+    }
+
+    public int getWaitBefore() {
+        return this.waitBefore;
+    }
+
+    public void setWaitBefore(int waitBefore) {
+        this.waitBefore = waitBefore;
+    }
+
+    public int getWaitAfter() {
+        return this.waitAfter;
+    }
+
+    public void setWaitAfter(int waitAfter) {
+        this.waitAfter = waitAfter;
     }
 
 }

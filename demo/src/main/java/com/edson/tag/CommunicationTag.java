@@ -49,4 +49,68 @@ public class CommunicationTag extends BaseTag{
         this.tagName = "communication";
     }
 
+    public void setCommunicationName(String communicationName) {
+        this.communicationName = communicationName;
+    }
+
+    public String getPortName() {
+        return this.portName;
+    }
+
+    public void setPortName(String portName) {
+        this.portName = portName;
+    }
+
+    public int getBaudRate() {
+        return this.baudRate;
+    }
+
+    public void setBaudRate(int baudRate) {
+        this.baudRate = baudRate;
+    }
+
+    public int getDataBits() {
+        return this.dataBits;
+    }
+
+    public void setDataBits(int dataBits) {
+        this.dataBits = dataBits;
+    }
+
+    public int getStopBits() {
+        return this.stopBits;
+    }
+
+    public void setStopBits(int stopBits) {
+        this.stopBits = stopBits;
+    }
+
+    public String getParity() {
+        return this.parity;
+    }
+
+    public void setParity(String parity) {
+        this.parity = parity;
+    }
+
+    public int getTimeout() {
+        return this.timeout;
+    }
+
+    public void setTimeout(int timeout) {
+        this.timeout = timeout;
+    }
+
+    public int getAddress() {
+        return this.address;
+    }
+
+    public void setAddress(int address) {
+        this.address = address;
+    }
+    public void setConnection(BaseCommunication connection) {
+        this.connection = connection;
+    }
+
+
 }
