@@ -16,13 +16,15 @@ public abstract class BaseTagForm {
     protected BaseTag tag;
     protected boolean fieldValidation = false;
 
-    public void setStage(Parent part) {
+    public void setStage(Parent parent) {
         stage = new Stage();
-        Scene scene = new Scene(part);
+        Scene scene = new Scene(parent);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.showAndWait();
     }
+
+    abstract void setEditStage(Parent parent);
 
     @FXML
     private void switchToPreviousPage() throws IOException {
@@ -39,7 +41,6 @@ public abstract class BaseTagForm {
     public void setTagName(String tagName) {
         this.tagName = tagName;
     }
-    
 
     public BaseTag getTag() {
         return this.tag;

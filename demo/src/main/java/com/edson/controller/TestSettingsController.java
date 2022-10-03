@@ -49,9 +49,10 @@ public class TestSettingsController implements Initializable {
         idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
         tagNameCol.setCellValueFactory(new PropertyValueFactory<>("tagName"));
 
-        testStepTable.setItems(nameList());
+        //testStepTable.setItems(nameList());
     }
 
+    /* 
     //@TestingCode - Will be changed for a persistence or load files from computer
     private ObservableList<TestStep> nameList() {
         BaseTag tag = new CommunicationTag();
@@ -63,6 +64,7 @@ public class TestSettingsController implements Initializable {
             new TestStep(4, "read", tag)
         );
     }
+    */
 
     @FXML
     private void addStep() throws IOException {
@@ -129,8 +131,18 @@ public class TestSettingsController implements Initializable {
     }
 
     @FXML
-    private void switchToEditForm() {
-        
+    private void switchToEditForm() throws IOException {
+        String nameBuffer = testStepTable.getSelectionModel().getSelectedItem().getTagName();
+        String nameToUppercase = nameBuffer.substring(0, 1).toUpperCase() + nameBuffer.substring(1);
+        String formFileName = "tag" + nameToUppercase + "Form";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(ViewConfigurationPathUtil.FULL_VIEW_PATH + formFileName + ".fxml"));
+        Parent part = (Parent) loader.load();
+        BaseTagForm addFormController = (BaseTagForm) loader.getController();
+        addFormController.setTag(testStepTable.getSelectionModel().getSelectedItem().getTag());
+        addFormController.setEditStage(part);
+        if(addFormController.isFieldValidation()) {
+            testStepTable.getSelectionModel().getSelectedItem().setTag(addFormController.getTag());
+        }
     }
 
     public void setStage(Parent part, List<BaseTag> tagList) {
@@ -145,8 +157,7 @@ public class TestSettingsController implements Initializable {
     private void setTableContent(List<BaseTag> tagList) {
         this.tagList = tagList;
         for (int i = 0; i < tagList.size(); i++) {
-            //@TODO: Tem que fazer a adição
-            //testStepTable.getItems().add(new TestStep(algo.id, text.name, tagList.get(i)));
+            testStepTable.getItems().add(new TestStep(i, tagList.get(i).getTagName(), tagList.get(i)));
         }
     }
 

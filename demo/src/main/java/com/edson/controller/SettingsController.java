@@ -51,9 +51,10 @@ public class SettingsController implements Initializable {
         etapasCol.setCellValueFactory(new PropertyValueFactory<>("etapas"));
         dataCol.setCellValueFactory(new PropertyValueFactory<>("data"));
 
-        testTable.setItems(nameList());
+        //testTable.setItems(nameList());
     }
 
+    /* 
     //@TestingCode - Will be changed for a persistence or load files from computer
     private ObservableList<TestRoutine> nameList() {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("uuuu/MM/dd");
@@ -67,6 +68,7 @@ public class SettingsController implements Initializable {
             new TestRoutine(3, 7881, "SSW900", 5, dataNow, tagList)
         );
     }
+    */
     
     @FXML
     private void addTest() throws IOException {
@@ -161,14 +163,6 @@ public class SettingsController implements Initializable {
     }
 
     @FXML
-    private void duplicateTest() throws CloneNotSupportedException {
-        //@TODO: Deep clone no testRoutine, na Lista e em, todas as Tags
-        //TestRoutine testDuplicate = new TestRoutine(testTable.getSelectionModel().getSelectedItem());
-        //testDuplicate.setId(testTable.getItems().size());
-        //testTable.getItems().add(testDuplicate);      
-    }
-
-    @FXML
     private void enterTest() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(ViewConfigurationPathUtil.FULL_VIEW_PATH + "testSettings.fxml"));
         Parent part = (Parent) loader.load();
@@ -177,4 +171,20 @@ public class SettingsController implements Initializable {
         testTable.getSelectionModel().getSelectedItem().setTagList(testSettingsController.getTagList());
     }
 
+    @FXML
+    private void downloadSelectedTest() {
+        
+    }
+
+
+    //@TODO
+    /* 
+    @FXML
+    private void duplicateTest() throws CloneNotSupportedException {
+        //@TODO: Deep clone no testRoutine, na Lista e em, todas as Tags
+        //TestRoutine testDuplicate = new TestRoutine(testTable.getSelectionModel().getSelectedItem());
+        //testDuplicate.setId(testTable.getItems().size());
+        //testTable.getItems().add(testDuplicate);      
+    }
+    */
 }

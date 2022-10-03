@@ -84,5 +84,6 @@
       <TextField fx:id="address" layoutX="402.0" layoutY="312.0" prefWidth="222.0" AnchorPane.leftAnchor="600.0" />
       <Label fx:id="warningLabel1" layoutX="264.0" layoutY="373.0" text="*Falha ao Adicionar novo step" textFill="#f20000" visible="false" />
       <Label fx:id="warningLabel2" layoutX="264.0" layoutY="390.0" text="    1. Verifique se todos os campos estão preenchidos corretamente" textFill="#f20000" visible="false" />
+      <Button fx:id="addEditButton" layoutX="75.0" layoutY="496.0" mnemonicParsing="false" onAction="#addTagStep" prefWidth="67.0" text="Adicionar" />
    </children>
 </AnchorPane>
