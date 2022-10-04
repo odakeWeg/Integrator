@@ -25,7 +25,7 @@ public class ReadTag extends BaseTag{
         BaseCommunication communication = getCommunicationByName(communicationName);
         delayMilliseconds(waitBefore);
         if(communication == null) {
-            testResult = "Objeto não encontrado";
+            testResult = "Objeto não encontrado - Problema na rotina de teste";
         } else {
             try {
                 valueRead = communication.readSingleRegister(register);
@@ -35,8 +35,13 @@ public class ReadTag extends BaseTag{
             }
         }
         delayMilliseconds(waitAfter);
-        System.out.println(valueRead);
+        setLog();
         return testResult;
+    }
+
+    private void setLog() {
+        String logToAdd = "Valor lido no parâmetro " + register + ": " + valueRead + "\n";
+        dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
     private void delayMilliseconds(int wait) {

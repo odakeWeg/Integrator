@@ -20,7 +20,7 @@
         <stopBits>1</stopBits>
         <parity>EVEN</parity>
         <timeout>1000</timeout>
-        <address>2</address>
+        <address>1</address>
     </communication>
     <communication>
         <id>2</id>
@@ -34,15 +34,6 @@
         <timeout>1000</timeout>
         <address>1</address>
     </communication>
-    <compare>
-        <id>8</id>
-        <tagName>compare</tagName>
-        <referenceStep>5</referenceStep>
-        <targetStep>6</targetStep>
-        <tolerancyPercentage>10</tolerancyPercentage>
-        <referenceValue>0</referenceValue>
-        <targetValue>0</targetValue>
-    </compare>
     <read>
         <id>3</id>
         <tagName>read</tagName>
@@ -79,14 +70,6 @@
         <targetStep>3</targetStep>
         <targetValue>0</targetValue>
         <referenceValue>2048</referenceValue>
-        <tolerancyPercentage>1</tolerancyPercentage>
-    </verify>
-    <verify>
-        <id>9</id>
-        <tagName>verify</tagName>
-        <targetStep>3</targetStep>
-        <targetValue>0</targetValue>
-        <referenceValue>10</referenceValue>
         <tolerancyPercentage>1</tolerancyPercentage>
     </verify>
 </root>

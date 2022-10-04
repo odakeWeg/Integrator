@@ -123,7 +123,6 @@ public class SettingsController implements Initializable {
         } else {
             return "";
         }
-        
     }
 
     @FXML
@@ -196,7 +195,7 @@ public class SettingsController implements Initializable {
         //jaxbMarshaller.marshal(listToMarshall, System.out);
         jaxbMarshaller.marshal(listToMarshall, new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + testTable.getSelectionModel().getSelectedItem().getProduto() + ".xml"));
     }
-    
+
 }
 
 

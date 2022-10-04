@@ -25,7 +25,7 @@ public class WriteTag extends BaseTag {
         BaseCommunication communication = getCommunicationByName(communicationName);
         delayMilliseconds(waitBefore);                                 
         if(communication == null) {
-            testResult = "Objeto não encontrado";
+            testResult = "Objeto não encontrado - Problema na rotina de teste";
         } else {
             try {
                 communication.writeSingleRegister(register, value);
@@ -35,7 +35,13 @@ public class WriteTag extends BaseTag {
             }
         }
         delayMilliseconds(waitAfter); 
+        setLog();
         return testResult;
+    }
+
+    private void setLog() {
+        String logToAdd = "Valor escrito no parâmetro" + register + ": " + value + "\n";
+        dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
     private void delayMilliseconds(int wait) {

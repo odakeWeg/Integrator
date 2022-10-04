@@ -26,7 +26,7 @@ public class VariableWriteTag extends BaseTag {
         BaseCommunication communication = getCommunicationByName(communicationName);
         delayMilliseconds(waitBefore);                               
         if(communication == null) {
-            testResult = "Objeto não encontrado";
+            testResult = "Objeto não encontrado - Problema na rotina de teste";
         } else {
             try {
                 value = Integer.parseInt(dataCenter.getSapDataMap().getDataMap().get(variableWriteName));
@@ -37,7 +37,13 @@ public class VariableWriteTag extends BaseTag {
             }
         }
         delayMilliseconds(waitAfter);
+        setLog();
         return testResult;
+    }
+
+    private void setLog() {
+        String logToAdd = "Valor escrito na variável " + register + ":" + value + "\n";
+        dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
     private void delayMilliseconds(int wait) {

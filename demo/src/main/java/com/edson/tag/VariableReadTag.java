@@ -16,7 +16,13 @@ public class VariableReadTag extends BaseTag {
     @Override
     String executeCommand() {
         read = dataCenter.getSapDataMap().getDataMap().get(variableRead);
+        setLog();
         return "OK";
+    }
+
+    private void setLog() {
+        String logToAdd = "Variavel lida: " + read.toString() + "\n";
+        dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
     @Override

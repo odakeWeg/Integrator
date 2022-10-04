@@ -30,10 +30,16 @@ public class CommunicationTag extends BaseTag{
         connection = (BaseCommunication) new ModbusCommunication(portName, baudRate, dataBits, stopBits, parity, timeout, address);
         try {
             connection.startConnection();
+            setLog();
             return "OK";
         } catch (CommunicationException e) {
             return "Falha de comunicação";
         }
+    }
+
+    private void setLog() {
+        String logToAdd = "Configurações de comunicação com " + communicationName + " - OK\n";
+        dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
     public String getCommunicationName() {

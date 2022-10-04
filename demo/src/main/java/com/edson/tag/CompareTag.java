@@ -23,7 +23,7 @@ public class CompareTag extends BaseTag {
         ReadTag targetRead = (ReadTag) getObjectById(targetStep);
 
         if (referenceRead == null || targetRead == null) {
-            testResult = "Objeto não encontrado";
+            testResult = "Objeto não encontrado - Problema na rotina de teste";
         } else {
             referenceValue = referenceRead.getValueRead();
             targetValue = targetRead.getValueRead();
@@ -33,11 +33,17 @@ public class CompareTag extends BaseTag {
             if (upperLimit && lowerLimit) {
                 testResult = "OK";
             } else {
-                testResult = "Comparação fora da tolerância";
+                testResult = "Falha: Comparação fora da tolerância";
             }
+            setLog();
         }
         return testResult;
     } 
+
+    private void setLog() {
+        String logToAdd = "Valor desejado: " + referenceValue + " | Valor lido: " + targetValue + "\n";
+        dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
+    }
 
     private BaseTag getObjectById(int id) {
         for (int i = 0; i < tagList.size(); i++) {

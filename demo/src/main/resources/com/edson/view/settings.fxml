@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -20,7 +21,11 @@
             <TableColumn fx:id="dataCol" prefWidth="150.0" text="Data" />
         </columns>
       </TableView>
-      <ImageView fitHeight="180.0" fitWidth="180.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+      <ImageView fitHeight="180.0" fitWidth="180.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" >
+         <image>
+            <Image url="@/com/edson/images/wegLogo.png" />
+        </image>            
+      </ImageView>
       <Label layoutX="40.0" layoutY="209.0" text="Cadastro:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0">
          <font>
             <Font size="18.0" />

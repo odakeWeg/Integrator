@@ -19,20 +19,25 @@ public class VerifyTag extends BaseTag{
         ReadTag targetRead = (ReadTag) getObjectById(targetStep);
 
         if (targetRead == null) {
-            testResult = "Objeto não encontrado";
+            testResult = "Objeto não encontrado - Problema na rotina de teste";
         } else {
             targetValue = targetRead.getValueRead();
 
-            boolean upperLimit = targetValue > referenceValue*tolerancyPercentage + referenceValue;
-            boolean lowerLimit = targetValue < referenceValue - referenceValue*tolerancyPercentage;
+            boolean upperLimit = targetValue < referenceValue*tolerancyPercentage + referenceValue;
+            boolean lowerLimit = targetValue > referenceValue - referenceValue*tolerancyPercentage;
             if (upperLimit && lowerLimit) {
                 testResult = "OK";
             } else {
-                testResult = "Comparação fora da tolerância";
+                testResult = "Verificação fora da tolerância";
             }
         }
-
+        setLog();
         return testResult;
+    }
+
+    private void setLog() {
+        String logToAdd = "Valor desejado: " + referenceValue + " | " + "Valor lido: " + targetValue + "\n";
+        dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
     private BaseTag getObjectById(int id) {

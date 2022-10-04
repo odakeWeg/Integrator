@@ -21,6 +21,6 @@ public class MainScreenController {
 
     @FXML
     private void switchToTesting() throws IOException {
-        App.setRoot(ViewConfigurationPathUtil.VIEW_PATH + "secondary");
+        App.setRoot(ViewConfigurationPathUtil.VIEW_PATH + "automatedTest");
     }
 }

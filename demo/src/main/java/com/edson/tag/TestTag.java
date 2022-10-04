@@ -14,7 +14,13 @@ public class TestTag extends BaseTag{
 
     @Override
     String executeCommand() {
+        setLog();
         return "OK";
+    }
+
+    private void setLog() {
+        String logToAdd = "------------ Teste: " + name + " ------------\n";
+        dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
     @Override

@@ -7,32 +7,71 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 
+import com.edson.controller.AutomatedTestController;
 import com.edson.exception.TestUnmarshalingException;
 import com.edson.tag.BaseTag;
 import com.edson.tag.TagList;
 import com.edson.test.data.DataCenter;
 import com.edson.util.ViewConfigurationPathUtil;
 
+import javafx.application.Platform;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+
 public class TestInitializer extends Thread {
-    DataCenter dataCenter;
+    private DataCenter dataCenter;
     private String barCode;
     private String result;
+    private AutomatedTestController controller;
 
-    public TestInitializer(String barCode) {
+    public TestInitializer(String barCode, AutomatedTestController controller) {
         this.barCode = barCode;
+        this.controller = controller;
     }
 
     @Override
     public void run() {
         
-        dataCenter = new DataCenter(barCode);
+        dataCenter = new DataCenter(barCode, controller);
+        initSetup();
         try {
             result = startTestingRoutine(getList());
         } catch (TestUnmarshalingException e) {
             result = "Erro ao puxar rotina de teste";
         }
-        System.out.println(result);
-        //@TODO: Mostrar ao operador se falhou ou não dependendo do resultado
+        endSetup();
+    }
+    
+    public void showResultMessage() {
+        Platform.runLater(() -> {
+            if(result.equals("OK")) {
+                Alert userAlert = new Alert(AlertType.INFORMATION);
+                userAlert.setTitle("Resultado do teste");
+                userAlert.setHeaderText("Teste realizado com sucesso!");
+                userAlert.setContentText("Nenhuma falha encontrada");
+                userAlert.showAndWait();
+            } else {
+                Alert userAlert = new Alert(AlertType.ERROR);
+                userAlert.setTitle("Resultado do teste");
+                userAlert.setHeaderText("Falha encontrada durante o teste!");
+                userAlert.setContentText("Motivo: " + result);
+                userAlert.showAndWait();
+            }
+        });
+    }
+
+    private void initSetup() {
+        dataCenter.getController().getTestRoutineLog().setText("");
+        dataCenter.getController().getStatus().setVisible(true);
+        dataCenter.getController().getStatusRectangle().setVisible(true);
+    }
+
+    private void endSetup() {
+        String logToAdd = "Resultado do teste: " + result + "\n";
+        dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
+        dataCenter.getController().getStatus().setVisible(false);
+        dataCenter.getController().getStatusRectangle().setVisible(false);
+        showResultMessage();
     }
 
     private List<BaseTag> getList() throws TestUnmarshalingException {
@@ -56,11 +95,15 @@ public class TestInitializer extends Thread {
         try {
             jaxbContext = JAXBContext.newInstance(TagList.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            File testFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + dataCenter.getSapDataMap().getDataMap().get(ViewConfigurationPathUtil.TEST_ROUTINE_NAME) + ".xml");
+            File testFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + ViewConfigurationPathUtil.TEST_ROUTINE_NAME + ".xml");
             return (TagList) jaxbUnmarshaller.unmarshal(testFile);
         } catch (JAXBException e) {
             throw new TestUnmarshalingException("Falha na aquisição da rotina de teste!");
         }
+    }
+
+    public String getResult() {
+        return this.result;
     }
 }
 

@@ -5,11 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/18" fx:controller="com.edson.controller.MainScreenController">
+<SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edson.controller.MainScreenController">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <Button layoutX="197.0" layoutY="287.0" mnemonicParsing="false" prefHeight="598.0" prefWidth="446.0" text="Testing" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" onAction="#switchToTesting">
+            <Button layoutX="197.0" layoutY="287.0" mnemonicParsing="false" onAction="#switchToTesting" prefHeight="598.0" prefWidth="446.0" text="Testing" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="27.0" />
                </font>
@@ -17,12 +17,12 @@
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
-            <Button layoutX="210.0" layoutY="291.0" mnemonicParsing="false" prefHeight="598.0" prefWidth="446.0" text="Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" onAction="#switchToSettings">
+            <Button layoutX="210.0" layoutY="291.0" mnemonicParsing="false" onAction="#switchToSettings" prefHeight="598.0" prefWidth="446.0" text="Settings" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="27.0" />
                </font>
             </Button>
-            <Button layoutX="362.0" layoutY="553.0" mnemonicParsing="false" text="Log Off">
+            <Button layoutX="362.0" layoutY="553.0" mnemonicParsing="false" onAction="#switchToSecondary" text="Log Off">
                <font>
                   <Font size="15.0" />
                </font>
