@@ -11,17 +11,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class VariableReadTag extends BaseTag {
 
     private String variableRead;
-    private Object read;
+    private int read;
 
     @Override
     String executeCommand() {
-        read = dataCenter.getSapDataMap().getDataMap().get(variableRead);
+        read = Integer.parseInt(dataCenter.getSapDataMap().getDataMap().get(variableRead));
         setLog();
         return "OK";
     }
 
     private void setLog() {
-        String logToAdd = "Variavel lida: " + read.toString() + "\n";
+        String logToAdd = "Variavel lida: " + read + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 

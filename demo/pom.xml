@@ -64,13 +64,13 @@
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-core</artifactId>
-            <version>2.2.8-b01</version>
+            <version>4.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.sun.xml.bind</groupId>
             <artifactId>jaxb-impl</artifactId>
-            <version>2.2-promoted-b65</version>
-        </dependency> 
+            <version>4.0.1</version>
+        </dependency>
         <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -80,26 +80,39 @@
         </dependency>
         <!-- SAP -->
         <dependency>
-			<groupId>net.weg.wdc.service</groupId>
-			<artifactId>SapService</artifactId>
-			<version>1.1.8</version>
-		</dependency>
+            <groupId>net.weg.soa</groupId>
+            <artifactId>serviceclient</artifactId>
+            <version>4.51</version>
+        </dependency>
         <dependency>
-			<groupId>net.weg.soa</groupId>
-			<artifactId>serviceclient</artifactId>
-			<version>4.27</version>
-		</dependency>
-		<dependency>
-			<groupId>net.weg.wdc.sic</groupId>
-			<artifactId>sic-library-service</artifactId>
-			<version>0.1.4</version>
-			<exclusions>
-				<exclusion>
-					<groupId>net.weg.soa</groupId>
-					<artifactId>serviceclient</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+            <groupId>net.weg.wdc.service</groupId>
+            <artifactId>SapService</artifactId>
+            <version>1.1.8</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>serviceclient</artifactId>
+                    <groupId>net.weg.soa</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>net.weg.wdc.sic</groupId>
+            <artifactId>sic-library-service</artifactId>
+            <version>0.1.4</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.weg.soa</groupId>
+                    <artifactId>serviceclient</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Test library -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
     <build>
@@ -129,4 +142,7 @@
             </plugin>
         </plugins>
     </build>
+
+
+
 </project>

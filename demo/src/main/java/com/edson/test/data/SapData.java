@@ -9,18 +9,7 @@ public class SapData implements BaseData {
     private HashMap<String, String> sapDataMap = new HashMap<>();
 
     public SapData(String barCode) {
-        //getDataBy2DBarcodeString(barCode);
-        populateSapData();
-    }
-
-    //@TestingCode
-    private void populateSapData() {
-        sapDataMap.put("serial", "1234567890");
-        sapDataMap.put("corrente", "450A");
-        sapDataMap.put("REF_PRODUTO_AUTOMACAO", "test5");
-        sapDataMap.put("MAC", "10203040");
-        sapDataMap.put("familia", "SSW900");
-        sapDataMap.put("versao", "1.30");
+        getDataBy2DBarcodeString(barCode);
     }
 
     @Override
@@ -32,16 +21,26 @@ public class SapData implements BaseData {
         ProdutoBrutoSAP produtoBrutoSAP = new ProdutoBrutoSAP(barCode);
         produtoBrutoSAP.importarCaracteristicas();
         setDataMap(produtoBrutoSAP);
+        sapDataMap.put("serial", Long.toString(produtoBrutoSAP.getSerial()));
+        sapDataMap.put("material", Long.toString(produtoBrutoSAP.getMaterial()));
+        sapDataMap.put("ordem", Long.toString(produtoBrutoSAP.getOrdemProducao()));
+        sapDataMap.put("serial1", sapDataMap.get("serial").substring(0, 4));
+        sapDataMap.put("serial2", sapDataMap.get("serial").substring(4, 4));
+        sapDataMap.put("serial3", sapDataMap.get("serial").substring(8));
 	}
 
     private void setDataMap(ProdutoBrutoSAP produtoBrutoSAP) {
         for (Caract data: Caract.values()) {
-            sapDataMap.put(data.name(), produtoBrutoSAP.getCaract(data));
-        }
-    }
+            try {
+                if(produtoBrutoSAP.getCaract(data)==null) {
+                    //sapDataMap.put(data.name(), "N/A");
+                } else {
+                    sapDataMap.put(data.name(), produtoBrutoSAP.getCaract(data));
+                }
+            } catch (NullPointerException e) {
 
-    private void checkedBoxArray() {
-        //@TODO: front necessary
+            }
+        }
     }
 
 }

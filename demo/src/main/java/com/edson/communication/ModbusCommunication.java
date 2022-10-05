@@ -41,9 +41,8 @@ public class ModbusCommunication implements BaseCommunication{
 		if (this.serialSettings != null) {
 			serialSettings.closePort();
 		}
-		
-		serialModbusCommunication = new ModbusTCPHelper(master);
 		try {
+			serialModbusCommunication = new ModbusTCPHelper(master);
 			serialModbusCommunication.connect();
 			serialModbusCommunication.subscribeClient("Serial/"+ portName + "/Modbus-RTU/@" + address+ "#" + baudRate + "#" + dataBits + "#" + stopBits + "#" + parity + "#0#50#" + timeout + "#40");
 		} catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException | IOException e) {
@@ -101,6 +100,13 @@ public class ModbusCommunication implements BaseCommunication{
 			serialModbusCommunication.writeMultipleRegisters((short) initialRegister,  shortRegisterValues);
 		} catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException e) {
 			throw new CommunicationException("Falha na escrita dos registradores");
+		}
+	}
+
+	@Override
+	public void closeCommunication() {
+		if (serialSettings != null) {
+			serialSettings.closePort();
 		}
 	}
 }
