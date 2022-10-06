@@ -109,4 +109,11 @@ public class ModbusCommunication implements BaseCommunication{
 			serialSettings.closePort();
 		}
 	}
+
+	@Override
+	public void writeStringInRegister(int startingAddress, String stringToWrite) throws CommunicationException {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

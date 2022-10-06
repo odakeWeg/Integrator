@@ -12,6 +12,30 @@ public class SecondaryController {
 
     @FXML
     private void switchToPrimary() {
+
+        System.out.println(Long.toBinaryString(1234567890));
+        long serialNumber = 1234567890;
+        String binarySerialNumber = Long.toBinaryString(serialNumber);
+        String[] dataToSendBuffer = new String[2];
+
+        while(binarySerialNumber.length() < 32) {
+            binarySerialNumber = "0" + binarySerialNumber;
+        }
+
+        System.out.println("Full: " + binarySerialNumber);
+
+        dataToSendBuffer[0] = binarySerialNumber.substring(0, 16).substring(8) + binarySerialNumber.substring(0, 16).substring(0, 8);
+        dataToSendBuffer[1] = binarySerialNumber.substring(16).substring(8) + binarySerialNumber.substring(16).substring(0, 8);
+
+        System.out.println("First bin: " + dataToSendBuffer[0]);
+        System.out.println("Second bin: " + dataToSendBuffer[1]);
+
+        int[] dataToSend = {Integer.parseInt(dataToSendBuffer[0], 2), Integer.parseInt(dataToSendBuffer[1], 2)};
+
+        System.out.println("First: " + dataToSend[0]);
+        System.out.println("Second: " + dataToSend[1]);
+
+        /* 
         IOLinkCommunication iol = new IOLinkCommunication("192.168.1.250", 502, 1);
         try {
             iol.startConnection();
@@ -19,6 +43,7 @@ public class SecondaryController {
         } catch (CommunicationException e) {
             System.out.println("ERRO!!!");
         }
+        */
         
 
         /* 
