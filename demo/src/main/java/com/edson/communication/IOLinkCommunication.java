@@ -1,12 +1,7 @@
 package com.edson.communication;
 
 import java.io.IOException;
-import java.util.Timer;
 import java.util.concurrent.TimeUnit;
-
-import javax.swing.JOptionPane;
-
-import org.springframework.data.mongodb.core.aggregation.DateOperators.Millisecond;
 
 import com.edson.exception.CommunicationException;
 import com.edson.util.ViewConfigurationPathUtil;
@@ -26,8 +21,8 @@ public class IOLinkCommunication implements BaseCommunication {
     private int address;
     private int port;
     private int timeBetweenCommand;
-    private int toggleReading = 525;
-    private int toggleWriting = 258;
+    private int toggleReading = 260;
+    private int toggleWriting = 530;
     private boolean toggle = false;
 
     public IOLinkCommunication(String ip, int port, int address, int timeBetweenCommand) {
@@ -56,7 +51,6 @@ public class IOLinkCommunication implements BaseCommunication {
 		try {
 			registers = ethernetIOLinkCommunication.readHoldingRegisters((short) register, (short) 1);
 			read = registers[0].intValue();
-			
 		} catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException e) {
 			throw new CommunicationException("Falha na leitura dos registradores");
 		}
@@ -92,18 +86,45 @@ public class IOLinkCommunication implements BaseCommunication {
 
     @Override
     public void writeSingleRegister(int registerAddress, int registerValue) throws CommunicationException {
-        short[] writingStructure = {(short) port, (short) registerAddress, 0, (short) toggleWriting, 16, (short) registerValue};
+        short[] writingStructure = {(short) address, (short) registerAddress, 0, (short) toggleWriting, 16, (short) registerValue};
         try {
+            toggleCommandIdentifier();
             ethernetIOLinkCommunication.writeMultipleRegisters((short) 500, writingStructure);
-        } catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException e) {
+            TimeUnit.MILLISECONDS.sleep(timeBetweenCommand);
+        } catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException | InterruptedException e) {
             throw new CommunicationException("Falha na leitura dos registradores");
         }
     }
 
     @Override
     public void writeMultipleRegister(int initialRegister, int[] registersValue) throws CommunicationException {
-        short[] writingStructure = {(short) port, (short) initialRegister, 0, (short) toggleWriting, 16, (short) registersValue[0], (short) registersValue[0]};
+        short[] writingStructure = new short[5+registersValue.length];
+        writingStructure[0] = (short) address;
+        writingStructure[1] = (short) initialRegister;
+        writingStructure[2] = 0;
+        writingStructure[3] = (short) toggleWriting;
+        writingStructure[4] = (short) 16;
+
+        for (int i = 0; i < registersValue.length;i++) {
+            writingStructure[5+i] = (short) invertByte(String.valueOf(registersValue[i]));
+        }
         try {
+            toggleCommandIdentifier();
+            ethernetIOLinkCommunication.writeMultipleRegisters((short) 500, writingStructure);
+            TimeUnit.MILLISECONDS.sleep(timeBetweenCommand);
+        } catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException | InterruptedException e) {
+            throw new CommunicationException("Falha na leitura dos registradores");
+        }
+    }
+
+    @Override
+    public void writeStringInRegister(int startingAddress, String stringToWrite) throws CommunicationException {
+        int[] data = invertBytes(stringToWrite);
+        //writeMultipleRegister(startingAddress, data);
+
+        short[] writingStructure = {(short) address, (short) startingAddress, 0, (short) toggleWriting, 16, (short) data[0], (short) data[1]};
+        try {
+            toggleCommandIdentifier();
             ethernetIOLinkCommunication.writeMultipleRegisters((short) 500, writingStructure);
         } catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException e) {
             throw new CommunicationException("Falha na leitura dos registradores");
@@ -114,12 +135,6 @@ public class IOLinkCommunication implements BaseCommunication {
     public void closeCommunication() {
         // TODO Auto-generated method stub
         
-    }
-
-    @Override
-    public void writeStringInRegister(int startingAddress, String stringToWrite) throws CommunicationException {
-        int[] data = invertBytes(stringToWrite);
-        writeMultipleRegister(startingAddress, data);
     }
 
     public int invertByte(String serial) {
@@ -158,12 +173,12 @@ public class IOLinkCommunication implements BaseCommunication {
 
     private void toggleCommandIdentifier() {
         if(toggle) {
-            toggleReading = 525;
-            toggleWriting = 258;
+            toggleReading = 258;
+            toggleWriting = 525;
             toggle = false;
         } else {
-            toggleReading = 524;
-            toggleWriting = 257;
+            toggleReading = 257;
+            toggleWriting = 524;
             toggle = true;
         }
     }

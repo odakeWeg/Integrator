@@ -38,21 +38,26 @@ public class SecondaryController {
 
         
         IOLinkCommunication iol = new IOLinkCommunication("192.168.1.250", 502, 1, 1000);
+
+        /* 
         try {
             iol.startConnection();
-            System.out.println(iol.readSingleRegister(1));
+            //System.out.println(iol.readSingleRegister(1));
             TimeUnit.MILLISECONDS.sleep(1000);
             int position = 1;
             int address = 21;
             //System.out.println("Leitura 21p1: " + iol.readMultipleRegisters(address, position)[0]);
             position = -2;
-            System.out.println("Leitura 21p2: " + iol.readMultipleRegisters(address, position)[0]);
-
+            //System.out.println("Leitura 21p2: " + iol.readMultipleRegisters(address, position)[0]);
+            int[] pass = {17495, 8259, 21331};
+            iol.writeMultipleRegister(4000, pass);
+            iol.writeStringInRegister(4002, "1234567890");
+            System.out.println("done");
             //iol.writeStringInRegister(address, );
         } catch (CommunicationException e) {
             System.out.println("ERRO!!!");
         }
-        
+        */
         
 
         /* 
