@@ -78,10 +78,11 @@ public class IOLinkCommunication implements BaseCommunication {
             toggleCommandIdentifier();
             ethernetIOLinkCommunication.writeMultipleRegisters((short) 500, readingStructureRequest);
             TimeUnit.MILLISECONDS.sleep(timeBetweenCommand);
-            leituraRegister = ethernetIOLinkCommunication.readHoldingRegisters((short) position, (short) 1);
+            leituraRegister = ethernetIOLinkCommunication.readHoldingRegisters((short) (position+5), (short) 1);
             leitura = new int[leituraRegister.length];
             for (int i = 0; i < leituraRegister.length; i++) {
                 leitura[i] = invertByte(String.valueOf(leituraRegister[i].intValue()));
+                System.out.println("----" + leituraRegister[i].intValue());
             }
         } catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException | InterruptedException e) {
             throw new CommunicationException("Falha na leitura dos registradores");
@@ -121,24 +122,26 @@ public class IOLinkCommunication implements BaseCommunication {
         writeMultipleRegister(startingAddress, data);
     }
 
-    private int invertByte(String serial) {
+    public int invertByte(String serial) {
         long serialNumber = Long.parseLong(serial);
         String binarySerialNumber = Long.toBinaryString(serialNumber);
         String dataToSendBuffer;
+        int size = 16;
 
-        binarySerialNumber = fillLeftZeros(binarySerialNumber);
+        binarySerialNumber = fillLeftZeros(binarySerialNumber, size);
         dataToSendBuffer = binarySerialNumber.substring(8) + binarySerialNumber.substring(0, 8);
         int dataToSend = Integer.parseInt(dataToSendBuffer, 2);
 
         return dataToSend;
     }
 
-    private int[] invertBytes(String serial) {
+    public int[] invertBytes(String serial) {
         long serialNumber = Long.parseLong(serial);
         String binarySerialNumber = Long.toBinaryString(serialNumber);
         String[] dataToSendBuffer = new String[2];
+        int size = 32;
 
-        binarySerialNumber = fillLeftZeros(binarySerialNumber);
+        binarySerialNumber = fillLeftZeros(binarySerialNumber, size);
         dataToSendBuffer[0] = binarySerialNumber.substring(0, 16).substring(8) + binarySerialNumber.substring(0, 16).substring(0, 8);
         dataToSendBuffer[1] = binarySerialNumber.substring(16).substring(8) + binarySerialNumber.substring(16).substring(0, 8);
         int[] dataToSend = {Integer.parseInt(dataToSendBuffer[0], 2), Integer.parseInt(dataToSendBuffer[1], 2)};
@@ -146,8 +149,8 @@ public class IOLinkCommunication implements BaseCommunication {
         return dataToSend;
     }
 
-    private String fillLeftZeros(String number) {
-        while(number.length() < 32) {
+    private String fillLeftZeros(String number, int size) {
+        while(number.length() < size) {
             number = "0" + number;
         }
         return number;

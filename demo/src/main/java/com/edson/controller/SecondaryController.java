@@ -1,18 +1,18 @@
 package com.edson.controller;
 
+import java.util.concurrent.TimeUnit;
+
 import com.edson.communication.IOLinkCommunication;
 import com.edson.exception.CommunicationException;
-import com.edson.test.data.SapData;
 
 import javafx.fxml.FXML;
-import net.weg.searchsap.Caract;
-import net.weg.searchsap.ProdutoBrutoSAP;
 
 public class SecondaryController {
 
     @FXML
-    private void switchToPrimary() {
+    private void switchToPrimary() throws InterruptedException {
 
+        /* 
         System.out.println(Long.toBinaryString(1234567890));
         long serialNumber = 1234567890;
         String binarySerialNumber = Long.toBinaryString(serialNumber);
@@ -34,16 +34,25 @@ public class SecondaryController {
 
         System.out.println("First: " + dataToSend[0]);
         System.out.println("Second: " + dataToSend[1]);
+        */
 
-        /* 
-        IOLinkCommunication iol = new IOLinkCommunication("192.168.1.250", 502, 1);
+        
+        IOLinkCommunication iol = new IOLinkCommunication("192.168.1.250", 502, 1, 1000);
         try {
             iol.startConnection();
             System.out.println(iol.readSingleRegister(1));
+            TimeUnit.MILLISECONDS.sleep(1000);
+            int position = 1;
+            int address = 21;
+            //System.out.println("Leitura 21p1: " + iol.readMultipleRegisters(address, position)[0]);
+            position = -2;
+            System.out.println("Leitura 21p2: " + iol.readMultipleRegisters(address, position)[0]);
+
+            //iol.writeStringInRegister(address, );
         } catch (CommunicationException e) {
             System.out.println("ERRO!!!");
         }
-        */
+        
         
 
         /* 
