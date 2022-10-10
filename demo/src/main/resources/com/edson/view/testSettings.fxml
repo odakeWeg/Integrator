@@ -150,6 +150,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#selectVariableWrite" text="VariableWrite" />
                   <MenuItem mnemonicParsing="false" onAction="#selectReadMultiple" text="ReadMultiple" />
                   <MenuItem mnemonicParsing="false" onAction="#selectWriteString" text="WriteString" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectCommunicationEthernet" text="CommunicationEthernet" />
               </items>
                <font>
                   <Font size="18.0" />

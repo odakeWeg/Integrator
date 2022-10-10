@@ -20,6 +20,8 @@ public class TagVerifyFormController extends BaseTagForm {
     @FXML
     private TextField tolerancyPercentage;
     @FXML
+    private TextField calculateBy;
+    @FXML
     private Button addEditButton;
     
     @FXML
@@ -40,6 +42,7 @@ public class TagVerifyFormController extends BaseTagForm {
             verifyTag.setTargetStep(Integer.parseInt(targetStep.getText()));
             verifyTag.setReferenceValue(Integer.parseInt(referenceValue.getText()));
             verifyTag.setTolerancyPercentage(Integer.parseInt(tolerancyPercentage.getText()));
+            verifyTag.setCalculateBy(calculateBy.getText());
             setFieldValidation(true);
             setTag(verifyTag);
             stage.close();
@@ -65,6 +68,7 @@ public class TagVerifyFormController extends BaseTagForm {
         targetStep.setText(String.valueOf(filler.getTargetStep()));
         referenceValue.setText(String.valueOf(filler.getReferenceValue()));
         tolerancyPercentage.setText(String.valueOf(filler.getTolerancyPercentage()));
+        calculateBy.setText(String.valueOf(filler.getCalculateBy()));
     }
 
 }

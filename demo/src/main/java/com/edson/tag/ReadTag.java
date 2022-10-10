@@ -11,7 +11,7 @@ import com.edson.exception.CommunicationException;
 
 @XmlRootElement(name = "read")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class ReadTag extends BaseTag{
+public class ReadTag extends BaseReadTag{
 
     private String communicationName;
     private int register;
@@ -40,7 +40,7 @@ public class ReadTag extends BaseTag{
     }
 
     private void setLog() {
-        String logToAdd = id + ") Valor lido no parâmetro " + register + ": " + valueRead + "\n";
+        String logToAdd = id + ") Valor lido no parâmetro " + register + ": " + valueRead + " - " + testResult + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
@@ -64,6 +64,7 @@ public class ReadTag extends BaseTag{
         return null;
     }
 
+    @Override
     public int getValueRead() {
         return this.valueRead;
     }

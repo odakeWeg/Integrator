@@ -4,12 +4,12 @@ import com.edson.controller.AutomatedTestController;
 
 public class DataCenter {
     private BaseData sapDataMap;
-    private BaseData inlineDataMap;
+    private InlineConnector inlineConnector;
     private AutomatedTestController controller;
 
     public DataCenter(String barCode, AutomatedTestController controller) {
         sapDataMap = new SapData(barCode);
-        inlineDataMap = new InlineData();
+        inlineConnector = new InlineConnector();
         this.controller = controller;
     }
 
@@ -21,8 +21,8 @@ public class DataCenter {
         return this.sapDataMap;
     }
 
-    public BaseData getInlineDataMap() {
-        return this.inlineDataMap;
+    public InlineConnector getInlineConnector() {
+        return this.inlineConnector;
     }
 
 }

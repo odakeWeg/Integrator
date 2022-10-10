@@ -32,17 +32,17 @@ public class VariableWriteTag extends BaseTag {
                 value = Integer.parseInt(dataCenter.getSapDataMap().getDataMap().get(variableWriteName));
                 communication.writeSingleRegister(register, value);
                 testResult = "OK";
-                setLog();
             } catch (CommunicationException e) {
                 testResult = "Falha na comunicação";
             }
         }
         delayMilliseconds(waitAfter);
+        setLog();
         return testResult;
     }
 
     private void setLog() {
-        String logToAdd = id + ") Valor escrito na variável " + register + ":" + value + "\n";
+        String logToAdd = id + ") Valor escrito na variável " + register + ":" + value + " - " + testResult + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 

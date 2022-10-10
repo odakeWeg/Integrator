@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -19,6 +20,8 @@ public class TagCompareFormController extends BaseTagForm {
     private TextField targetStep;
     @FXML
     private TextField tolerancyPercentage;
+    @FXML
+    private TextField calculateBy;
     @FXML
     private Button addEditButton;
 
@@ -40,6 +43,7 @@ public class TagCompareFormController extends BaseTagForm {
             compareTag.setReferenceStep(Integer.parseInt(referenceStep.getText()));
             compareTag.setTargetStep(Integer.parseInt(targetStep.getText()));
             compareTag.setTolerancyPercentage(Integer.parseInt(tolerancyPercentage.getText()));
+            compareTag.setCalculateBy(calculateBy.getText());
             setFieldValidation(true);
             setTag(compareTag);
             stage.close();
@@ -65,6 +69,7 @@ public class TagCompareFormController extends BaseTagForm {
         referenceStep.setText(String.valueOf(filler.getReferenceStep()));
         targetStep.setText(String.valueOf(filler.getTargetStep()));
         tolerancyPercentage.setText(String.valueOf(filler.getTolerancyPercentage()));
+        calculateBy.setText(String.valueOf(filler.getCalculateBy()));
     }
     
 }

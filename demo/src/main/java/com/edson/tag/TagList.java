@@ -33,6 +33,8 @@ public class TagList{
     private List<VariableWriteTag> variableWriteTagList = new ArrayList<>();
     @XmlElement(name = "communicationIOLink")
     private List<CommunicationIOLinkTag> communicationIOLinkTagList = new ArrayList<>();
+    @XmlElement(name = "communicationEthernet")
+    private List<CommunicationEthernetTag> communicationEthernetTagList = new ArrayList<>();
     @XmlElement(name = "writeString")
     private List<WriteStringTag> writeStringTagList = new ArrayList<>();
     @XmlElement(name = "readMultiple")
@@ -58,6 +60,7 @@ public class TagList{
         hm.put("TestTag", testTagList);
         hm.put("CommunicationTag", communicationTagList);
         hm.put("CommunicationIOLinkTag", communicationIOLinkTagList);
+        hm.put("CommunicationEthernetTag", communicationEthernetTagList);
         hm.put("CompareTag", compareTagList);
         hm.put("ReadTag", readTagList);
         hm.put("WriteTag", writeTagList);
@@ -74,6 +77,7 @@ public class TagList{
         tagManager.addAll(testTagList);
         tagManager.addAll(communicationTagList);
         tagManager.addAll(communicationIOLinkTagList);
+        tagManager.addAll(communicationEthernetTagList);
         tagManager.addAll(compareTagList);
         tagManager.addAll(readTagList);
         tagManager.addAll(writeTagList);

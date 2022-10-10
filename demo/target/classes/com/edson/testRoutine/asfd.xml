@@ -46,6 +46,24 @@
         <waitBefore>1</waitBefore>
         <waitAfter>1</waitAfter>
     </write>
+    <communicationIOLink>
+        <id>8</id>
+        <tagName>communicationIOLink</tagName>
+        <communicationName>1</communicationName>
+        <ip>1</ip>
+        <port>1</port>
+        <address>1</address>
+        <timeBetweenCommand>1</timeBetweenCommand>
+    </communicationIOLink>
+    <communicationEthernet>
+        <id>7</id>
+        <tagName>communicationEthernet</tagName>
+        <communicationName>1</communicationName>
+        <ip>1</ip>
+        <port>1</port>
+        <address>1</address>
+        <timeBetweenCommand>1</timeBetweenCommand>
+    </communicationEthernet>
     <writeString>
         <id>4</id>
         <tagName>writeString</tagName>

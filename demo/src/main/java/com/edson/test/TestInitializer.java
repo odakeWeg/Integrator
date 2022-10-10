@@ -33,11 +33,14 @@ public class TestInitializer extends Thread {
     public void run() {
         
         dataCenter = new DataCenter(barCode, controller);
-        initSetup();
-        try {
-            result = startTestingRoutine(getList());
-        } catch (TestUnmarshalingException e) {
-            result = "Erro ao puxar rotina de teste";
+        if(initSetup()) {
+            try {
+                result = startTestingRoutine(getList());
+            } catch (TestUnmarshalingException e) {
+                result = "Erro ao puxar rotina de teste";
+            }
+        } else {
+            result = "Falha no apontamento do Inline";
         }
         endSetup();
     }
@@ -60,18 +63,37 @@ public class TestInitializer extends Thread {
         });
     }
 
-    private void initSetup() {
+    private boolean initSetup() {
+        try {
         dataCenter.getController().getTestRoutineLog().setText("");
         dataCenter.getController().getStatus().setVisible(true);
         dataCenter.getController().getStatusRectangle().setVisible(true);
+        dataCenter.getInlineConnector().saveInitialEvent(barCode);
+        return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     private void endSetup() {
+        saveInline();
         String logToAdd = "Resultado do teste: " + result + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
         dataCenter.getController().getStatus().setVisible(false);
         dataCenter.getController().getStatusRectangle().setVisible(false);
         showResultMessage();
+    }
+
+    private void saveInline() {
+        try {
+            if(result.equals("OK")) {
+                dataCenter.getInlineConnector().saveApprovalEvent(barCode);
+            } else {
+                dataCenter.getInlineConnector().saveDisapprovalEvent(barCode, result);
+            }
+        } catch (Exception e) {
+            result = "Falha no apontamento do Inline";
+        }
     }
 
     private List<BaseTag> getList() throws TestUnmarshalingException {

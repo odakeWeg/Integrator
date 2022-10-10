@@ -8,26 +8,33 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "variableRead")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class VariableReadTag extends BaseTag {
+public class VariableReadTag extends BaseReadTag {
 
     private String variableRead;
-    private int read;
+    private String testResult;
+    private int valueRead;
 
     @Override
     String executeCommand() {
-        read = Integer.parseInt(dataCenter.getSapDataMap().getDataMap().get(variableRead));
+        valueRead = Integer.parseInt(dataCenter.getSapDataMap().getDataMap().get(variableRead));
+        testResult = "OK";
         setLog();
-        return "OK";
+        return testResult;
     }
 
     private void setLog() {
-        String logToAdd = id + ") Variavel lida: " + read + "\n";
+        String logToAdd = id + ") Variavel lida: " + valueRead + " - " + testResult + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
     @Override
     public void setTagName() {
         this.tagName = "variableRead";
+    }
+
+    @Override
+    public int getValueRead() {
+        return this.valueRead;
     }
 
     public String getVariableRead() {
