@@ -38,7 +38,7 @@ public class CommunicationTag extends BaseTag{
     }
 
     private void setLog() {
-        String logToAdd = "Configurações de comunicação com " + communicationName + " - OK\n";
+        String logToAdd = id + ") Configurações de comunicação com " + communicationName + " - OK\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 

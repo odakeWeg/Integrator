@@ -30,18 +30,18 @@ public class WriteMultipleTag extends BaseTag {
         } else {
             try {
                 communication.writeMultipleRegister(register, value);
-                testResult = "OK";
+                testResult = "OK"; 
+                setLog();
             } catch (CommunicationException e) {
                 testResult = "Falha na comunicação";
             }
         }
-        delayMilliseconds(waitAfter); 
-        setLog();
+        delayMilliseconds(waitAfter);
         return testResult;
     }
 
     private void setLog() {
-        String logToAdd = "Valor escrito no parâmetro" + register + ": " + value + "\n";
+        String logToAdd = id + ") Valor escrito no parâmetro" + register + ": " + value + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 

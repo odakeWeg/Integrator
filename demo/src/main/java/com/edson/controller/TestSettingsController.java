@@ -9,10 +9,8 @@ import java.util.ResourceBundle;
 
 import com.edson.model.dto.TestStep;
 import com.edson.tag.BaseTag;
-import com.edson.tag.CommunicationTag;
 import com.edson.util.ViewConfigurationPathUtil;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

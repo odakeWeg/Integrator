@@ -40,7 +40,7 @@ public class WriteStringTag extends BaseTag {
     }
 
     private void setLog() {
-        String logToAdd = "Valor escrito no parâmetro" + register + ": " + value + "\n";
+        String logToAdd = id + ") Valor escrito no parâmetro" + register + ": " + value + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 

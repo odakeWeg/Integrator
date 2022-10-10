@@ -41,7 +41,7 @@ public class ReadMultipleTag extends BaseTag {
     }
 
     private void setLog() {
-        String logToAdd = "Valor lido no parâmetro " + register + ": " + valueRead + "\n";
+        String logToAdd = id + ") Valor lido no parâmetro " + register + ": " + valueRead + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 

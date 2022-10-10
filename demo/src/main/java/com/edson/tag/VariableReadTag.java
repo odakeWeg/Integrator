@@ -21,7 +21,7 @@ public class VariableReadTag extends BaseTag {
     }
 
     private void setLog() {
-        String logToAdd = "Variavel lida: " + read + "\n";
+        String logToAdd = id + ") Variavel lida: " + read + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 

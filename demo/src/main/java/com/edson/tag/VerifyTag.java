@@ -23,8 +23,8 @@ public class VerifyTag extends BaseTag{
         } else {
             targetValue = targetRead.getValueRead();
 
-            boolean upperLimit = targetValue < referenceValue*tolerancyPercentage + referenceValue;
-            boolean lowerLimit = targetValue > referenceValue - referenceValue*tolerancyPercentage;
+            boolean upperLimit = targetValue <= referenceValue*tolerancyPercentage + referenceValue;
+            boolean lowerLimit = targetValue >= referenceValue - referenceValue*tolerancyPercentage;
             if (upperLimit && lowerLimit) {
                 testResult = "OK";
             } else {
@@ -36,7 +36,7 @@ public class VerifyTag extends BaseTag{
     }
 
     private void setLog() {
-        String logToAdd = "Valor desejado: " + referenceValue + " | " + "Valor lido: " + targetValue + "\n";
+        String logToAdd = id + ") Valor desejado: " + referenceValue + " | " + "Valor lido: " + targetValue + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 

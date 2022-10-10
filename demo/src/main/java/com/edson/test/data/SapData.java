@@ -9,7 +9,11 @@ public class SapData implements BaseData {
     private HashMap<String, String> sapDataMap = new HashMap<>();
 
     public SapData(String barCode) {
-        getDataBy2DBarcodeString(barCode);
+        sapDataMap.put("serial", barCode);
+        sapDataMap.put("serial1", sapDataMap.get("serial").substring(0, 4));
+        sapDataMap.put("serial2", sapDataMap.get("serial").substring(4, 8));
+        sapDataMap.put("serial3", sapDataMap.get("serial").substring(8));
+        //getDataBy2DBarcodeString(barCode);
     }
 
     @Override
