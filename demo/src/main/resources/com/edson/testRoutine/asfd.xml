@@ -36,4 +36,35 @@
         <waitAfter>1</waitAfter>
         <valueRead>0</valueRead>
     </read>
+    <write>
+        <id>6</id>
+        <tagName>write</tagName>
+        <communicationName>1</communicationName>
+        <register>1</register>
+        <value>1</value>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1</waitAfter>
+    </write>
+    <writeString>
+        <id>4</id>
+        <tagName>writeString</tagName>
+        <communicationName>1</communicationName>
+        <register>1</register>
+        <value>1</value>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1</waitAfter>
+    </writeString>
+    <readMultiple>
+        <id>5</id>
+        <tagName>readMultiple</tagName>
+        <communicationName>1</communicationName>
+        <register>1</register>
+        <position>65</position>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1</waitAfter>
+        <valueRead>0</valueRead>
+    </readMultiple>
 </root>

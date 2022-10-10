@@ -148,6 +148,8 @@
                   <MenuItem mnemonicParsing="false" onAction="#selectTest" text="Test" />
                   <MenuItem mnemonicParsing="false" onAction="#selectVariableRead" text="VariableRead" />
                   <MenuItem mnemonicParsing="false" onAction="#selectVariableWrite" text="VariableWrite" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectReadMultiple" text="ReadMultiple" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectWriteString" text="WriteString" />
               </items>
                <font>
                   <Font size="18.0" />

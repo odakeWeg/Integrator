@@ -220,4 +220,16 @@ public class TestSettingsController implements Initializable {
         adicionarButton.setDisable(false);
         tagMenu.setText("CommunicationIOLink");
     }
+
+    @FXML
+    private void selectWriteString() {
+        adicionarButton.setDisable(false);
+        tagMenu.setText("WriteString");
+    }
+
+    @FXML
+    private void selectReadMultiple() {
+        adicionarButton.setDisable(false);
+        tagMenu.setText("ReadMultiple");
+    }
 }
