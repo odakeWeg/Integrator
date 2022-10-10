@@ -5,13 +5,35 @@
         <tagName>test</tagName>
         <name>afec</name>
     </test>
+    <communication>
+        <id>3</id>
+        <tagName>communication</tagName>
+        <communicationName>1</communicationName>
+        <portName>1</portName>
+        <baudRate>1</baudRate>
+        <dataBits>1</dataBits>
+        <stopBits>1</stopBits>
+        <parity>1</parity>
+        <timeout>1</timeout>
+        <address>1</address>
+    </communication>
     <compare>
         <id>1</id>
         <tagName>compare</tagName>
-        <referenceStep>23</referenceStep>
+        <referenceStep>232</referenceStep>
         <targetStep>2</targetStep>
-        <tolerancyPercentage>2</tolerancyPercentage>
+        <tolerancyPercentage>24</tolerancyPercentage>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
     </compare>
+    <read>
+        <id>2</id>
+        <tagName>read</tagName>
+        <communicationName>1</communicationName>
+        <register>1</register>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1</waitAfter>
+        <valueRead>0</valueRead>
+    </read>
 </root>

@@ -3,6 +3,10 @@ package com.edson.controller;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.attribute.BasicFileAttributes;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -15,6 +19,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.PropertyException;
+import javax.xml.bind.Unmarshaller;
 
 import com.edson.App;
 import com.edson.model.dto.TestRoutine;
@@ -58,7 +63,39 @@ public class SettingsController implements Initializable {
         dataCol.setCellValueFactory(new PropertyValueFactory<>("data"));
 
         //testTable.setItems(nameList());
+        uploadTestToTable();
     }
+
+    private void uploadTestToTable() {
+        JAXBContext jaxbContext;
+        TagList tagList;
+        File dir = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH);
+        File[] directoryListing = dir.listFiles();
+        if (directoryListing != null) {
+            try {
+                jaxbContext = JAXBContext.newInstance(TagList.class);
+                Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+                for (File child : directoryListing) {
+                    tagList = (TagList) jaxbUnmarshaller.unmarshal(child);
+                    tagList.setBaseTagManager();
+                    Path file = Paths.get(child.getPath());
+                    BasicFileAttributes attr = Files.readAttributes(file, BasicFileAttributes.class);
+                    testTable.getItems().add(new TestRoutine(testTable.getItems().size(), 7881, child.getName().split("\\.")[0], tagList.getBaseTagManager().size(), attr.creationTime().toString().split("T")[0], tagList.getBaseTagManager()));
+                }
+            } catch (JAXBException | IOException e) {
+                Alert userAlert = new Alert(AlertType.ERROR);
+                userAlert.setTitle("Upload de teste");
+                userAlert.setHeaderText("Falha ao fazer o upload dos testes");
+                userAlert.setContentText("Caminho do arquivo não encontrado ou arquivo fora do padrão");
+                userAlert.showAndWait();
+                e.getStackTrace();
+            }
+        } else {
+            
+        }
+    }
+
+
 
     /* 
     //@TestingCode - Will be changed for a persistence or load files from computer

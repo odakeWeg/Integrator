@@ -31,6 +31,8 @@ public class TagList{
     private List<VariableReadTag> variableReadTagList = new ArrayList<>();
     @XmlElement(name = "variableWrite")
     private List<VariableWriteTag> variableWriteTagList = new ArrayList<>();
+    @XmlElement(name = "communicationIOLink")
+    private List<CommunicationIOLinkTag> communicationIOLinkTagList = new ArrayList<>();
 
     private List<Object> tagManager = new ArrayList<>();
     private List<BaseTag> baseTagManager = new ArrayList<>();
@@ -51,6 +53,7 @@ public class TagList{
         HashMap<String, List> hm = new HashMap<>();
         hm.put("TestTag", testTagList);
         hm.put("CommunicationTag", communicationTagList);
+        hm.put("CommunicationIOLinkTag", communicationIOLinkTagList);
         hm.put("CompareTag", compareTagList);
         hm.put("ReadTag", readTagList);
         hm.put("WriteTag", writeTagList);
@@ -64,6 +67,7 @@ public class TagList{
     public void concatenateTagList() {
         tagManager.addAll(testTagList);
         tagManager.addAll(communicationTagList);
+        tagManager.addAll(communicationIOLinkTagList);
         tagManager.addAll(compareTagList);
         tagManager.addAll(readTagList);
         tagManager.addAll(writeTagList);

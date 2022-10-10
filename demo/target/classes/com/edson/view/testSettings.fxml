@@ -7,8 +7,8 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -21,7 +21,7 @@
             <TableColumn fx:id="tagNameCol" prefWidth="540.0" text="TagName" />
         </columns>
       </TableView>
-      <ImageView fitHeight="180.0" fitWidth="180.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" >
+      <ImageView fitHeight="180.0" fitWidth="180.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
          <image>
             <Image url="@/com/edson/images/wegLogo.png" />
         </image>            
@@ -140,6 +140,7 @@
             <MenuButton fx:id="tagMenu" alignment="CENTER" contentDisplay="CENTER" layoutX="6.0" layoutY="1.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="199.0" text="Tag" textAlignment="CENTER">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#selectCommunication" text="Communication" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectCommunicationIOLink" text="CommunicationIOLink" />
                   <MenuItem mnemonicParsing="false" onAction="#selectRead" text="Read" />
                   <MenuItem mnemonicParsing="false" onAction="#selectWrite" text="Write" />
                   <MenuItem mnemonicParsing="false" onAction="#selectCompare" text="Compare" />

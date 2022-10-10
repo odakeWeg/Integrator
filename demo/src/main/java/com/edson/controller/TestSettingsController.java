@@ -140,6 +140,7 @@ public class TestSettingsController implements Initializable {
         Parent part = (Parent) loader.load();
         BaseTagForm addFormController = (BaseTagForm) loader.getController();
         addFormController.setTag(testStepTable.getSelectionModel().getSelectedItem().getTag());
+        addFormController.setId(testStepTable.getSelectionModel().getSelectedItem().getTag().getId());
         addFormController.setEditStage(part);
         if(addFormController.isFieldValidation()) {
             testStepTable.getSelectionModel().getSelectedItem().setTag(addFormController.getTag());
@@ -212,5 +213,11 @@ public class TestSettingsController implements Initializable {
     private void selectTest() {
         adicionarButton.setDisable(false);
         tagMenu.setText("Test");
+    }
+
+    @FXML
+    private void selectCommunicationIOLink() {
+        adicionarButton.setDisable(false);
+        tagMenu.setText("CommunicationIOLink");
     }
 }

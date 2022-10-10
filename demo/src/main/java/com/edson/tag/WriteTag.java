@@ -54,7 +54,7 @@ public class WriteTag extends BaseTag {
     private BaseCommunication getCommunicationByName(String name) {
         CommunicationTag communicationTag;
         for (int i = 0; i < tagList.size(); i++) {
-            if (tagList.get(i).tagName.equals("communication")) {
+            if (tagList.get(i).getTagName().contains("communication")) {
                 communicationTag = (CommunicationTag) tagList.get(i);
                 if(communicationTag.getCommunicationName().equals(name)) {
                     return communicationTag.getConnection();
