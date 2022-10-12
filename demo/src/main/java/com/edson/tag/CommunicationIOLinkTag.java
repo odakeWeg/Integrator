@@ -11,7 +11,7 @@ import com.edson.exception.CommunicationException;
 
 @XmlRootElement(name = "communicationIOLink")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class CommunicationIOLinkTag extends BaseTag {
+public class CommunicationIOLinkTag extends BaseCommunicationTag {
     private String communicationName;
     private String ip;
     private int port;

@@ -2,6 +2,7 @@
 <root>
     <communication>
         <id>0</id>
+        <testResult>OK</testResult>
         <tagName>communication</tagName>
         <communicationName>produto</communicationName>
         <portName>COM4</portName>
@@ -14,6 +15,7 @@
     </communication>
     <communication>
         <id>1</id>
+        <testResult>OK</testResult>
         <tagName>communication</tagName>
         <communicationName>giga</communicationName>
         <portName>COM4</portName>
@@ -26,116 +28,128 @@
     </communication>
     <compare>
         <id>18</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>4</referenceStep>
         <targetStep>5</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
         <id>19</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>6</referenceStep>
         <targetStep>7</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
         <id>20</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>8</referenceStep>
         <targetStep>9</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
         <id>21</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>10</referenceStep>
         <targetStep>11</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
         <id>22</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>12</referenceStep>
         <targetStep>13</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
         <id>23</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>14</referenceStep>
         <targetStep>15</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
         <id>24</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>16</referenceStep>
         <targetStep>17</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
         <id>36</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>30</referenceStep>
         <targetStep>33</targetStep>
         <tolerancyPercentage>0</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
         <id>37</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>31</referenceStep>
         <targetStep>34</targetStep>
         <tolerancyPercentage>0</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
         <id>38</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>32</referenceStep>
         <targetStep>35</targetStep>
         <tolerancyPercentage>0</tolerancyPercentage>
-		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
     </compare>
     <read>
         <id>2</id>
+        <testResult>OK</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>29</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <valueRead>2048</valueRead>
     </read>
     <read>
         <id>4</id>
+        <testResult>OK</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>0</register>
@@ -146,6 +160,7 @@
     </read>
     <read>
         <id>5</id>
+        <testResult>Falha na comunicação</testResult>
         <tagName>read</tagName>
         <communicationName>giga</communicationName>
         <register>0</register>
@@ -156,6 +171,7 @@
     </read>
     <read>
         <id>6</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>1</register>
@@ -166,6 +182,7 @@
     </read>
     <read>
         <id>7</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>giga</communicationName>
         <register>1</register>
@@ -176,6 +193,7 @@
     </read>
     <read>
         <id>8</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>2</register>
@@ -186,6 +204,7 @@
     </read>
     <read>
         <id>9</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>giga</communicationName>
         <register>2</register>
@@ -196,6 +215,7 @@
     </read>
     <read>
         <id>10</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>12</register>
@@ -206,6 +226,7 @@
     </read>
     <read>
         <id>11</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>giga</communicationName>
         <register>12</register>
@@ -216,6 +237,7 @@
     </read>
     <read>
         <id>12</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>13</register>
@@ -226,6 +248,7 @@
     </read>
     <read>
         <id>13</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>giga</communicationName>
         <register>13</register>
@@ -236,6 +259,7 @@
     </read>
     <read>
         <id>14</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>14</register>
@@ -246,6 +270,7 @@
     </read>
     <read>
         <id>15</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>giga</communicationName>
         <register>14</register>
@@ -256,6 +281,7 @@
     </read>
     <read>
         <id>16</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>15</register>
@@ -266,6 +292,7 @@
     </read>
     <read>
         <id>17</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>giga</communicationName>
         <register>15</register>
@@ -276,6 +303,7 @@
     </read>
     <read>
         <id>33</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>105</register>
@@ -286,6 +314,7 @@
     </read>
     <read>
         <id>34</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>106</register>
@@ -296,6 +325,7 @@
     </read>
     <read>
         <id>35</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>107</register>
@@ -306,6 +336,7 @@
     </read>
     <write>
         <id>25</id>
+        <testResult>N/A</testResult>
         <tagName>write</tagName>
         <communicationName>produto</communicationName>
         <register>10000</register>
@@ -316,6 +347,7 @@
     </write>
     <write>
         <id>26</id>
+        <testResult>N/A</testResult>
         <tagName>write</tagName>
         <communicationName>produto</communicationName>
         <register>10000</register>
@@ -326,33 +358,38 @@
     </write>
     <verify>
         <id>3</id>
+        <testResult>OK</testResult>
         <tagName>verify</tagName>
         <targetStep>2</targetStep>
-        <targetValue>0</targetValue>
+        <targetValue>2048</targetValue>
         <referenceValue>2048</referenceValue>
         <tolerancyPercentage>0</tolerancyPercentage>
         <calculateBy>absolute</calculateBy>
     </verify>
     <variableRead>
         <id>30</id>
+        <testResult>N/A</testResult>
         <tagName>variableRead</tagName>
         <variableRead>serial1</variableRead>
         <valueRead>0</valueRead>
     </variableRead>
     <variableRead>
         <id>31</id>
+        <testResult>N/A</testResult>
         <tagName>variableRead</tagName>
         <variableRead>serial2</variableRead>
         <valueRead>0</valueRead>
     </variableRead>
     <variableRead>
         <id>32</id>
+        <testResult>N/A</testResult>
         <tagName>variableRead</tagName>
         <variableRead>serial3</variableRead>
         <valueRead>0</valueRead>
     </variableRead>
     <variableWrite>
         <id>27</id>
+        <testResult>N/A</testResult>
         <tagName>variableWrite</tagName>
         <communicationName>produto</communicationName>
         <register>10000</register>
@@ -364,6 +401,7 @@
     </variableWrite>
     <variableWrite>
         <id>28</id>
+        <testResult>N/A</testResult>
         <tagName>variableWrite</tagName>
         <communicationName>produto</communicationName>
         <register>10000</register>
@@ -375,6 +413,7 @@
     </variableWrite>
     <variableWrite>
         <id>29</id>
+        <testResult>N/A</testResult>
         <tagName>variableWrite</tagName>
         <communicationName>produto</communicationName>
         <register>10000</register>

@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "compare")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class CompareTag extends BaseTag {
+public class CompareTag extends BaseCompareTag {
 
     private int referenceStep;
     private int targetStep;

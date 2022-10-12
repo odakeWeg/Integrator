@@ -11,7 +11,7 @@ import com.edson.exception.CommunicationException;
 
 @XmlRootElement(name = "variableWrite")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class VariableWriteTag extends BaseTag {
+public class VariableWriteTag extends BaseWriteTag {
 
     private String communicationName;
     private int register;

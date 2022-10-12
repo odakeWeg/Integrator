@@ -30,6 +30,7 @@
         <referenceStep>4</referenceStep>
         <targetStep>5</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
     </compare>
@@ -39,6 +40,7 @@
         <referenceStep>6</referenceStep>
         <targetStep>7</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
     </compare>
@@ -48,6 +50,7 @@
         <referenceStep>8</referenceStep>
         <targetStep>9</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
     </compare>
@@ -57,6 +60,7 @@
         <referenceStep>10</referenceStep>
         <targetStep>11</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
     </compare>
@@ -66,6 +70,7 @@
         <referenceStep>12</referenceStep>
         <targetStep>13</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
     </compare>
@@ -75,6 +80,7 @@
         <referenceStep>14</referenceStep>
         <targetStep>15</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
     </compare>
@@ -84,6 +90,37 @@
         <referenceStep>16</referenceStep>
         <targetStep>17</targetStep>
         <tolerancyPercentage>10</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
+        <referenceValue>0</referenceValue>
+        <targetValue>0</targetValue>
+    </compare>
+    <compare>
+        <id>36</id>
+        <tagName>compare</tagName>
+        <referenceStep>30</referenceStep>
+        <targetStep>33</targetStep>
+        <tolerancyPercentage>0</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
+        <referenceValue>0</referenceValue>
+        <targetValue>0</targetValue>
+    </compare>
+    <compare>
+        <id>37</id>
+        <tagName>compare</tagName>
+        <referenceStep>31</referenceStep>
+        <targetStep>34</targetStep>
+        <tolerancyPercentage>0</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
+        <referenceValue>0</referenceValue>
+        <targetValue>0</targetValue>
+    </compare>
+    <compare>
+        <id>38</id>
+        <tagName>compare</tagName>
+        <referenceStep>32</referenceStep>
+        <targetStep>35</targetStep>
+        <tolerancyPercentage>0</tolerancyPercentage>
+		<calculateBy>absolute</calculateBy>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
     </compare>
@@ -237,6 +274,36 @@
         <waitAfter>1000</waitAfter>
         <valueRead>0</valueRead>
     </read>
+    <read>
+        <id>33</id>
+        <tagName>read</tagName>
+        <communicationName>produto</communicationName>
+        <register>105</register>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <valueRead>0</valueRead>
+    </read>
+    <read>
+        <id>34</id>
+        <tagName>read</tagName>
+        <communicationName>produto</communicationName>
+        <register>106</register>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <valueRead>0</valueRead>
+    </read>
+    <read>
+        <id>35</id>
+        <tagName>read</tagName>
+        <communicationName>produto</communicationName>
+        <register>107</register>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <valueRead>0</valueRead>
+    </read>
     <write>
         <id>25</id>
         <tagName>write</tagName>
@@ -264,24 +331,25 @@
         <targetValue>0</targetValue>
         <referenceValue>2048</referenceValue>
         <tolerancyPercentage>0</tolerancyPercentage>
+        <calculateBy>absolute</calculateBy>
     </verify>
     <variableRead>
         <id>30</id>
         <tagName>variableRead</tagName>
         <variableRead>serial1</variableRead>
-        <read>0</read>
+        <valueRead>0</valueRead>
     </variableRead>
     <variableRead>
         <id>31</id>
         <tagName>variableRead</tagName>
         <variableRead>serial2</variableRead>
-        <read>0</read>
+        <valueRead>0</valueRead>
     </variableRead>
     <variableRead>
         <id>32</id>
         <tagName>variableRead</tagName>
         <variableRead>serial3</variableRead>
-        <read>0</read>
+        <valueRead>0</valueRead>
     </variableRead>
     <variableWrite>
         <id>27</id>
@@ -316,60 +384,4 @@
         <waitAfter>1000</waitAfter>
         <value>0</value>
     </variableWrite>
-	<read>
-        <id>33</id>
-        <tagName>read</tagName>
-        <communicationName>produto</communicationName>
-        <register>105</register>
-        <timeOut>0</timeOut>
-        <waitBefore>1</waitBefore>
-        <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
-    </read>
-	<read>
-        <id>34</id>
-        <tagName>read</tagName>
-        <communicationName>produto</communicationName>
-        <register>106</register>
-        <timeOut>0</timeOut>
-        <waitBefore>1</waitBefore>
-        <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
-    </read>
-	<read>
-        <id>35</id>
-        <tagName>read</tagName>
-        <communicationName>produto</communicationName>
-        <register>107</register>
-        <timeOut>0</timeOut>
-        <waitBefore>1</waitBefore>
-        <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
-    </read>
-	<compare>
-        <id>36</id>
-        <tagName>compare</tagName>
-        <referenceStep>30</referenceStep>
-        <targetStep>33</targetStep>
-        <tolerancyPercentage>0</tolerancyPercentage>
-        <referenceValue>0</referenceValue>
-        <targetValue>0</targetValue>
-    </compare><compare>
-        <id>37</id>
-        <tagName>compare</tagName>
-        <referenceStep>31</referenceStep>
-        <targetStep>34</targetStep>
-        <tolerancyPercentage>0</tolerancyPercentage>
-        <referenceValue>0</referenceValue>
-        <targetValue>0</targetValue>
-    </compare>
-	<compare>
-        <id>38</id>
-        <tagName>compare</tagName>
-        <referenceStep>32</referenceStep>
-        <targetStep>35</targetStep>
-        <tolerancyPercentage>0</tolerancyPercentage>
-        <referenceValue>0</referenceValue>
-        <targetValue>0</targetValue>
-    </compare>
 </root>

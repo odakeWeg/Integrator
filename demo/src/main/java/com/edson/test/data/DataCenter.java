@@ -6,11 +6,13 @@ public class DataCenter {
     private BaseData sapDataMap;
     private InlineConnector inlineConnector;
     private AutomatedTestController controller;
+    private DataBaseConnector dbConnector;
 
     public DataCenter(String barCode, AutomatedTestController controller) {
-        sapDataMap = new SapData(barCode);
-        inlineConnector = new InlineConnector();
+        this.sapDataMap = new SapData(barCode);
+        this.inlineConnector = new InlineConnector();
         this.controller = controller;
+        this.dbConnector = new DataBaseConnector();
     }
 
     public AutomatedTestController getController() {
@@ -23,6 +25,10 @@ public class DataCenter {
 
     public InlineConnector getInlineConnector() {
         return this.inlineConnector;
+    }
+
+    public DataBaseConnector getDbConnector() {
+        return this.dbConnector;
     }
 
 }

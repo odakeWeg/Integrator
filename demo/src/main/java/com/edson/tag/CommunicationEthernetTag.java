@@ -12,7 +12,7 @@ import com.edson.exception.CommunicationException;
 
 @XmlRootElement(name = "communicationEthernet")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class CommunicationEthernetTag extends BaseTag {
+public class CommunicationEthernetTag extends BaseCommunicationTag {
     
     private String communicationName;
     private String ip;

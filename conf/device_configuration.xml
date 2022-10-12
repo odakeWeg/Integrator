@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ConnectionConfigs>
+    <ConnectionList FTPAutoStart="false">
+        <Connection name="Ethernet/Modbus-TCP/192.168.0.10:502/@1" description=""/>
+        <Connection name="Serial/COM4/Modbus-RTU/@1" description=""/>
+        <Connection name="Serial/COM4/Modbus-RTU/@2" description=""/>
+    </ConnectionList>
+</ConnectionConfigs>

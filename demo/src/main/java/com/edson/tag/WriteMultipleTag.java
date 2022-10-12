@@ -12,7 +12,7 @@ import com.edson.exception.CommunicationException;
 //TODO: Not implemented Yet
 @XmlRootElement(name = "writeMultiple")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class WriteMultipleTag extends BaseTag {
+public class WriteMultipleTag extends BaseWriteTag {
     
     private String communicationName;
     private int register;

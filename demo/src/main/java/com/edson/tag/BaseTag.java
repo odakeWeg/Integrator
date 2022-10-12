@@ -13,7 +13,7 @@ import com.edson.test.data.DataCenter;
 @XmlAccessorType (XmlAccessType.FIELD)
 public abstract class BaseTag {
     protected int id;
-    protected String testResult;
+    protected String testResult = "N/A";
     protected String tagName;
     
     @XmlTransient

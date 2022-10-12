@@ -11,7 +11,7 @@ import com.edson.exception.CommunicationException;
 
 @XmlRootElement(name = "communication")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class CommunicationTag extends BaseTag{
+public class CommunicationTag extends BaseCommunicationTag {
 
     private String communicationName;
     private String portName;
@@ -31,10 +31,11 @@ public class CommunicationTag extends BaseTag{
         try {
             connection.startConnection();
             setLog();
-            return "OK";
+            testResult = "OK";
         } catch (CommunicationException e) {
-            return "Falha de comunicação";
+            testResult = "Falha de comunicação";
         }
+        return testResult;
     }
 
     private void setLog() {

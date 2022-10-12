@@ -9,6 +9,23 @@ import net.weg.wdc.sic.service.SicLibraryServices;
 public class InlineConnector {
 
     public void saveInitialEvent(String serial) throws Exception {
+	}
+
+    public void saveApprovalEvent(String serial) throws Exception {  
+	}
+
+	public void saveDisapprovalEvent(String serial, String failureReason) throws Exception {
+    }
+
+    public void saveCancelEvent(String serial, String failureReason) throws Exception {
+	}
+
+    public boolean isTestAllowed(String serial) throws Exception {
+        return true;
+	}
+
+    /* 
+     public void saveInitialEvent(String serial) throws Exception {
         SupervisoryEvent supervisoryEvent = new SupervisoryEvent();
         supervisoryEvent.setWorkCenter(SicLibraryServices.getInstance().getWorkCenterConfiguration().getNumber());
         supervisoryEvent.setTestStation(SicLibraryServices.getInstance().getWorkCenterConfiguration().getTestStationNumber());
@@ -58,4 +75,5 @@ public class InlineConnector {
     public boolean isTestAllowed(String serial) throws Exception {
         return SicLibraryServices.getInstance().isWorkcenterOperationAllowed(serial);
 	}
+    */
 }

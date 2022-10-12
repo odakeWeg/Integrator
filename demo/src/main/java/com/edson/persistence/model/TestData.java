@@ -15,13 +15,21 @@ import lombok.Getter;
 @Getter
 public class TestData {
     @Id
-    @GeneratedValue
-    private int id;
-    private int sessionId;
-    private int cadastro;
+    private String timestamp;
+    //private int id;
+    //private int sessionId;
+    //private int cadastro;
     private String serial;
     private String result;
-    private int duration;
-    private List<BaseTag> tagList;
-    private String date;
+    private long duration;
+    private String tagList;
+
+    public TestData(String serial, String result, long duration, String tagList, String timestamp) {
+        this.serial = serial;
+        this.result = result;
+        this.duration = duration;
+        this.tagList = tagList;
+        this.timestamp = timestamp;
+    }
+
 }

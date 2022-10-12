@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "verify")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class VerifyTag extends BaseTag{
+public class VerifyTag extends BaseCompareTag {
 
     private int targetStep;
     private int targetValue;

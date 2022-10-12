@@ -11,7 +11,7 @@ import com.edson.exception.CommunicationException;
 
 @XmlRootElement(name = "readMultiple")
 @XmlAccessorType (XmlAccessType.FIELD)
-public class ReadMultipleTag extends BaseTag {
+public class ReadMultipleTag extends BaseReadTag {
 
     private String communicationName;
     private int register;
