@@ -45,7 +45,7 @@ public class CommunicationEthernetTag extends BaseCommunicationTag {
         tagName = "communicationEthernet";
     }
 
-
+    @Override
     public String getCommunicationName() {
         return this.communicationName;
     }
@@ -86,6 +86,7 @@ public class CommunicationEthernetTag extends BaseCommunicationTag {
         this.timeBetweenCommand = timeBetweenCommand;
     }
 
+    @Override
     public BaseCommunication getConnection() {
         return this.connection;
     }

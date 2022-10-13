@@ -1,6 +1,7 @@
 package com.edson.test;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.xml.bind.JAXBContext;
@@ -55,11 +56,19 @@ public class TestInitializer extends Thread {
                 userAlert.setContentText("Nenhuma falha encontrada");
                 userAlert.showAndWait();
             } else {
-                Alert userAlert = new Alert(AlertType.ERROR);
-                userAlert.setTitle("Resultado do teste");
-                userAlert.setHeaderText("Falha encontrada durante o teste!");
-                userAlert.setContentText("Motivo: " + result);
-                userAlert.showAndWait();
+                if(result.equals("Falha na finalização do teste")) {
+                    Alert userAlert = new Alert(AlertType.ERROR);
+                    userAlert.setTitle("Resultado do teste");
+                    userAlert.setHeaderText("Perda de comunicação com o sistema!");
+                    userAlert.setContentText("Pressione o botão de emergência");
+                    userAlert.showAndWait();
+                } else {
+                    Alert userAlert = new Alert(AlertType.ERROR);
+                    userAlert.setTitle("Resultado do teste");
+                    userAlert.setHeaderText("Falha encontrada durante o teste!");
+                    userAlert.setContentText("Motivo: " + result);
+                    userAlert.showAndWait();
+                }
             }
         });
     }
@@ -97,14 +106,21 @@ public class TestInitializer extends Thread {
         }
     }
 
-    private List<BaseTag> getList() throws TestUnmarshalingException {
-        TagList tagList;
+    private HashMap<String, List<BaseTag>> getList() throws TestUnmarshalingException {
+        HashMap<String, TagList> tagList;
+        HashMap<String, List<BaseTag>> baseTagList = new HashMap<String, List<BaseTag>>();
+
         tagList = unmarshalingFromXML();
-        tagList.setBaseTagManager();
-        return tagList.getBaseTagManager();
+        tagList.get("routine").setBaseTagManager();
+        tagList.get("cancel").setBaseTagManager();
+
+        baseTagList.put("routine", tagList.get("routine").getBaseTagManager());
+        baseTagList.put("cancel", tagList.get("cancel").getBaseTagManager());
+
+        return baseTagList;
     }
 
-    private String startTestingRoutine(List<BaseTag> tagList) {
+    private String startTestingRoutine(HashMap<String, List<BaseTag>> tagList) {
         String result;
         testExecutor = new TestExecutor(tagList, dataCenter);
         result = testExecutor.executeTest();
@@ -112,13 +128,17 @@ public class TestInitializer extends Thread {
         return result;
     }
 
-    public TagList unmarshalingFromXML() throws TestUnmarshalingException {
+    public HashMap<String, TagList> unmarshalingFromXML() throws TestUnmarshalingException {
+        HashMap<String, TagList> tagLists = new HashMap<String, TagList>();
         JAXBContext jaxbContext;
         try {
             jaxbContext = JAXBContext.newInstance(TagList.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            File testFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + ViewConfigurationPathUtil.TEST_ROUTINE_NAME + ".xml");
-            return (TagList) jaxbUnmarshaller.unmarshal(testFile);
+            File testFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + ViewConfigurationPathUtil.TEST_ROUTINE_NAME + "Routine.xml");
+            File cancelFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + ViewConfigurationPathUtil.TEST_ROUTINE_NAME + "Cancel.xml");
+            tagLists.put("routine", (TagList) jaxbUnmarshaller.unmarshal(testFile));
+            tagLists.put("cancel", (TagList) jaxbUnmarshaller.unmarshal(cancelFile));
+            return tagLists;
         } catch (JAXBException e) {
             throw new TestUnmarshalingException("Falha na aquisição da rotina de teste!");
         }
@@ -132,47 +152,3 @@ public class TestInitializer extends Thread {
         testExecutor.setExit();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-    public void marshalingToXML() {
-        JAXBContext jaxbContext = JAXBContext.newInstance(TestTag.class);
-        Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-        
-        jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-        
-        //Marshal the employees list in console
-        jaxbMarshaller.marshal(test, System.out);
-        
-        //Marshal the employees list in file
-        jaxbMarshaller.marshal(test, new File("C:/Git/TesteXStream/demo/src/main/resources/com/edson/testRoutine/test2.xml"));
-    }
-    */

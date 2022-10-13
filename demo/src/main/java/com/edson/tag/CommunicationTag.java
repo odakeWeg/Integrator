@@ -43,10 +43,12 @@ public class CommunicationTag extends BaseCommunicationTag {
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
+    @Override
     public String getCommunicationName() {
         return this.communicationName;
     }
 
+    @Override
     public BaseCommunication getConnection() {
         return this.connection;
     }
@@ -115,6 +117,7 @@ public class CommunicationTag extends BaseCommunicationTag {
     public void setAddress(int address) {
         this.address = address;
     }
+
     public void setConnection(BaseCommunication connection) {
         this.connection = connection;
     }

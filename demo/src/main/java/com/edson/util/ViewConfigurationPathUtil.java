@@ -10,7 +10,7 @@ public class ViewConfigurationPathUtil {
     public static final String VIEW_PATH = "view/";
     public static final String FULL_VIEW_PATH = "/com/edson/view/";
     public static final String TAG_CLASS_PATH = "src/main/java/com/edson/tags/";
-    public static final String TEST_ROUTINE_NAME = "SensorModbus"; //"REF_PRODUTO_AUTOMACAO";
+    public static final String TEST_ROUTINE_NAME = "SensorIOLink"; //"REF_PRODUTO_AUTOMACAO";
 
     //COMMUNICATION SETTINGS
     public static final String HOST_ADDRESS = "localhost";

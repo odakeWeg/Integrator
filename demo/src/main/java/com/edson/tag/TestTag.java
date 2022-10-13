@@ -15,7 +15,8 @@ public class TestTag extends BaseTag{
     @Override
     String executeCommand() {
         setLog();
-        return "OK";
+        testResult = "OK";
+        return testResult;
     }
 
     private void setLog() {

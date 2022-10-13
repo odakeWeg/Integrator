@@ -7,6 +7,7 @@
     </test>
     <communication>
         <id>3</id>
+        <testResult>N/A</testResult>
         <tagName>communication</tagName>
         <communicationName>1</communicationName>
         <portName>1</portName>
@@ -19,6 +20,7 @@
     </communication>
     <compare>
         <id>1</id>
+        <testResult>N/A</testResult>
         <tagName>compare</tagName>
         <referenceStep>232</referenceStep>
         <targetStep>2</targetStep>
@@ -28,6 +30,7 @@
     </compare>
     <read>
         <id>2</id>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>1</communicationName>
         <register>1</register>
@@ -38,6 +41,7 @@
     </read>
     <write>
         <id>6</id>
+        <testResult>N/A</testResult>
         <tagName>write</tagName>
         <communicationName>1</communicationName>
         <register>1</register>
@@ -48,6 +52,7 @@
     </write>
     <communicationIOLink>
         <id>8</id>
+        <testResult>N/A</testResult>
         <tagName>communicationIOLink</tagName>
         <communicationName>1</communicationName>
         <ip>1</ip>
@@ -57,6 +62,7 @@
     </communicationIOLink>
     <communicationEthernet>
         <id>7</id>
+        <testResult>N/A</testResult>
         <tagName>communicationEthernet</tagName>
         <communicationName>1</communicationName>
         <ip>1</ip>
@@ -66,6 +72,7 @@
     </communicationEthernet>
     <writeString>
         <id>4</id>
+        <testResult>N/A</testResult>
         <tagName>writeString</tagName>
         <communicationName>1</communicationName>
         <register>1</register>
@@ -76,6 +83,7 @@
     </writeString>
     <readMultiple>
         <id>5</id>
+        <testResult>N/A</testResult>
         <tagName>readMultiple</tagName>
         <communicationName>1</communicationName>
         <register>1</register>

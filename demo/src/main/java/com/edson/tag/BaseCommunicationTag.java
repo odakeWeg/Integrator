@@ -13,4 +13,7 @@ public abstract class BaseCommunicationTag extends BaseTag {
     
     public void setTagName(){}
     */
+
+    abstract BaseCommunication getConnection();
+    abstract String getCommunicationName();
 }

@@ -6,13 +6,18 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.edson.controller.AutomatedTestController">
    <children>
-      <ImageView fitHeight="180.0" fitWidth="180.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" />
+      <ImageView fitHeight="180.0" fitWidth="180.0" layoutX="15.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0" >
+         <image>
+            <Image url="@/com/edson/images/wegLogo.png" />
+        </image>            
+      </ImageView>
       <Label layoutX="40.0" layoutY="209.0" text="Cadastro:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="270.0">
          <font>
             <Font size="18.0" />
@@ -36,7 +41,7 @@
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <Button layoutX="75.0" layoutY="34.0" mnemonicParsing="false" onAction="#requestSerialAndStartTest" prefHeight="92.0" prefWidth="201.0" text="Iniciar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="initButton" layoutX="75.0" layoutY="34.0" mnemonicParsing="false" onAction="#requestSerialAndStartTest" prefHeight="92.0" prefWidth="201.0" text="Iniciar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font size="21.0" />
                                  </font>
@@ -45,7 +50,7 @@
                         </AnchorPane>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                            <children>
-                              <Button layoutX="74.0" layoutY="36.0" mnemonicParsing="false" onAction="#cancelTest" prefHeight="92.0" prefWidth="201.0" text="Cancelar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Button fx:id="cancelButton" layoutX="74.0" layoutY="36.0" mnemonicParsing="false" onAction="#cancelTest" prefHeight="92.0" prefWidth="201.0" text="Cancelar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font size="21.0" />
                                  </font>
@@ -58,7 +63,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Button layoutX="74.0" layoutY="28.0" mnemonicParsing="false" onAction="#switchToPreviousPage" prefHeight="96.0" prefWidth="203.0" text="Voltar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <Button fx:id="backButton" layoutX="74.0" layoutY="28.0" mnemonicParsing="false" onAction="#switchToPreviousPage" prefHeight="96.0" prefWidth="203.0" text="Voltar" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font size="21.0" />
                      </font>

@@ -9,6 +9,7 @@ import com.edson.util.ViewConfigurationPathUtil;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.shape.Rectangle;
@@ -21,6 +22,12 @@ public class AutomatedTestController {
 
     @FXML
     private TextArea testRoutineLog;
+    @FXML
+    private Button  initButton;
+    @FXML
+    private Button  cancelButton;
+    @FXML
+    private Button  backButton;
 
     @FXML
     private Label status;
@@ -82,5 +89,18 @@ public class AutomatedTestController {
     public Rectangle getStatusRectangle() {
         return this.statusRectangle;
     }
+
+    public Button getInitButton() {
+        return this.initButton;
+    }
+
+    public Button getCancelButton() {
+        return this.cancelButton;
+    }
+
+    public Button getBackButton() {
+        return this.backButton;
+    }
+
 
 }

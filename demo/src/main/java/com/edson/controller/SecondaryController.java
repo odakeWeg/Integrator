@@ -39,7 +39,7 @@ public class SecondaryController {
         
         IOLinkCommunication iol = new IOLinkCommunication("192.168.1.250", 502, 1, 1000);
 
-        /* 
+        
         try {
             iol.startConnection();
             //System.out.println(iol.readSingleRegister(1));
@@ -57,7 +57,7 @@ public class SecondaryController {
         } catch (CommunicationException e) {
             System.out.println("ERRO!!!");
         }
-        */
+        
         
 
         /* 

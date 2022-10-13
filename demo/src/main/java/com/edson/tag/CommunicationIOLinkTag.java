@@ -43,6 +43,7 @@ public class CommunicationIOLinkTag extends BaseCommunicationTag {
         tagName = "communicationIOLink";
     }
 
+    @Override
     public String getCommunicationName() {
         return this.communicationName;
     }
@@ -83,6 +84,7 @@ public class CommunicationIOLinkTag extends BaseCommunicationTag {
         this.timeBetweenCommand = timeBetweenCommand;
     }
 
+    @Override
     public BaseCommunication getConnection() {
         return this.connection;
     }

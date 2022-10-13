@@ -52,10 +52,10 @@ public class ReadTag extends BaseReadTag{
     }
 
     private BaseCommunication getCommunicationByName(String name) {
-        CommunicationTag communicationTag;
+        BaseCommunicationTag communicationTag;
         for (int i = 0; i < tagList.size(); i++) {
             if (tagList.get(i).getTagName().contains("communication")) {
-                communicationTag = (CommunicationTag) tagList.get(i);
+                communicationTag = (BaseCommunicationTag) tagList.get(i);
                 if(communicationTag.getCommunicationName().equals(name)) {
                     return communicationTag.getConnection();
                 }
