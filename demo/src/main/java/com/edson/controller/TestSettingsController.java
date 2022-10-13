@@ -236,4 +236,10 @@ public class TestSettingsController implements Initializable {
         adicionarButton.setDisable(false);
         tagMenu.setText("CommunicationEthernet");
     }
+
+    @FXML
+    private void selectWriteMultiple() {
+        adicionarButton.setDisable(false);
+        tagMenu.setText("WriteMultiple");
+    }
 }

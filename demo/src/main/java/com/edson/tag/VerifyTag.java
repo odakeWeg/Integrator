@@ -35,7 +35,7 @@ public class VerifyTag extends BaseCompareTag {
         BaseReadTag targetRead = (BaseReadTag) getObjectById(targetStep);
 
         if (targetRead == null) {
-            testResult = "Objeto não encontrado - Problema na rotina de teste";
+            testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
             targetValue = targetRead.getValueRead();
 
@@ -53,7 +53,7 @@ public class VerifyTag extends BaseCompareTag {
         BaseReadTag targetRead = (BaseReadTag) getObjectById(targetStep);
 
         if (targetRead == null) {
-            testResult = "Objeto não encontrado - Problema na rotina de teste";
+            testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
             targetValue = targetRead.getValueRead();
 

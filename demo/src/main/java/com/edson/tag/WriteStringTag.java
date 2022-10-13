@@ -15,17 +15,20 @@ public class WriteStringTag extends BaseWriteTag {
     
     private String communicationName;
     private int register;
-    private String value;
+    private String valueVariable;
     private int timeOut;
     private int waitBefore;
     private int waitAfter;
 
+    private String value;
+
     @Override
     String executeCommand() {
         BaseCommunication communication = getCommunicationByName(communicationName);
+        value = dataCenter.getSapDataMap().getDataMap().get(valueVariable);
         delayMilliseconds(waitBefore);                                 
         if(communication == null) {
-            testResult = "Objeto não encontrado - Problema na rotina de teste";
+            testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
             try {
                 communication.writeStringInRegister(register, value);
@@ -52,10 +55,10 @@ public class WriteStringTag extends BaseWriteTag {
     }
 
     private BaseCommunication getCommunicationByName(String name) {
-        CommunicationTag communicationTag;
+        BaseCommunicationTag communicationTag;
         for (int i = 0; i < tagList.size(); i++) {
             if (tagList.get(i).getTagName().contains("communication")) {
-                communicationTag = (CommunicationTag) tagList.get(i);
+                communicationTag = (BaseCommunicationTag) tagList.get(i);
                 if(communicationTag.getCommunicationName().equals(name)) {
                     return communicationTag.getConnection();
                 }
@@ -86,12 +89,12 @@ public class WriteStringTag extends BaseWriteTag {
         this.register = register;
     }
 
-    public String getValue() {
-        return this.value;
+    public String getValueVariable() {
+        return this.valueVariable;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setValueVariable(String valueVariable) {
+        this.valueVariable = valueVariable;
     }
 
     public int getTimeOut() {

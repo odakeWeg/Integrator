@@ -6,6 +6,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+
 import com.edson.communication.BaseCommunication;
 import com.edson.exception.CommunicationException;
 
@@ -26,7 +29,7 @@ public class WriteMultipleTag extends BaseWriteTag {
         BaseCommunication communication = getCommunicationByName(communicationName);
         delayMilliseconds(waitBefore);                                 
         if(communication == null) {
-            testResult = "Objeto não encontrado - Problema na rotina de teste";
+            testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
             try {
                 communication.writeMultipleRegister(register, value);
@@ -41,8 +44,12 @@ public class WriteMultipleTag extends BaseWriteTag {
     }
 
     private void setLog() {
-        String logToAdd = id + ") Valor escrito no parâmetro" + register + ": " + value + " - " + testResult + "\n";
+        String logToAdd = id + ") Valores escritos nos parâmetros" + register + " até " + (register + value.length) +": (" + convertArrayToString(value) + ") - " + testResult + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
+    }
+
+    public String convertArrayToString(int[] splited) {
+        return StringUtils.join(ArrayUtils.toObject(splited), ",");
     }
 
     private void delayMilliseconds(int wait) {
@@ -53,10 +60,10 @@ public class WriteMultipleTag extends BaseWriteTag {
     }
 
     private BaseCommunication getCommunicationByName(String name) {
-        CommunicationTag communicationTag;
+        BaseCommunicationTag communicationTag;
         for (int i = 0; i < tagList.size(); i++) {
             if (tagList.get(i).getTagName().contains("communication")) {
-                communicationTag = (CommunicationTag) tagList.get(i);
+                communicationTag = (BaseCommunicationTag) tagList.get(i);
                 if(communicationTag.getCommunicationName().equals(name)) {
                     return communicationTag.getConnection();
                 }

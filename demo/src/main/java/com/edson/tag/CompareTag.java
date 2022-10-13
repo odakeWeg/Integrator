@@ -39,7 +39,7 @@ public class CompareTag extends BaseCompareTag {
         BaseReadTag targetRead = (BaseReadTag) getObjectById(targetStep);
 
         if (referenceRead == null || targetRead == null) {
-            testResult = "Objeto não encontrado - Problema na rotina de teste";
+            testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
             referenceValue = referenceRead.getValueRead();
             targetValue = targetRead.getValueRead();
@@ -59,7 +59,7 @@ public class CompareTag extends BaseCompareTag {
         BaseReadTag targetRead = (BaseReadTag) getObjectById(targetStep);
 
         if (referenceRead == null || targetRead == null) {
-            testResult = "Objeto não encontrado - Problema na rotina de teste";
+            testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
             referenceValue = referenceRead.getValueRead();
             targetValue = targetRead.getValueRead();

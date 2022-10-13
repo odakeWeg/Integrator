@@ -25,7 +25,7 @@ public class ReadTag extends BaseReadTag{
         BaseCommunication communication = getCommunicationByName(communicationName);
         delayMilliseconds(waitBefore);
         if(communication == null) {
-            testResult = "Objeto não encontrado - Problema na rotina de teste";
+            testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
             try {
                 valueRead = communication.readSingleRegister(register);

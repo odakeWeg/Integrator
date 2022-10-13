@@ -1,6 +1,9 @@
 package com.edson.controller;
 
-import com.edson.tag.WriteStringTag;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.StringUtils;
+
+import com.edson.tag.WriteMultipleTag;
 
 import javafx.fxml.FXML;
 import javafx.scene.Parent;
@@ -11,8 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class TagWriteStringFormController extends BaseTagForm {
-    
+public class TagWriteMultipleFormController extends BaseTagForm {
+
     @FXML
     private TextField communicationName;
     @FXML
@@ -31,28 +34,37 @@ public class TagWriteStringFormController extends BaseTagForm {
     @FXML
     private Label warningLabel2;
 
-    private String name = "writeString";
-    private WriteStringTag writeStringTag;
+    private String name = "writeMultiple";
+    private WriteMultipleTag writeMultipleTag;
 
     @Override
     void addTagStep() {
         try{
             setTagName(name);
-            writeStringTag = new WriteStringTag();
-            writeStringTag.setId(getId());
-            writeStringTag.setTagName();
-            writeStringTag.setCommunicationName(communicationName.getText());
-            writeStringTag.setRegister(Integer.parseInt(register.getText()));
-            writeStringTag.setValueVariable(value.getText());
-            writeStringTag.setWaitBefore(Integer.parseInt(waitBefore.getText()));
-            writeStringTag.setWaitAfter(Integer.parseInt(waitAfter.getText()));
+            writeMultipleTag = new WriteMultipleTag();
+            writeMultipleTag.setId(getId());
+            writeMultipleTag.setTagName();
+            writeMultipleTag.setCommunicationName(communicationName.getText());
+            writeMultipleTag.setRegister(Integer.parseInt(register.getText()));
+            writeMultipleTag.setValue(convertStringToArray(value.getText()));
+            writeMultipleTag.setWaitBefore(Integer.parseInt(waitBefore.getText()));
+            writeMultipleTag.setWaitAfter(Integer.parseInt(waitAfter.getText()));
             setFieldValidation(true);
-            setTag(writeStringTag);
+            setTag(writeMultipleTag);
             stage.close();
         } catch (Exception e) {
             warningLabel1.setVisible(true);
             warningLabel2.setVisible(true);
         }
+    }
+
+    private int[] convertStringToArray(String value) {
+        String[] splited = value.split(",");
+        int[] values = new int[splited.length];
+        for (int i = 0; i < splited.length; i++) {
+            values[i] = Integer.parseInt(splited[i]);
+        }
+        return values;
     }
 
     @Override
@@ -67,12 +79,15 @@ public class TagWriteStringFormController extends BaseTagForm {
 
     public void setFields() {
         addEditButton.setText("Editar");
-        WriteStringTag filler = (WriteStringTag) tag;
+        WriteMultipleTag filler = (WriteMultipleTag) tag;
         communicationName.setText(String.valueOf(filler.getCommunicationName()));
         register.setText(String.valueOf(filler.getRegister()));
-        value.setText(String.valueOf(filler.getValueVariable()));
+        value.setText(convertArrayToString(filler.getValue()));
         waitBefore.setText(String.valueOf(filler.getWaitBefore()));
         waitAfter.setText(String.valueOf(filler.getWaitAfter()));
     }
-    
+
+    public String convertArrayToString(int[] splited) {
+        return StringUtils.join(ArrayUtils.toObject(splited), ",");
+    }
 }

@@ -13,6 +13,7 @@ import net.weg.wcomm.modbus.exception.ModbusUnexpectedResponseException;
 import net.weg.wcomm.modbus.tcp.client.ModbusTCPHelper;
 import net.weg.wcomm.modbus.tcp.client.ModbusTCPMaster;
 
+//TODO: Desacoplar função criar função nova ao invés de chamar outra
 public class IOLinkCommunication implements BaseCommunication {
 
     private ModbusTCPHelper ethernetIOLinkCommunication;
@@ -63,7 +64,7 @@ public class IOLinkCommunication implements BaseCommunication {
         return readTargetRegister(startingAddress, quantityOfRegisters);
     }
 
-    private int[] readTargetRegister(int address, int position) throws CommunicationException {
+    private int[] readTargetRegister(int address, int quantityOfRegisters) throws CommunicationException {
         short[] readingStructureRequest = { 1, (short) address, 0, (short) toggleReading, 0 };
         Register[] leituraRegister;
         int[] leitura;
@@ -72,7 +73,7 @@ public class IOLinkCommunication implements BaseCommunication {
             toggleCommandIdentifier();
             ethernetIOLinkCommunication.writeMultipleRegisters((short) 500, readingStructureRequest);
             TimeUnit.MILLISECONDS.sleep(timeBetweenCommand);
-            leituraRegister = ethernetIOLinkCommunication.readHoldingRegisters((short) (position+5), (short) 1);
+            leituraRegister = ethernetIOLinkCommunication.readHoldingRegisters((short) 6, (short) quantityOfRegisters);
             leitura = new int[leituraRegister.length];
             for (int i = 0; i < leituraRegister.length; i++) {
                 leitura[i] = invertByte(String.valueOf(leituraRegister[i].intValue()));
@@ -81,7 +82,16 @@ public class IOLinkCommunication implements BaseCommunication {
         } catch (NegativeConfirmationException | ModbusExceptionResponseException | ModbusUnexpectedResponseException | InterruptedException e) {
             throw new CommunicationException("Falha na leitura dos registradores");
         }
-        return leitura;
+        int[] data = {concatenateIntInBinary(leitura)};
+        return data;
+    }
+
+    public int concatenateIntInBinary(int[] serial) {
+        String dataToSendBuffer = "";
+        for (int i = 0; i < serial.length; i++) {
+            dataToSendBuffer += fillLeftZeros(Integer.toBinaryString(serial[i]), 16);
+        }
+        return Integer.parseInt(dataToSendBuffer, 2);
     }
 
     @Override

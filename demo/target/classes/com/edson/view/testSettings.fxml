@@ -151,6 +151,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#selectReadMultiple" text="ReadMultiple" />
                   <MenuItem mnemonicParsing="false" onAction="#selectWriteString" text="WriteString" />
                   <MenuItem mnemonicParsing="false" onAction="#selectCommunicationEthernet" text="CommunicationEthernet" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectWriteMultiple" text="WriteMultiple" />
               </items>
                <font>
                   <Font size="18.0" />
