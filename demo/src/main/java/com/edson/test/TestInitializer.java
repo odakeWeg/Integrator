@@ -19,6 +19,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
 public class TestInitializer extends Thread {
+    TestExecutor testExecutor;
+
     private DataCenter dataCenter;
     private String barCode;
     private String result;
@@ -31,7 +33,6 @@ public class TestInitializer extends Thread {
 
     @Override
     public void run() {
-        
         dataCenter = new DataCenter(barCode, controller);
         if(initSetup()) {
             try {
@@ -104,7 +105,6 @@ public class TestInitializer extends Thread {
     }
 
     private String startTestingRoutine(List<BaseTag> tagList) {
-        TestExecutor testExecutor;
         String result;
         testExecutor = new TestExecutor(tagList, dataCenter);
         result = testExecutor.executeTest();
@@ -126,6 +126,10 @@ public class TestInitializer extends Thread {
 
     public String getResult() {
         return this.result;
+    }
+
+    public void interruptRoutine() {
+        testExecutor.setExit();
     }
 }
 

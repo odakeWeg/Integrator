@@ -17,6 +17,8 @@ import javafx.scene.control.TextInputDialog;
 
 public class AutomatedTestController {
 
+    private TestInitializer testInitializer;
+
     @FXML
     private TextArea testRoutineLog;
 
@@ -30,7 +32,7 @@ public class AutomatedTestController {
         try{
             int serial = Integer.parseInt(requestSerial());
 
-            TestInitializer testInitializer = new TestInitializer(String.valueOf(serial), this);
+            testInitializer = new TestInitializer(String.valueOf(serial), this);
             testInitializer.start();
             //showResultMessage(testInitializer.getResult());
         } catch (NumberFormatException e) {
@@ -57,7 +59,7 @@ public class AutomatedTestController {
 
     @FXML
     private void cancelTest() {
-        //@TODO: Efficient way to stop thread
+        testInitializer.interruptRoutine();
     }
 
     @FXML

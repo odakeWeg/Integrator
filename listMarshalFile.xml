@@ -15,7 +15,7 @@
     </communication>
     <communication>
         <id>1</id>
-        <testResult>OK</testResult>
+        <testResult>N/A</testResult>
         <tagName>communication</tagName>
         <communicationName>giga</communicationName>
         <portName>COM4</portName>
@@ -138,7 +138,7 @@
     </compare>
     <read>
         <id>2</id>
-        <testResult>Falha na comunicação</testResult>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>29</register>

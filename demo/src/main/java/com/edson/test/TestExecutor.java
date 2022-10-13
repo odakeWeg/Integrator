@@ -12,6 +12,8 @@ import com.edson.util.ApplicationSetup;
 public class TestExecutor {
     private List<BaseTag> tagList = new ArrayList<>();
     private DataCenter dataCenter;
+
+    private boolean exit = false;
     
     String result;
 
@@ -32,12 +34,17 @@ public class TestExecutor {
         HashMap<String, List<BaseTag>> updateMap = new HashMap<String, List<BaseTag>>();
         result = "Erro não esperado";
         for (int i = 0; i < tagList.size(); i++) {
-            tag = tagList.get(i);
-            updateMap = tag.command(tagList, dataCenter);
-            
-            result = updateMap.entrySet().iterator().next().getKey();
-            tagList = updateMap.entrySet().iterator().next().getValue();
-            if(result != "OK") {
+            if(!exit) {
+                tag = tagList.get(i);
+                updateMap = tag.command(tagList, dataCenter);
+                
+                result = updateMap.entrySet().iterator().next().getKey();
+                tagList = updateMap.entrySet().iterator().next().getValue();
+                if(result != "OK") {
+                    return;
+                }
+            } else {
+                result = "Teste Cancelado";
                 return;
             }
         }
@@ -49,8 +56,17 @@ public class TestExecutor {
     }
 
     private void closingTestSetup() {
-        dataCenter.getDbConnector().endingSetup(dataCenter.getSapDataMap().getDataMap().get("serial"), tagList);
-        ApplicationSetup.getSessionDTO().endingTestSetup(result);
+        if(!exit) {
+            dataCenter.getDbConnector().endingSetup(dataCenter.getSapDataMap().getDataMap().get("serial"), tagList);
+            ApplicationSetup.getSessionDTO().endingTestSetup(result);
+        } else {
+            //TODO - Iniciar outra rotina
+            
+        }
+    }
+
+    public void setExit() {
+        this.exit = true;
     }
 
 }
