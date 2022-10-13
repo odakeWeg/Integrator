@@ -138,18 +138,18 @@
     </compare>
     <read>
         <id>2</id>
-        <testResult>OK</testResult>
+        <testResult>Falha na comunicação</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>29</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>2048</valueRead>
+        <valueRead>0</valueRead>
     </read>
     <read>
         <id>4</id>
-        <testResult>OK</testResult>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>produto</communicationName>
         <register>0</register>
@@ -160,7 +160,7 @@
     </read>
     <read>
         <id>5</id>
-        <testResult>Falha na comunicação</testResult>
+        <testResult>N/A</testResult>
         <tagName>read</tagName>
         <communicationName>giga</communicationName>
         <register>0</register>
@@ -358,10 +358,10 @@
     </write>
     <verify>
         <id>3</id>
-        <testResult>OK</testResult>
+        <testResult>N/A</testResult>
         <tagName>verify</tagName>
         <targetStep>2</targetStep>
-        <targetValue>2048</targetValue>
+        <targetValue>0</targetValue>
         <referenceValue>2048</referenceValue>
         <tolerancyPercentage>0</tolerancyPercentage>
         <calculateBy>absolute</calculateBy>

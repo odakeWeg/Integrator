@@ -14,14 +14,27 @@ import lombok.Getter;
 @Getter
 public class Session {
     @Id
-    @GeneratedValue
-    private int id;
-    private int cadastro;
-    private int sessionTime;
+    private String timestamp;
+    //private int cadastro;
+    private long sessionTime;
     private int executingTestTime;
-    private int averageTimeBetweenTests;
-    private int averageTestTime;
+    //private int averageTimeBetweenTests;
+    //private int averageTestTime;
     private int totalTestExecuted;
+    private int totalTestApproved;
     private int totalTestFailed;
+    private int totalTestCanceled;
     private String date;
+
+
+    public Session(long sessionTime, int executingTestTime, int totalTestExecuted, int totalTestApproved, int totalTestFailed, int totalTestCanceled, String date) {
+        this.sessionTime = sessionTime;
+        this.executingTestTime = executingTestTime;
+        this.totalTestExecuted = totalTestExecuted;
+        this.totalTestApproved = totalTestApproved;
+        this.totalTestFailed = totalTestFailed;
+        this.totalTestCanceled = totalTestCanceled;
+        this.date = date;
+    }
+
 }

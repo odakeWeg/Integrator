@@ -5,11 +5,14 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.edson.SpringInjector;
+import com.edson.model.dto.SessionDTO;
 
 import gateway.DesktopApplicationGateway;
 
 public class ApplicationSetup {
     private static ConfigurableApplicationContext applicationContext;
+
+    private static SessionDTO sessionDTO;
 
     public static ConfigurableApplicationContext getApplicationContext() {
         return applicationContext;
@@ -23,6 +26,14 @@ public class ApplicationSetup {
 
     public static void initiateGateway(String[] args) {
         SingleFrameApplication.launch(DesktopApplicationGateway.class, args);
+    }
+
+    public static SessionDTO getSessionDTO() {
+        return sessionDTO;
+    }
+
+    public static void setSessionDTO(SessionDTO session) {
+        sessionDTO = session;
     }
     
 }

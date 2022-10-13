@@ -53,11 +53,11 @@ public class App extends Application {
     }
 
     private void startingAppSetup() {
-        
+        ApplicationSetup.setSessionDTO(new SessionDTO());
     }
 
     private void closingAppSetup() {
-        
+        ApplicationSetup.getSessionDTO().save();
     }
 
     public static void setRoot(String fxml) throws IOException {

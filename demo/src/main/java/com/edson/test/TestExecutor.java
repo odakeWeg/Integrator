@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.edson.tag.BaseTag;
 import com.edson.test.data.DataCenter;
+import com.edson.util.ApplicationSetup;
 
 public class TestExecutor {
     private List<BaseTag> tagList = new ArrayList<>();
@@ -44,10 +45,12 @@ public class TestExecutor {
 
     private void startingTestSetup() {
         dataCenter.getDbConnector().initialSetup();
+        ApplicationSetup.getSessionDTO().startingTestSetup();
     }
 
     private void closingTestSetup() {
         dataCenter.getDbConnector().endingSetup(dataCenter.getSapDataMap().getDataMap().get("serial"), tagList);
+        ApplicationSetup.getSessionDTO().endingTestSetup(result);
     }
 
 }
