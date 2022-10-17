@@ -9,11 +9,13 @@ public class SapData implements BaseData {
     private HashMap<String, String> sapDataMap = new HashMap<>();
 
     public SapData(String barCode) {
+        /* 
         sapDataMap.put("serial", barCode);
         sapDataMap.put("serial1", sapDataMap.get("serial").substring(0, 4));
         sapDataMap.put("serial2", sapDataMap.get("serial").substring(4, 8));
         sapDataMap.put("serial3", sapDataMap.get("serial").substring(8));
-        //getDataBy2DBarcodeString(barCode);
+        */
+        getDataBy2DBarcodeString(barCode);
     }
 
     @Override
@@ -29,7 +31,7 @@ public class SapData implements BaseData {
         sapDataMap.put("material", Long.toString(produtoBrutoSAP.getMaterial()));
         sapDataMap.put("ordem", Long.toString(produtoBrutoSAP.getOrdemProducao()));
         sapDataMap.put("serial1", sapDataMap.get("serial").substring(0, 4));
-        sapDataMap.put("serial2", sapDataMap.get("serial").substring(4, 4));
+        sapDataMap.put("serial2", sapDataMap.get("serial").substring(4, 8));
         sapDataMap.put("serial3", sapDataMap.get("serial").substring(8));
 	}
 

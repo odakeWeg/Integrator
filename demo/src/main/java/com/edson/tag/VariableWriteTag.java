@@ -111,4 +111,9 @@ public class VariableWriteTag extends BaseWriteTag {
         this.waitAfter = waitAfter;
     }
 
+    @Override
+    int getValue() {
+        return value;
+    }
+
 }

@@ -82,7 +82,7 @@ public class TagWriteMultipleFormController extends BaseTagForm {
         WriteMultipleTag filler = (WriteMultipleTag) tag;
         communicationName.setText(String.valueOf(filler.getCommunicationName()));
         register.setText(String.valueOf(filler.getRegister()));
-        value.setText(convertArrayToString(filler.getValue()));
+        value.setText(convertArrayToString(filler.getValueArray()));
         waitBefore.setText(String.valueOf(filler.getWaitBefore()));
         waitAfter.setText(String.valueOf(filler.getWaitAfter()));
     }

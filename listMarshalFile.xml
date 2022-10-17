@@ -1,260 +1,429 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <root>
-    <communicationIOLink>
+    <communication>
         <id>0</id>
         <testResult>OK</testResult>
-        <tagName>communicationIOLink</tagName>
-        <communicationName>mestre</communicationName>
-        <ip>192.168.1.250</ip>
-        <port>502</port>
+        <tagName>communication</tagName>
+        <communicationName>produto</communicationName>
+        <portName>COM4</portName>
+        <baudRate>256000</baudRate>
+        <dataBits>8</dataBits>
+        <stopBits>1</stopBits>
+        <parity>EVEN</parity>
+        <timeout>1000</timeout>
         <address>1</address>
-        <timeBetweenCommand>1000</timeBetweenCommand>
-    </communicationIOLink>
-    <compare>
-        <id>3</id>
+    </communication>
+    <communication>
+        <id>1</id>
         <testResult>OK</testResult>
-        <tagName>compare</tagName>
-        <referenceStep>1</referenceStep>
-        <targetStep>2</targetStep>
-        <tolerancyPercentage>3000</tolerancyPercentage>
-        <referenceValue>2</referenceValue>
-        <targetValue>2</targetValue>
-        <calculateBy>absolute</calculateBy>
-    </compare>
+        <tagName>communication</tagName>
+        <communicationName>giga</communicationName>
+        <portName>COM4</portName>
+        <baudRate>256000</baudRate>
+        <dataBits>8</dataBits>
+        <stopBits>1</stopBits>
+        <parity>EVEN</parity>
+        <timeout>1000</timeout>
+        <address>2</address>
+    </communication>
     <compare>
-        <id>6</id>
+        <id>18</id>
         <testResult>OK</testResult>
         <tagName>compare</tagName>
         <referenceStep>4</referenceStep>
         <targetStep>5</targetStep>
-        <tolerancyPercentage>3000</tolerancyPercentage>
-        <referenceValue>2</referenceValue>
-        <targetValue>2</targetValue>
+        <tolerancyPercentage>1000</tolerancyPercentage>
+        <referenceValue>1</referenceValue>
+        <targetValue>1</targetValue>
         <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
-        <id>9</id>
+        <id>19</id>
         <testResult>OK</testResult>
         <tagName>compare</tagName>
-        <referenceStep>7</referenceStep>
-        <targetStep>8</targetStep>
-        <tolerancyPercentage>3000</tolerancyPercentage>
-        <referenceValue>2</referenceValue>
-        <targetValue>3</targetValue>
-        <calculateBy>absolute</calculateBy>
-    </compare>
-    <compare>
-        <id>12</id>
-        <testResult>OK</testResult>
-        <tagName>compare</tagName>
-        <referenceStep>10</referenceStep>
-        <targetStep>11</targetStep>
-        <tolerancyPercentage>3000</tolerancyPercentage>
-        <referenceValue>3545</referenceValue>
-        <targetValue>3150</targetValue>
-        <calculateBy>absolute</calculateBy>
-    </compare>
-    <compare>
-        <id>15</id>
-        <testResult>OK</testResult>
-        <tagName>compare</tagName>
-        <referenceStep>13</referenceStep>
-        <targetStep>14</targetStep>
-        <tolerancyPercentage>3000</tolerancyPercentage>
+        <referenceStep>6</referenceStep>
+        <targetStep>7</targetStep>
+        <tolerancyPercentage>1000</tolerancyPercentage>
         <referenceValue>0</referenceValue>
         <targetValue>0</targetValue>
         <calculateBy>absolute</calculateBy>
     </compare>
     <compare>
-        <id>18</id>
+        <id>20</id>
+        <testResult>OK</testResult>
+        <tagName>compare</tagName>
+        <referenceStep>8</referenceStep>
+        <targetStep>9</targetStep>
+        <tolerancyPercentage>1000</tolerancyPercentage>
+        <referenceValue>1</referenceValue>
+        <targetValue>1</targetValue>
+        <calculateBy>absolute</calculateBy>
+    </compare>
+    <compare>
+        <id>21</id>
+        <testResult>OK</testResult>
+        <tagName>compare</tagName>
+        <referenceStep>10</referenceStep>
+        <targetStep>11</targetStep>
+        <tolerancyPercentage>1000</tolerancyPercentage>
+        <referenceValue>3057</referenceValue>
+        <targetValue>2719</targetValue>
+        <calculateBy>absolute</calculateBy>
+    </compare>
+    <compare>
+        <id>22</id>
+        <testResult>OK</testResult>
+        <tagName>compare</tagName>
+        <referenceStep>12</referenceStep>
+        <targetStep>13</targetStep>
+        <tolerancyPercentage>1000</tolerancyPercentage>
+        <referenceValue>3227</referenceValue>
+        <targetValue>2794</targetValue>
+        <calculateBy>absolute</calculateBy>
+    </compare>
+    <compare>
+        <id>23</id>
+        <testResult>OK</testResult>
+        <tagName>compare</tagName>
+        <referenceStep>14</referenceStep>
+        <targetStep>15</targetStep>
+        <tolerancyPercentage>1000</tolerancyPercentage>
+        <referenceValue>6073</referenceValue>
+        <targetValue>6231</targetValue>
+        <calculateBy>absolute</calculateBy>
+    </compare>
+    <compare>
+        <id>24</id>
         <testResult>OK</testResult>
         <tagName>compare</tagName>
         <referenceStep>16</referenceStep>
         <targetStep>17</targetStep>
-        <tolerancyPercentage>3000</tolerancyPercentage>
-        <referenceValue>3563</referenceValue>
-        <targetValue>2682</targetValue>
+        <tolerancyPercentage>1000</tolerancyPercentage>
+        <referenceValue>0</referenceValue>
+        <targetValue>0</targetValue>
         <calculateBy>absolute</calculateBy>
     </compare>
-    <read>
-        <id>1</id>
+    <compare>
+        <id>36</id>
         <testResult>OK</testResult>
-        <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>200</register>
-        <timeOut>0</timeOut>
-        <waitBefore>1</waitBefore>
-        <waitAfter>1000</waitAfter>
-        <valueRead>2</valueRead>
-    </read>
+        <tagName>compare</tagName>
+        <referenceStep>30</referenceStep>
+        <targetStep>33</targetStep>
+        <tolerancyPercentage>0</tolerancyPercentage>
+        <referenceValue>1033</referenceValue>
+        <targetValue>1033</targetValue>
+        <calculateBy>absolute</calculateBy>
+    </compare>
+    <compare>
+        <id>37</id>
+        <testResult>OK</testResult>
+        <tagName>compare</tagName>
+        <referenceStep>31</referenceStep>
+        <targetStep>34</targetStep>
+        <tolerancyPercentage>0</tolerancyPercentage>
+        <referenceValue>9269</referenceValue>
+        <targetValue>9269</targetValue>
+        <calculateBy>absolute</calculateBy>
+    </compare>
+    <compare>
+        <id>38</id>
+        <testResult>OK</testResult>
+        <tagName>compare</tagName>
+        <referenceStep>32</referenceStep>
+        <targetStep>35</targetStep>
+        <tolerancyPercentage>0</tolerancyPercentage>
+        <referenceValue>36</referenceValue>
+        <targetValue>36</targetValue>
+        <calculateBy>absolute</calculateBy>
+    </compare>
+    <verify>
+        <id>3</id>
+        <testResult>OK</testResult>
+        <tagName>verify</tagName>
+        <targetStep>2</targetStep>
+        <targetValue>2048</targetValue>
+        <referenceValue>2048</referenceValue>
+        <tolerancyPercentage>0</tolerancyPercentage>
+        <calculateBy>absolute</calculateBy>
+    </verify>
     <read>
         <id>2</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>216</register>
+        <communicationName>produto</communicationName>
+        <register>29</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>2</valueRead>
+        <value>2048</value>
     </read>
     <read>
         <id>4</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>201</register>
+        <communicationName>produto</communicationName>
+        <register>0</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>2</valueRead>
+        <value>1</value>
     </read>
     <read>
         <id>5</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>217</register>
+        <communicationName>giga</communicationName>
+        <register>0</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>2</valueRead>
+        <value>1</value>
+    </read>
+    <read>
+        <id>6</id>
+        <testResult>OK</testResult>
+        <tagName>read</tagName>
+        <communicationName>produto</communicationName>
+        <register>1</register>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <value>0</value>
     </read>
     <read>
         <id>7</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>202</register>
+        <communicationName>giga</communicationName>
+        <register>1</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>2</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>8</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>218</register>
+        <communicationName>produto</communicationName>
+        <register>2</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>3</valueRead>
+        <value>1</value>
+    </read>
+    <read>
+        <id>9</id>
+        <testResult>OK</testResult>
+        <tagName>read</tagName>
+        <communicationName>giga</communicationName>
+        <register>2</register>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <value>1</value>
     </read>
     <read>
         <id>10</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>206</register>
+        <communicationName>produto</communicationName>
+        <register>12</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>3545</valueRead>
+        <value>3057</value>
     </read>
     <read>
         <id>11</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>222</register>
+        <communicationName>giga</communicationName>
+        <register>12</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>3150</valueRead>
+        <value>2719</value>
+    </read>
+    <read>
+        <id>12</id>
+        <testResult>OK</testResult>
+        <tagName>read</tagName>
+        <communicationName>produto</communicationName>
+        <register>13</register>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <value>3227</value>
     </read>
     <read>
         <id>13</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>207</register>
+        <communicationName>giga</communicationName>
+        <register>13</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>2794</value>
     </read>
     <read>
         <id>14</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>223</register>
+        <communicationName>produto</communicationName>
+        <register>14</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>6073</value>
+    </read>
+    <read>
+        <id>15</id>
+        <testResult>OK</testResult>
+        <tagName>read</tagName>
+        <communicationName>giga</communicationName>
+        <register>14</register>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <value>6231</value>
     </read>
     <read>
         <id>16</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>208</register>
+        <communicationName>produto</communicationName>
+        <register>15</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>3563</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>17</id>
         <testResult>OK</testResult>
         <tagName>read</tagName>
-        <communicationName>mestre</communicationName>
-        <register>224</register>
+        <communicationName>giga</communicationName>
+        <register>15</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>2682</valueRead>
+        <value>0</value>
     </read>
-    <readMultiple>
-        <id>21</id>
+    <read>
+        <id>33</id>
         <testResult>OK</testResult>
-        <tagName>readMultiple</tagName>
-        <communicationName>mestre</communicationName>
-        <register>21</register>
-        <position>2</position>
+        <tagName>read</tagName>
+        <communicationName>produto</communicationName>
+        <register>105</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>1234567890</valueRead>
-    </readMultiple>
-    <readMultiple>
-        <id>22</id>
+        <value>1033</value>
+    </read>
+    <read>
+        <id>34</id>
         <testResult>OK</testResult>
-        <tagName>readMultiple</tagName>
-        <communicationName>mestre</communicationName>
-        <register>21</register>
-        <position>2</position>
+        <tagName>read</tagName>
+        <communicationName>produto</communicationName>
+        <register>106</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>1234567890</valueRead>
-    </readMultiple>
-    <writeString>
-        <id>20</id>
+        <value>9269</value>
+    </read>
+    <read>
+        <id>35</id>
         <testResult>OK</testResult>
-        <tagName>writeString</tagName>
-        <communicationName>mestre</communicationName>
-        <register>4002</register>
-        <valueVariable>serial</valueVariable>
+        <tagName>read</tagName>
+        <communicationName>produto</communicationName>
+        <register>107</register>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <value>1234567890</value>
-    </writeString>
-    <writeMultiple>
-        <id>19</id>
+        <value>36</value>
+    </read>
+    <variableRead>
+        <id>30</id>
         <testResult>OK</testResult>
-        <tagName>writeMultiple</tagName>
-        <communicationName>mestre</communicationName>
-        <register>4000</register>
-        <value>17495</value>
-        <value>8259</value>
-        <value>21331</value>
+        <tagName>variableRead</tagName>
+        <variableRead>serial1</variableRead>
+        <testResult>OK</testResult>
+        <value>1033</value>
+    </variableRead>
+    <variableRead>
+        <id>31</id>
+        <testResult>OK</testResult>
+        <tagName>variableRead</tagName>
+        <variableRead>serial2</variableRead>
+        <testResult>OK</testResult>
+        <value>9269</value>
+    </variableRead>
+    <variableRead>
+        <id>32</id>
+        <testResult>OK</testResult>
+        <tagName>variableRead</tagName>
+        <variableRead>serial3</variableRead>
+        <testResult>OK</testResult>
+        <value>36</value>
+    </variableRead>
+    <write>
+        <id>25</id>
+        <testResult>OK</testResult>
+        <tagName>write</tagName>
+        <communicationName>produto</communicationName>
+        <register>10000</register>
+        <value>51966</value>
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-    </writeMultiple>
+    </write>
+    <write>
+        <id>26</id>
+        <testResult>OK</testResult>
+        <tagName>write</tagName>
+        <communicationName>produto</communicationName>
+        <register>10000</register>
+        <value>64202</value>
+        <timeOut>0</timeOut>
+        <waitBefore>1000</waitBefore>
+        <waitAfter>1</waitAfter>
+    </write>
+    <variableWrite>
+        <id>27</id>
+        <testResult>OK</testResult>
+        <tagName>variableWrite</tagName>
+        <communicationName>produto</communicationName>
+        <register>10000</register>
+        <variableWriteName>serial1</variableWriteName>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <value>1033</value>
+    </variableWrite>
+    <variableWrite>
+        <id>28</id>
+        <testResult>OK</testResult>
+        <tagName>variableWrite</tagName>
+        <communicationName>produto</communicationName>
+        <register>10000</register>
+        <variableWriteName>serial2</variableWriteName>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <value>9269</value>
+    </variableWrite>
+    <variableWrite>
+        <id>29</id>
+        <testResult>OK</testResult>
+        <tagName>variableWrite</tagName>
+        <communicationName>produto</communicationName>
+        <register>10000</register>
+        <variableWriteName>serial3</variableWriteName>
+        <timeOut>0</timeOut>
+        <waitBefore>1</waitBefore>
+        <waitAfter>1000</waitAfter>
+        <value>36</value>
+    </variableWrite>
 </root>

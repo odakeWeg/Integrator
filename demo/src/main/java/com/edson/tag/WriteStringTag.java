@@ -93,6 +93,10 @@ public class WriteStringTag extends BaseWriteTag {
         return this.valueVariable;
     }
 
+    public int getValue() {
+        return Integer.parseInt(value);
+    }
+
     public void setValueVariable(String valueVariable) {
         this.valueVariable = valueVariable;
     }

@@ -66,7 +66,7 @@ public class TestExecutor {
 
     private void closingTestSetup() {
         if(result.equals("OK")) {
-            dataCenter.getDbConnector().endingSetup(dataCenter.getSapDataMap().getDataMap().get("serial"), tagList);
+            dataCenter.getDbConnector().endingSetup(dataCenter.getSapDataMap().getDataMap().get("serial"), tagList, result);
             ApplicationSetup.getSessionDTO().endingTestSetup(result);
         } else {
             exit = false;

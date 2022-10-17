@@ -134,8 +134,11 @@ public class TestInitializer extends Thread {
         try {
             jaxbContext = JAXBContext.newInstance(TagList.class);
             Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-            File testFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + ViewConfigurationPathUtil.TEST_ROUTINE_NAME + "Routine.xml");
-            File cancelFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + ViewConfigurationPathUtil.TEST_ROUTINE_NAME + "Cancel.xml");
+            //File testFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + ViewConfigurationPathUtil.TEST_ROUTINE_NAME + "Routine.xml");
+            //File cancelFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + ViewConfigurationPathUtil.TEST_ROUTINE_NAME + "Cancel.xml");
+            File testFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + dataCenter.getSapDataMap().getDataMap().get("REF_PRODUTO_AUTOMACAO") + "Routine.xml");
+            File cancelFile = new File(ViewConfigurationPathUtil.TEST_ROUTINE_PATH + dataCenter.getSapDataMap().getDataMap().get("REF_PRODUTO_AUTOMACAO") + "Cancel.xml");
+            
             tagLists.put("routine", (TagList) jaxbUnmarshaller.unmarshal(testFile));
             tagLists.put("cancel", (TagList) jaxbUnmarshaller.unmarshal(cancelFile));
             return tagLists;

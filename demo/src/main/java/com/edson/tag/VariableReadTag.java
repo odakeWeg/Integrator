@@ -12,18 +12,18 @@ public class VariableReadTag extends BaseReadTag {
 
     private String variableRead;
     private String testResult;
-    private int valueRead;
+    private int value;
 
     @Override
     String executeCommand() {
-        valueRead = Integer.parseInt(dataCenter.getSapDataMap().getDataMap().get(variableRead));
+        value = Integer.parseInt(dataCenter.getSapDataMap().getDataMap().get(variableRead));
         testResult = "OK";
         setLog();
         return testResult;
     }
 
     private void setLog() {
-        String logToAdd = id + ") Variavel lida: " + valueRead + " - " + testResult + "\n";
+        String logToAdd = id + ") Variavel lida: " + value + " - " + testResult + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
@@ -33,8 +33,8 @@ public class VariableReadTag extends BaseReadTag {
     }
 
     @Override
-    public int getValueRead() {
-        return this.valueRead;
+    public int getValue() {
+        return this.value;
     }
 
     public String getVariableRead() {

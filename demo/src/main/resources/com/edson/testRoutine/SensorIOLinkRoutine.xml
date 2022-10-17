@@ -76,6 +76,17 @@
         <targetValue>0</targetValue>
         <calculateBy>absolute</calculateBy>
     </compare>
+    <compare>
+        <id>22</id>
+        <testResult>N/A</testResult>
+        <tagName>compare</tagName>
+        <referenceStep>20</referenceStep>
+        <targetStep>21</targetStep>
+        <tolerancyPercentage>0</tolerancyPercentage>
+        <referenceValue>0</referenceValue>
+        <targetValue>0</targetValue>
+        <calculateBy>absolute</calculateBy>
+    </compare>
     <read>
         <id>1</id>
         <testResult>N/A</testResult>
@@ -85,7 +96,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>2</id>
@@ -96,7 +107,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>4</id>
@@ -107,7 +118,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>5</id>
@@ -118,7 +129,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>7</id>
@@ -129,7 +140,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>8</id>
@@ -140,7 +151,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>10</id>
@@ -151,7 +162,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>11</id>
@@ -162,7 +173,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>13</id>
@@ -173,7 +184,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>14</id>
@@ -184,7 +195,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>16</id>
@@ -195,7 +206,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <read>
         <id>17</id>
@@ -206,7 +217,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </read>
     <readMultiple>
         <id>21</id>
@@ -218,19 +229,7 @@
         <timeOut>0</timeOut>
         <waitBefore>1</waitBefore>
         <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
-    </readMultiple>
-    <readMultiple>
-        <id>22</id>
-        <testResult>N/A</testResult>
-        <tagName>readMultiple</tagName>
-        <communicationName>mestre</communicationName>
-        <register>21</register>
-        <position>2</position>
-        <timeOut>0</timeOut>
-        <waitBefore>1</waitBefore>
-        <waitAfter>1000</waitAfter>
-        <valueRead>0</valueRead>
+        <value>0</value>
     </readMultiple>
     <writeString>
         <id>20</id>

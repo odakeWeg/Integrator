@@ -36,8 +36,8 @@ public class DataBaseConnector {
         testDataDTO.startingSetup();
     }
 
-    public void endingSetup(String serial, List<BaseTag> tagList) {
-        testDataDTO.endingSetup(serial, saveTest(tagList));
+    public void endingSetup(String serial, List<BaseTag> tagList, String result) {
+        testDataDTO.endingSetup(serial, saveTest(tagList), result);
         testDataRepository.save(testDataDTO.getDataToSave());
     }
 

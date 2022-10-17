@@ -20,9 +20,10 @@ public class TestDataDTO {
         startTime = System.currentTimeMillis() / 1000;
     }
 
-    public void endingSetup(String serial, String tagList){
+    public void endingSetup(String serial, String tagList, String result){
         this.tagList = tagList;
         this.serial = serial;
+        this.result = result;
         
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         this.timestamp = String.valueOf(timestamp.getTime()); 

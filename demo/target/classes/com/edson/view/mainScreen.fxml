@@ -27,6 +27,11 @@
                   <Font size="15.0" />
                </font>
             </Button>
+            <Button layoutX="263.0" layoutY="553.0" mnemonicParsing="false" onAction="#switchToCadastro" text="Cadastrar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
          </children></AnchorPane>
   </items>
 </SplitPane>

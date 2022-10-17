@@ -94,8 +94,13 @@ public class WriteMultipleTag extends BaseWriteTag {
         this.register = register;
     }
 
-    public int[] getValue() {
+    public int[] getValueArray() {
         return this.value;
+    }
+
+    @Override
+    public int getValue() {
+        return -1;
     }
 
     public void setValue(int[] value) {

@@ -29,10 +29,11 @@ public class CommunicationEthernetTag extends BaseCommunicationTag {
         try {
             connection.startConnection();
             setLog();
-            return "OK";
+            testResult = "OK";
         } catch (CommunicationException e) {
-            return "Falha de comunicação";
+            testResult = "Falha de comunicação";
         }
+        return testResult;
     }
 
     private void setLog() {

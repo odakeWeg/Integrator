@@ -28,6 +28,12 @@ public class ApplicationSetup {
         SingleFrameApplication.launch(DesktopApplicationGateway.class, args);
     }
 
+    public static void sair() {
+        SingleFrameApplication.getInstance().exit();
+    }
+
+
+
     public static SessionDTO getSessionDTO() {
         return sessionDTO;
     }

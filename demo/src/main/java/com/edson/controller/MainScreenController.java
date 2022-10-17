@@ -23,4 +23,9 @@ public class MainScreenController {
     private void switchToTesting() throws IOException {
         App.setRoot(ViewConfigurationPathUtil.VIEW_PATH + "automatedTest");
     }
+
+    @FXML
+    private void switchToCadastro() throws IOException {
+        App.setRoot(ViewConfigurationPathUtil.VIEW_PATH + "cadastro");
+    }
 }

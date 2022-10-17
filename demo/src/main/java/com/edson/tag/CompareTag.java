@@ -41,8 +41,8 @@ public class CompareTag extends BaseCompareTag {
         if (referenceRead == null || targetRead == null) {
             testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
-            referenceValue = referenceRead.getValueRead();
-            targetValue = targetRead.getValueRead();
+            referenceValue = referenceRead.getValue();
+            targetValue = targetRead.getValue();
     
             boolean upperLimit = targetValue*100 <= referenceValue*100 + referenceValue*tolerancyPercentage;
             boolean lowerLimit = targetValue*100 >= referenceValue*100 - referenceValue*tolerancyPercentage;
@@ -61,8 +61,8 @@ public class CompareTag extends BaseCompareTag {
         if (referenceRead == null || targetRead == null) {
             testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
-            referenceValue = referenceRead.getValueRead();
-            targetValue = targetRead.getValueRead();
+            referenceValue = referenceRead.getValue();
+            targetValue = targetRead.getValue();
     
             boolean upperLimit = targetValue <= referenceValue + tolerancyPercentage;
             boolean lowerLimit = targetValue >= referenceValue - tolerancyPercentage;

@@ -18,7 +18,6 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     private static Scene scene;
-    private SessionDTO sessionDTO;
 
     @Override
     public void init() {
@@ -29,7 +28,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         startingAppSetup();
-        scene = new Scene(loadFXML(ViewConfigurationPathUtil.VIEW_PATH + "mainScreen"));
+        scene = new Scene(loadFXML(ViewConfigurationPathUtil.VIEW_PATH + "loginScreen"));
         stage.setScene(scene);
         setClosingEvent(stage);
         stage.show();
@@ -48,7 +47,7 @@ public class App extends Application {
         alert.setContentText("Deseja finalizar a aplicação?");
         if(alert.showAndWait().get() == ButtonType.OK){
             closingAppSetup();
-            System.exit(0);
+            Runtime. getRuntime().halt(0);
         }
     }
 

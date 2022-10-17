@@ -19,7 +19,7 @@ public class ReadMultipleTag extends BaseReadTag {
     private int timeOut;
     private int waitBefore;
     private int waitAfter;
-    private int valueRead;
+    private int value;
 
     @Override
     public String executeCommand() {
@@ -29,7 +29,7 @@ public class ReadMultipleTag extends BaseReadTag {
             testResult = "Objeto não encontrado (Problema na rotina de teste)";
         } else {
             try {
-                valueRead = communication.readMultipleRegisters(register, position)[0];
+                value = communication.readMultipleRegisters(register, position)[0];
                 testResult = "OK";
             } catch (CommunicationException e) {
                 testResult = "Falha na comunicação";
@@ -41,7 +41,7 @@ public class ReadMultipleTag extends BaseReadTag {
     }
 
     private void setLog() {
-        String logToAdd = id + ") Valor lido no parâmetro " + register + ": " + valueRead + " - " + testResult + "\n";
+        String logToAdd = id + ") Valor lido no parâmetro " + register + ": " + value + " - " + testResult + "\n";
         dataCenter.getController().getTestRoutineLog().setText(dataCenter.getController().getTestRoutineLog().getText() + logToAdd);
     }
 
@@ -119,12 +119,12 @@ public class ReadMultipleTag extends BaseReadTag {
         this.waitAfter = waitAfter;
     }
 
-    public int getValueRead() {
-        return this.valueRead;
+    public int getValue() {
+        return this.value;
     }
 
-    public void setValueRead(int valueRead) {
-        this.valueRead = valueRead;
+    public void setValue(int value) {
+        this.value = value;
     }
 
 }

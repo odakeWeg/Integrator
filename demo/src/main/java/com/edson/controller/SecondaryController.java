@@ -1,16 +1,28 @@
 package com.edson.controller;
 
-import java.util.concurrent.TimeUnit;
-
-import com.edson.communication.IOLinkCommunication;
-import com.edson.exception.CommunicationException;
+import com.edson.util.ApplicationSetup;
 
 import javafx.fxml.FXML;
+import net.weg.wdc.sic.service.SicLibraryServices;
 
 public class SecondaryController {
 
     @FXML
     private void switchToPrimary() throws InterruptedException {
+
+        ApplicationSetup.sair();
+
+        /* 
+        String numeroDeSerie="1042712603";
+        boolean a = true;
+        try {
+            a = SicLibraryServices.getInstance().isWorkcenterOperationAllowed(numeroDeSerie);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        System.out.println(a);
+        */
 
         /* 
         System.out.println(Long.toBinaryString(1234567890));
@@ -36,7 +48,7 @@ public class SecondaryController {
         System.out.println("Second: " + dataToSend[1]);
         */
 
-        
+        /* 
         IOLinkCommunication iol = new IOLinkCommunication("192.168.1.250", 502, 1, 1000);
 
         
@@ -57,7 +69,7 @@ public class SecondaryController {
         } catch (CommunicationException e) {
             System.out.println("ERRO!!!");
         }
-        
+        */
         
 
         /* 

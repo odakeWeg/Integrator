@@ -37,12 +37,11 @@ public class AutomatedTestController {
     @FXML
     private void requestSerialAndStartTest() {
         try{
-            int serial = Integer.parseInt(requestSerial());
 
-            testInitializer = new TestInitializer(String.valueOf(serial), this);
+            testInitializer = new TestInitializer(requestSerial(), this);
             testInitializer.start();
             //showResultMessage(testInitializer.getResult());
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             Alert userAlert = new Alert(AlertType.ERROR);
             userAlert.setTitle("Validação de início");
             userAlert.setHeaderText("Falha ao iniciar o test");
